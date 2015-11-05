@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <!-- Sequences for calendar.event -->
+        <record id="seq_type_calendar_event" model="ir.sequence.type">
+            <field name="name">Calendar Event</field>
+            <field name="code">calendar.event</field>
+        </record>
+
+        <record id="seq_calendar_event" model="ir.sequence">
+            <field name="name">Calendar Event</field>
+            <field name="code">calendar.event</field>
+            <field name="prefix">Appointment</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+<!--        <record id="seq_type_crm_demo" model="ir.sequence.type">
+            <field name="name">CRM Demo</field>
+            <field name="code">crm.demo</field>
+        </record>
+
+        <record id="seq_crm_demo" model="ir.sequence">
+            <field name="name">CRM Demo</field>
+            <field name="code">crm.demo</field>
+            <field name="prefix">L</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record-->
+
+    </data>
+</openerp>

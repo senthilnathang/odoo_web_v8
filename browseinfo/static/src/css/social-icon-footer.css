@@ -1,0 +1,108 @@
+@import "compass/css3";
+
+@import url(http://www.markmurray.co/codepen/entypostyle.css);
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #eff0f1;
+}
+
+.test {
+  width: 25em;
+  margin: 0 auto 3em auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.test1 {
+  margin: 0.5em 0;
+  float: left;
+  clear: both;
+}
+.test1 i {
+  cursor: pointer;
+  display: inline-block;
+  -moz-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+}
+   i {
+      color: $navy;
+      border: 2px solid;
+      border-radius: 50%;
+      padding: 0.5em;
+      position: relative;
+      background: transparent;
+      
+      &:hover {
+         top: -2px;
+         border-radius: 50%;
+         color: white!important;
+      }
+      
+      &:not(:first-child){
+         margin-left: 1em; 
+      }
+    }
+    
+    i:nth-child(1){color: $facebook;border-color:$facebook;}
+    i:nth-child(2){color: $twitter;border-color:$twitter;}
+    i:nth-child(3){color: $gplus;border-color:$gplus;}
+    i:nth-child(4){color: $pinterest;border-color:$pinterest;}
+    i:nth-child(5){color: $dribbble;border-color:$dribbble;}
+    
+    
+    i:nth-child(1):hover{background: $facebook;}
+    i:nth-child(2):hover{background: $twitter;}
+    i:nth-child(3):hover{background: $gplus;}
+    i:nth-child(4):hover{background: $pinterest;}
+    i:nth-child(5):hover{background: $dribbble;}
+   }
+  
+  
+  
+  
+    &:nth-child(11){
+      
+      
+      i:nth-child(1){color: $facebook;border-color:$facebook;}
+      i:nth-child(2){color: $twitter;border-color:$twitter;}
+      i:nth-child(3){color: $gplus;border-color:$gplus;}
+      i:nth-child(4){color: $pinterest;border-color:$pinterest;}
+      i:nth-child(5){color: $dribbble;border-color:$dribbble;}
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+

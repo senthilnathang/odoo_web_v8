@@ -1,0 +1,33 @@
+.openerp .oe_view_manager .oe_view_manager_switch .oe_vm_switch_map:after, .openerp .oe_view_manager .oe_view_manager_switch .oe_vm_switch_map:after {
+  padding: 2px;
+  content: "0";
+}
+
+.mapmap {
+	min-width: calc(690px * (90/150));
+    max-width: 1080px;
+    min-height: calc(690px * (90/150));
+    height: 100vh;
+}
+
+.btn-group {
+
+	margin: 5px;
+}
+
+div.none {
+	display: none ! important;
+}
+
+button.btn.btn-default.active {
+	background-color: #428bca !important;
+	background-image: none !important; 
+	box-shadow: none !important;
+	z-index:0;
+}
+button.btn.btn-primary.active {
+	background-color: #428bca !important;
+	background-image: none !important; 
+	box-shadow: none !important;
+	z-index:0;
+}

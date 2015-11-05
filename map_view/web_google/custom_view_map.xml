@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+    	<record id="view_sale_order_map" model="ir.ui.view">
+            <field name="name">Sale map</field>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+                <map string="GeoMap"/>
+            </field>
+        </record>
+        
+<!--         <record model="ir.actions.act_window.view" id="action_view_sale_order_map">
+            <field name="act_window_id" ref="sale.action_orders"/>
+            <field name="sequence" eval="4"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_sale_order_map"/>
+        </record> -->
+
+        <record id="action_orders_map" model="ir.actions.act_window">
+            <field name="name">Map View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">map,form</field>
+        </record>
+		<menuitem action="action_orders_map" id="menu_sale_order_map" parent="base.menu_sales" sequence="7" />
+
+	</data>
+</openerp>

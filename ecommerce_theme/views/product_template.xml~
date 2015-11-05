@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<!-- Add css/js for multiple image feature -->
+	 	<template id="add_css_js" inherit_id="website.layout">  
+	 		<xpath expr="//html/body" position="inside">
+	 		
+	 			<script type="text/javascript"  src="/ecommerce_theme/static/src/js/bootstrap.min.js"></script>						
+            	<script type="text/javascript"  src="/ecommerce_theme/static/src/js/owl.carousel.min.js"></script> 
+            	<script type="text/javascript"  src="/ecommerce_theme/static/src/js/website_multiple_product_image.js"></script>  			 			 			
+	 		</xpath>	 	  	
+		 	<xpath expr="//html/head" position="inside">
+		 		<link href="/ecommerce_theme/static/src/css/bootstrap.min.css" rel="stylesheet"/>
+    			<link href="/ecommerce_theme/static/src/css/owl.carousel.css" rel="stylesheet"/>
+    			<link href="/ecommerce_theme/static/src/css/font-awesome.min.css" rel="stylesheet"/>		 	
+    			<link href="/ecommerce_theme/static/src/css/product-zoom.css" rel="stylesheet"/>		 			 		
+		 	</xpath>
+ 		</template>
+ 		<template id="add_common" inherit_id="web.assets_common">
+	 		<xpath expr="." position="inside"> 		
+ 		  		<script type="text/javascript"  src="/ecommerce_theme/static/src/js/view_list.js"></script>  			 		
+ 			</xpath>
+ 		</template>
+ 		
+ 		<!-- Inherit template for Add multiple images in product details page & zooming featue -->
+        <template id="website_multiple_image_product_slider" inherit_id="website_sale.product" name="Website Multi-Image  Product" customize_show="True">   	 
+          <xpath expr="//section[@id='product_detail']//span[@itemprop='image']" position="replace">
+			<span itemprop="image">
+		  		<t t-if="website and not website.is_zoom_feature">  
+		  			<script src='http://www.jqueryscript.net/demo/Jquery-Image-Zoom-Plugin-elevatezoom/jquery-1.8.3.min.js'></script>
+		  			<script src='http://www.jqueryscript.net/demo/Jquery-Image-Zoom-Plugin-elevatezoom/jquery.elevateZoom-2.1.0.min.js'></script>
+					<script type="text/javascript"  src="/ecommerce_theme/static/src/js/product_zoom.js"></script>            	 
+					<div class="product-zoom-image">
+						<img id="zoom_01" t-att-src="website.image_url(product, 'image')" t-att-data-zoom-image="website.image_url(product, 'image')" class="product_detail_img custom-zoom-view"/>
+					</div>
+					<style type="text/css">
+					#product_detail .col-sm-7 {position: inherit;}
+					.custom-zoom-view{max-width:350px;}
+					</style>
+				</t>
+	  		  	<t t-if="website and website.is_zoom_feature">
+		   			<div class="product-image">
+		        		<img id="thumb" t-att-src="website.image_url(product, 'image')" class="img img-responsive product_detail_img" t-att-alt="product.name" t-att-title="product.name"/>
+		    		</div>		  
+		    	</t> 
+           		<t t-if="website.get_multiple_images(product.id) and product.multi_image">
+	          		<div class="owl-carousel" id="thumb-slider">
+	              		<div class="item">
+                  			<span itemprop="image">	           
+		          			<img t-att-src="website.image_url(product, 'image')" class="product_main_multi_img"  t-att-alt="product.name" t-att-title="product.name"/>	
+		         			</span>
+		         		</div>		         
+		          		<t t-foreach="website.get_multiple_images(product.id)" t-as="im">
+		           			<div class="item">
+		          				<span itemprop="image" >	
+		          					<img t-att-src="website.image_url(im, 'image')" class="product_multi_img" t-att-alt="im.name" t-att-title="im.name"/>		          	          		
+				  				</span>
+				  			</div>
+            	  		</t> 
+        	  		</div>
+        	  </t>	 		 
+		  </span>   
+          </xpath>
+        </template>
+    </data>
+</openerp>

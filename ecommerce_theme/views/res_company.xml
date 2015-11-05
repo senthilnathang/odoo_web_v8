@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Company inherit -->
+		<record model="ir.ui.view" id="view_company_form_inherit">
+    		<field name="name">res.company.frm.inherited</field>
+    		<field name="model">res.company</field>    		
+			<field name="inherit_id" ref="base.view_company_form"/>    		
+    		<field name="arch" type="xml">        					
+				<xpath expr="//group[@name='account_grp']" postion="after" >
+				<group  string="Contact US" colspan="4" cols="4">
+				<field name="google_api_key"/>
+				</group>
+				</xpath>	               				         
+			</field>                	
+    	</record>
+
+	</data>
+</openerp>

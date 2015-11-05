@@ -1,0 +1,1729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>    	
+ 
+
+	 	<template id="layout" inherit_id="website.layout">  
+	 		<xpath expr="//html/body" position="inside">
+	 			<script type="text/javascript"  src="/ecommerce_theme/static/src/js/bootstrap.min.js"></script>						
+            	<script type="text/javascript"  src="/ecommerce_theme/static/src/js/owl.carousel.min.js"></script> 
+            	<script type="text/javascript"  src="/ecommerce_theme/static/src/js/custom.js"></script>  
+            	
+            		
+	 		</xpath>
+	 	  	
+		 	<xpath expr="//html/head" position="inside">
+		 		<link href="/ecommerce_theme/static/src/css/bootstrap.min.css" rel="stylesheet"/>
+    			<link href="/ecommerce_theme/static/src/css/owl.carousel.css" rel="stylesheet"/>
+    			<link href="/ecommerce_theme/static/src/css/custom.css" rel="stylesheet"/>
+    			<!--<link href="/ecommerce_theme/static/src/css/style.css" rel="stylesheet"/>-->
+    			<link href="/ecommerce_theme/static/src/css/font-awesome.min.css" rel="stylesheet"/>
+    			<link rel="shortcut icon" href="/ecommerce_theme/static/src/img/favicon.ico" type="image/x-icon" />
+
+   
+		 	</xpath>
+		 	 	
+		 </template>   
+		 
+	<!-- About Us -->
+		<template id="website.about" name="About Us" page="True">
+			<t t-call="website.layout">
+   		 	<!--Page Title-->
+   		 	<section>
+			<div class="page-title">
+			  <div class="container">
+				<h1><span>About Us</span></h1>
+				<ul class="breadcrumb">
+				  <li><a href="/page/homepage">Home</a> <span class="divider">/</span></li>
+				  <li class="active">About Us</li>
+				</ul>
+			  </div>
+			</div>
+			</section>
+			
+		<!-- Page Title End -->
+			<!--Product listing-->
+			<div class="container text-justify">
+			  <div class="row">
+				<div class="col-md-12">
+				  <h3 class="section-title style1"><span>About Us</span></h3>
+	
+				</div>
+			  </div>
+			</div>
+			
+    <section class="section white">
+			<div class="container">
+					<div class="row">
+					<div class="col-md-12">
+	
+					<div id="content" class="col-md-12"><br/><br/>
+						<p style="font-size:15px; color:black;"> BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web and Software solutions. </p>
+
+						<p style="font-size:15px; color:black;"> We work closely in collaboration with clients to ensure that every project communicates their unique identity. And we're not focused on "giving advice" but on creating solutions that sell.</p>
+
+						<p style="font-size:15px; color:black;"> At Browse Info, We offer an extensive array of innovative solutions, from corporate branding and interactive marketing to web portals and multi-tier applications. Our main services are - web design, web development. We make the right use of modern technologies like PHP, ASP.net, Ajax, Flash,Jquery, etc. and high quality of creativity. </p>
+
+						<p style="font-size:15px; color:black;"> We develop custom web applications which not only establish easy and effective interaction with your customers but also make you one of the industry leaders. </p>
+
+					</div><!-- end content -->
+				</div><!-- end row -->
+			</div>
+		</div>
+		</section>
+
+		</t>
+		</template>		
+		
+			<!-- Services -->
+		<template id="website.services" name="Services" page="True">
+			<t t-call="website.layout">
+   		 	<!--Page Title-->
+			<div class="page-title">
+			  <div class="container">
+				<h1><span>Services</span></h1>
+				<ul class="breadcrumb">
+				  <li><a href="/page/homepage">Home</a> <span class="divider">/</span></li>
+				  <li class="active">Services</li>
+				</ul>
+			  </div>
+			</div>
+			<!-- Page Title End -->
+			<!--Product listing-->
+			<div class="container text-justify">
+			  <div class="row">
+				<div class="col-md-12">
+				  <h3 class="section-title style1"><span>Our Services</span></h3>
+	
+				</div>
+			  </div>
+			</div>
+	<!--Why-->
+
+		<section class="section white">
+			<div class="container">
+			
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/Odoo_mobile.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Odoo (Open ERP)</strong></p>
+							<p>We have good experts on OpenERP technical and functional parts like CRM, Sale, Purchase , Manufacturing etc. We are working on all version of OpenERP 6.0, 6.1 and also able to do for future V7. We have providing services of offshore module development on OpenERP.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/Odoo_mobile.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Web Designing</strong></p>
+							<p>We offer complete web design and coding of web pages delivering interactive web applications. We can customize a solution specifically to suit your needs from basic Website Design to complete e-commerce stores. Whether you are looking for a basic brochure type layout or fully interactive website,Contact us to discuss your project.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/Odoo_mobile.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Web Development</strong></p>
+							<p>We offers complete cycle of development beginning with software vision formulating and requirements management, analysis, designing up to coding, implementation, rigorous testing, deployment and support. Our team can contribute at any stage of a project or project with non-complete life cycle.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/Odoo_mobile.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Training</strong></p>
+							<p>We have a good Functional Experts of OpenERP which have knowledge of Official addons as well as community/extra-addons modules knowledge. So we can provide you a Fuctional Training of not only Offical addons but we can also aware you about the community addons which will use for you.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+				
+			</div><!-- end container -->
+		</section><!-- end section -->
+		
+			
+			
+			
+			
+
+		</t>
+		</template>			
+		
+				<!-- Odoo -->
+		<template id="website.odoo" name="Odoo" page="True">
+			<t t-call="website.layout">
+   		 	<!--Page Title-->
+   		 	<section>
+			<div class="page-title">
+			  <div class="container">
+				<h1><span>Odoo (OpenERP)</span></h1>
+				<ul class="breadcrumb">
+				  <li><a href="/page/homepage">Home</a> <span class="divider">/</span></li>
+				  <li class="active">Odoo</li>
+				</ul>
+			  </div>
+			</div>
+			</section>
+	
+		
+		<section class="section dark">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<div class="text-widget">
+						<br/><br/>
+							<h4>Odoo (OpenERP)</h4>
+							<hr/>
+
+							<p style="color:#F4F4F4;">"Opensource 's most advanced business application software provided by only OpenERP" OpenERP is a opensource ERP system which is most popular ERP on Opensource cause OpenERP provided the all kind of big business application, like CRM, Sale, Purchase,Accounting, MRP, Warehouse, Marketing Campaign etc... The most benefits of OpenERP is these all modules are integrated to each others. So it reduces the data entry and become automated system.</p>
+
+							<p style="color:#F4F4F4;">This is the only one Opensource ERP which provided the 1000+ modules, you can see it on apps.openerp.com. OpenERP is a good business model with modular functionality with using a MVC architecture. OpenERP provided a generic system flow, So if anyone want to use then have to know about the how to configure your system with OpenERP and we are doing this very peacefully and accurately. Also you have to do some customization on this generic system and we have provided it.</p>
+							<p style="color:#F4F4F4;">OpenERP framework is not hard to use, So user can easily customize it.</p>
+							<p style="color:#F4F4F4;">OpenERP framework is developed on python programming language, python is also opensource so you can use any libraries of it freely.</p>
+
+							<!--<div class="button-wrapper">
+							<a href="#" class="btn btn-primary border-radius">Read More</a>
+								
+								</div> &#160;&#160;&#160;&#160;  <a href="#" class="btn btn-default border-radius">Read More</a>
+							--><!-- end button-wrapper -->
+						</div><!-- end widget -->
+					</div><!-- end col -->
+					<div class="col-md-6 col-sm-6">
+						<div class="device-image wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
+							<img src="/browseinfo_theme/static/src/upload/Odoo_mobile.png" alt="" style="margin-top:-100px;"/>
+						</div><!-- end service -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</section><!-- end section -->
+		<br/><br/>
+		<section class="section white">
+			<div class="container">
+				<div id="shop-content" class="row">
+					<div class="col-md-5">
+						<div class="shop-images">
+							<div class="portfolio-style-1 shop-style-1 entry wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+								<div class="ribbon1"></div>
+								<img src="/browseinfo_theme/static/src/upload/module.png" alt="" style="border: #090909; border-style: double;"/>
+								<div class="magnifier">
+									<div class="visible-title1 clearfix">
+										
+									</div><!-- end visible-title -->
+								</div><!-- end magnifier -->
+							</div><!-- end portfolio -->
+						</div><!-- end images -->
+					</div>
+
+					<div class="col-md-7">
+						<div class="shop-desc">
+							<h2 style="color:#13AFEB;">Module Information</h2>
+						
+							<p>Purchasing a row material, is one of the basic needs of a company. Here, Purchase department can maintain information of their supplier, create a purchase order, and maintain the track records related to purchase.</p>
+							
+							<p>Sales to a company is as important as cell to human body. Without them, neither human body,nor company body can sustain. For Company, OpenERP covers all the aspects of sales management. We can generate sales orders, customer invoices, delivery orders, etc. which helps company to analyze their growth.</p>
+							
+							<p>To maintain stock is a difficult task. But the Warehouse Management makes it very easy. In OpenERP, user can easily maintain inward and outward movement of stocks.</p>
+
+				
+						</div><!-- end desc -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+
+
+			</div><!-- end container -->
+		</section><!-- end section -->
+		<br/><br/>
+			<section class="section white">
+			<div class="container">
+				<div id="shop-content" class="row">
+					<div class="col-md-5">
+						<div class="shop-images">
+							<div class="portfolio-style-1 shop-style-1 entry wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+								<div class="ribbon1"></div>
+								<img src="/browseinfo_theme/static/src/upload/offshore_01.png" alt="" style="border: #090909; border-style: double;"/>
+								<div class="magnifier">
+									<div class="visible-title1 clearfix">
+										
+									</div><!-- end visible-title -->
+								</div><!-- end magnifier -->
+							</div><!-- end portfolio -->
+						</div><!-- end images -->
+					</div>
+
+					<div class="col-md-7">
+						<div class="shop-desc">
+							<h2 style="color:#13AFEB;">Services</h2>
+						    <strong>Offshore Module Development</strong>
+							<p>We have good experts on OpenERP technical and functional parts like CRM, Sale, Purchase , Manufacturing etc. We are working on all version of OpenERP 6.0, 6.1 and also able to do for future V7. We have providing services of offshore module development on OpenERP with not price hike. We have already done the different module development like public_purchases, subcontracting, Tally integration, Point of sale with bar-code reader also doing the localization chart of account. We have provided the module development with very affordable price. We already done a subcontracting process with OpenERP which is able to do the subcontracting process with invoicing generation. Also we have done the Indian POS system with bar-code generations.</p>
+							
+									
+						</div><!-- end desc -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+
+
+			</div><!-- end container -->
+		</section><!-- end section -->
+		<br/><br/>
+			<section class="section white">
+			<div class="container">
+				<div id="shop-content" class="row">
+					<div class="col-md-5">
+						<div class="shop-images">
+							<div class="portfolio-style-1 shop-style-1 entry wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+								<div class="ribbon1"></div>
+								<img src="/browseinfo_theme/static/src/upload/training_01.jpg" alt="" style="border: #090909; border-style: double;"/>
+								<div class="magnifier">
+									<div class="visible-title1 clearfix">
+										
+									</div><!-- end visible-title -->
+								</div><!-- end magnifier -->
+							</div><!-- end portfolio -->
+						</div><!-- end images -->
+					</div>
+
+					<div class="col-md-7">
+						<div class="shop-desc">
+							<h2 style="color:#13AFEB;">Training</h2>
+						    <strong>We Provide Functional Technical Training</strong>
+							<p>Why need Functional Training?</p>
+							
+							<p>ERP has a huge sea of applications. Additionally OpenERP provided a all generic application of ERP. There are 150+ official modules which covered the "CRM (Customer Relationship management), Sales, Accounting, MRP(Manufacturing Resource Planning), Logistic Management, Marketing Campaign, Knowledge and Document management. So If you want to use a OpenERP or become a partner of OpenERP then you should know the flow OS these modules . So the Functional Training of OpenERP is required.</p>
+							
+							<p>Benefits of Fuctional Training</p>
+							<p>On Functional Training you will get the all modules knowledge and configurations,So you can configure your system by your hand easily. OpenERP is OpenSource Software, So If you want to work with OpenERP or want to do a business on OpenERP then after a Functional Training you are also able to provide a Functional Training to another clients/Users. OpenERP is not tough to understand and configure like SAP. On SAP you have to required one SAP person to maintain your system but on OpenERP once you get the Functional Training then you can able to maintain your system easily.</p>
+							<p>Why Functional Training through BrowseInfo</p>
+							<p>We have a good Functional Experts of OpenERP which have knowledge of Official addons as well as community/extra-addons modules knowledge. So we can provide you a Fuctional Training of not only Offical addons but we can also aware you about the community addons which will use for you. Most important thing is about BrowseInfo Fuctional Training which is we are providing a module based Fuctional Training. You can chose your module applications and we can charge only for it. Also we have provided a functional training with very affordable price.</p>
+							
+
+				
+						</div><!-- end desc -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+
+
+			</div><!-- end container -->
+		</section><!-- end section -->
+
+		</t>
+		</template>	
+		
+						<!-- Career -->
+		<template id="website.career" name="Career" page="True">
+			<t t-call="website.layout">
+   		 	<!--Page Title-->
+			<div class="page-title">
+			  <div class="container">
+				<h1><span>Join Us</span></h1>
+				<ul class="breadcrumb">
+				  <li><a href="/page/homepage">Home</a> <span class="divider">/</span></li>
+				  <li class="active">Career</li>
+				</ul>
+			  </div>
+			</div>
+			<!-- Page Title End -->
+			<!--Product listing-->
+			<div class="container text-justify">
+			  <div class="row">
+				<div class="col-md-12">
+				  <h3 class="section-title style1"><span>Join Us</span></h3>
+	
+				</div>
+			  </div>
+			</div>
+			
+			         		   		<section class="section white">
+			<div class="container">
+                </div>
+				<div class="row text-center">
+					<div id="content" class="col-md-12">
+						<p style="font-size: 30px;
+    color: #202830 !important;
+    font-style: italic;
+    font-family: serif;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;"> “The best brains of the nation may be found on the LAST BENCHES of the classroom ” - Dr. APJ Abdul Kalam</p><br/>
+
+
+           <h4 style="color: #1A2128;"> If You Think You're one of those, Send your resume at <strong>CAREER@BROWSEINFO.IN</strong></h4>
+					
+                        
+					</div><!-- end content -->
+				</div><!-- end row -->
+		
+		</section>
+		
+		
+		
+		
+
+		</t>
+		</template>		
+			
+		
+		
+
+		
+		<template id="homepage_top_header" inherit_id="website.layout">			
+	    	<xpath expr="//div[@id='wrapwrap']/header/div" position="before">
+				<div class="header-wrapper">
+					<div class="header-top">
+						<div class="container oe_website_sale">
+							<ul class="nav navbar-nav account-nav">
+							        <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+						            <li><a href="/web">My Account</a></li>						            
+						            <li><a t-attf-href="/shop/cart" t-if="website_sale_order and website_sale_order.website_order_line">Checkout</a></li>
+						    </ul>						          
+						    <div class="header-cart pull-right oe_cart" id="myDiv">
+						    	<div class="cart-toggle">
+						        	<a href="/shop/cart"><div class="icon"><i class="fa fa-shopping-cart"></i></div></a>
+						            <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+						            <a href="/shop/cart"><div class="mini-cart"> <span class="count-item">
+						            	<span class="txt-item my_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"></span></span>
+						            </div></a>
+						            <div class="top-cart-content">
+						              	<!-- Card Products -->						              	
+						              	<div t-if="not website_sale_order or not website_sale_order.website_order_line" class="">
+                      						Your cart is empty!
+                  						</div>                  						
+						                <ol class="mini-products-list" t-if="website_sale_order and website_sale_order.website_order_line">
+							                <t t-foreach="website_sale_order.website_order_line" t-as="line">
+							                  <li class="item last odd" t-if="line.product_id and line.product_id.product_tmpl_id">
+							                    <a class="product-image" title="" t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+							                    	<span t-field="line.product_id.image_small"
+	                                        			t-field-options='{"widget": "image", "class": "img-rounded"}'/>     	
+							                    </a>
+							                    <div class="product-details">
+							                    	<!-- Remove Product -->						                    	 		                                          	
+									                  <a t-attf-href="#" class="btn-remove js_add_cart_json_new" title="" data-no-instant=""><i class="fa fa-trash-o"></i></a>
+							                    	<a class="btn-edit" title="Edit item" t-attf-href="/shop/cart"><i class="fa fa-pencil"></i></a>
+							                      <p class="product-name"><a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }"><span t-esc="line.product_id.with_context(display_default_code=False).display_name"/></a></p>  
+							                      <strong> <input type="label" class="js_quantity"
+			                                          t-att-data-line-id="line.id" 
+			                                          t-att-data-product-id="line.product_id.id"
+													  t-att-value="int(line.product_uom_qty)"						                      
+			                                          style="width:0px !important;border:none !important;margin:0px !important;max-width:1px !important;text-align:right " onchange="alert('hi');" readonly="True"/></strong> x <span t-field-options='{
+						                                     "widget": "monetary",
+						                                     "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+						                                 }' t-field="line.price_unit" style="white-space: nowrap;" />  
+						                        </div>
+							                  </li>
+							                </t>
+						                </ol>
+						                <div class="top-subtotal" t-if="website_sale_order and website_sale_order.amount_total and user_id.partner_id.property_product_pricelist.currency_id">
+						                	Subtotal:  <span class="price" t-field="website_sale_order.amount_total" style="white-space: nowrap;" t-field-options='{
+                     						 "widget": "monetary",
+                      						 "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+                    							}'/>
+						                </div>
+						                <div class="actions">
+						                  <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+						                  <a t-attf-href="/shop/cart" t-if="website_sale_order and website_sale_order.website_order_line">
+						                  	<button class="btn btn-primary" title="Checkout" type="button"><span><span>Checkout</span></span></button>
+						                  </a>
+						                </div>						                	
+						            </div>
+						        </div>
+						    </div>
+						    <ul class="nav navbar-nav login-nav pull-right">									
+								<li t-if="website.user_id != user_id">
+										<p>Welcome <span t-esc="user_id.name"/></p> <span><a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a></span>
+								</li>
+						        <li t-if="website.user_id == user_id">
+						            	<a href="/web/login">Login</a>
+						        </li>
+						        <li class="last" t-if="website.user_id == user_id">
+						            	<a href="/web/signup">Register</a>
+						        </li>
+						    </ul>
+						</div>
+					</div>
+					<div class="header-middle">
+						<div class="container">
+							<div class="row">
+						    	<h1 class="col-md-2 col-xs-12 col-sm-6 logo"><a href="/page/website.homepage"> <img src="/ecommerce_theme/static/src/img/logo.png" title="BrowseInfo Theme | Odoo" alt="BrowseInfo Theme | Odoo" style="width: 65px; height: 80px;" /></a></h1>
+						        <div class="col-md-4 col-xs-12 col-sm-4 pull-right">
+						        	
+						        	<div class="header-search">
+						            	<form action='/shop' method="get">
+						            	  <t t-set="search_text" t-value="search"/>						            		  						            	  	
+						                  <input class="form-control" type="text" placeholder="Search" t-att-value="search" name="search"/>
+						                  <button class="btn btn-default"><i class="fa fa-search"></i></button>
+						                </form>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				</div> <!-- Header Wrapper End -->
+			</xpath>						
+			<!-- Menu -->
+			<!-- Active Menu Change -->			
+			<xpath expr="//ul[@id='top_menu']" position="inside">
+				<t t-foreach="website.get_product_category()" t-as="category">
+					    <li t-if="category and category.child_id and request.httprequest and request.httprequest.path" class="dropdown cat-dropdown" t-att-class="(request.httprequest.path.endswith(slug(category))) and 'active'">
+							<a t-attf-href="/shop/category/#{slug(category)}" >
+								<span t-esc="category.name"/>
+								<span class="caret"/>
+							</a>
+							<ul class="dropdown-menu mega-menu js_usermenu" role="menu">
+								<t t-foreach="website.get_product_child_category(category.id)" t-as="c">
+									<t t-if="c.include_in_menu">
+			                            <li t-if="c and request.httprequest and request.httprequest.path" class="column col-md-3 col-lg-3 col-sm-3  col-xs-12" t-att-class="(request.httprequest.path.endswith(slug(category))) and 'active'">
+					                        <a t-attf-href="/shop/category/#{slug(c)}" >
+												<span t-esc="c.name"/>
+											</a>
+											<ul class="level1 js_usermenu" role="menu">
+												<t t-foreach="website.get_product_child_category(c.id)" t-as="c1">
+												    <t t-if="c1.include_in_menu">
+													<li t-att-class="(request.httprequest.path.endswith(slug(c1))) and 'active'">
+						                            	<a t-attf-href="/shop/category/#{slug(c1)}">
+															<span t-esc="c1.name"/>
+														</a>
+													</li>
+													</t>
+												</t>
+											</ul>
+										
+				                        </li>
+									</t>
+								</t>
+	                        </ul>
+					    </li> 
+				   
+				    <t t-if="not category.child_id">		
+					<li class="divider" t-if="category and request and request.httprequest and request.httprequest.path"/>
+					<li t-att-class="(request.httprequest.path.endswith(slug(category))) and 'active'">
+						<a t-attf-href="/shop/category/#{slug(category)}">
+							<span t-esc="category.name"/>
+						</a>
+					</li>
+					</t>
+				</t>
+				<li class="divider"/>
+				<li t-att-class="(request.httprequest.path.endswith('page/about')) and 'active'">
+					<a href="/page/website.about">
+						<span >About Us</span>
+					</a>
+				</li>	
+				<li class="divider"/>
+				<li t-att-class="(request.httprequest.path.endswith('page/odoo')) and 'active'">
+					<a href="/page/website.odoo">
+						<span >Odoo</span>
+					</a>
+				</li>	
+				<li t-att-class="(request.httprequest.path.endswith('page/services')) and 'active'">
+					<a href="/page/website.services">
+						<span >Services</span>
+					</a>
+				</li>	
+				<li t-att-class="(request.httprequest.path.endswith('page/career')) and 'active'">
+					<a href="/page/website.career">
+						<span >Career</span>
+					</a>
+				</li>	
+				<li class="divider"/>
+				<li t-att-class="(request.httprequest.path.endswith('page/contactus')) and 'active'">
+					<a href="/page/website.contactus">
+						<span >Contact us</span>
+					</a>
+				</li>							
+			</xpath>									
+			<xpath expr="//header//div[@class='navbar navbar-default navbar-static-top']" position="attributes">
+            	<attribute name='class'>nav-top</attribute>                    
+            </xpath>	            		            
+            
+            <xpath expr="//header//div[@class='nav-top']//div[@class='container']//div[@class='navbar-header']//button" position="replace"/>
+            
+            <xpath expr="//header//div[@class='nav-top']//div[@class='container']//div[@class='collapse navbar-collapse navbar-top-collapse']" position="attributes">
+            	<attribute name='class'>collapse navbar-collapse</attribute>
+            </xpath>	
+            
+            <xpath expr="//header//div[@class='nav-top']//div[@class='container']//div[@class='collapse navbar-collapse']" position="before">
+            	<button class="menu-toggle" type="button"> <span class="icon-bar"/>
+          		</button>	
+            </xpath>
+            
+			<xpath expr="//header//ul[@id='top_menu']" position="attributes">
+                <attribute name='class'>nav navbar-nav</attribute>                    
+            </xpath>
+            <!-- Menu Link Remove -->
+            <xpath expr="//header//li//a[@href='/shop/cart']" position="attributes">    
+				<attribute name='style'>display:none</attribute>      		
+    		</xpath>
+			<!-- FOOTER CONTENT -->
+			<xpath expr="//footer" position="replace">
+				<footer>
+    			<div class="oe_structure"/>
+				<div class="container hidden-print">
+	            	<div class="row footer">   
+                    <div class="col-md-3 col-sm-6">
+							<div class="widget">
+								<h3 class="block-title style1"><span>About BrowseInfo</span></h3>
+								<p>BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web and Software solutions. <a href="/about" style="color: #13AFEB;">Read More...</a></p>
+
+							</div>
+						</div>
+
+          
+						<div class="col-md-3 col-sm-6">
+							<div class="widget">
+							   <h3 class="block-title style1"><span>Recent Blogs</span></h3>
+								   <ul class="list-unstyled list-star">				              
+								        <li><a href="http://browseinfo.in/blog/2015/07/06/steps-to-install-odoo-8-on-ubuntu/" target="_blank" style="margin-top:12px;">- How To Install Odoo 8 on Ubuntu  </a></li>
+								        <li><a href="http://browseinfo.in/blog/2015/07/06/how-to-create-your-conf-file-in-odoo-8/" target="_blank" style="margin-top:12px;">- How To Create Your .conf file in Odoo 8 </a></li>
+								        <li><a href="http://browseinfo.in/blog/2015/07/06/how-do-i-connect-to-server-in-ubuntu-using-ppk-pem-file/" target="_blank" style="margin-top:20px;">- How do I connect to server in ubuntu using .ppk, .pem file </a></li>
+								        <li><a href="http://browseinfo.in/blog/2015/07/07/odoo-hongkong-localization-coa/" target="_blank" style="margin-top:12px;">- BrowseInfo Hong Kong Localization module for Odoo </a></li>
+								        <li><a href="http://browseinfo.in/blog/2015/08/05/step-for-how-to-use-web_google-module-for-crm/" target="_blank" style="margin-top:12px;">- Step for How to use web_google Module for CRM</a></li>
+								   </ul>
+							</div>
+						</div>		
+						<div class="col-md-3 col-sm-6">
+							<div class="widget" align="center">
+								<h3 class="block-title style1"><span>Quick Links</span></h3>
+								<ul class="list-unstyled list-star" >				               
+								        <li><a href="/page/homepage">Home</a></li>
+								        <li><a href="/page/about">About Us</a></li>
+								        <li><a href="/page/services">Services</a></li>
+								        <li><a href="/page/odoo">Odoo</a></li>
+								        <li><a href="/page/career">Career</a></li>
+								        <li><a href="/page/contactus">Contact Us</a></li>				               
+								</ul>
+							</div>
+						</div>
+							            	<div class="col-md-3 col-sm-6">
+				    		<div class="widget">
+							<h3 class="block-title style1"><span>Contact Info</span></h3> 
+							<address>
+								 <strong> BrowseInfo </strong><br/>A-310 Sidhhi Vinayak Tower,<br/>
+    Near Kataria Arcade, B/h Jaguar Showroom,<br/>
+Prahaladnagar Extension, Makarba, <br/> Ahmedabad 380051.<br/>Gujarat, India.<br/>
+<strong>Mail: </strong> contact@browseinfo.in<br/>
+<strong>M: </strong>(+91) 9978020412<br/>
+							</address> 
+							</div>
+						</div>  
+				    	
+		        		<div class="copyright">
+						    <div class="container">
+						      <div class="row">
+						        <div class="col-md-6 col-sm-6 copyright-left"> 				            									
+						          <p>Copyright © <a href="https://www.browseinfo.in" target="_blank">BrowseInfo</a> <span t-esc="website.get_current_year()"/>. All right reserved.</p>
+						        </div>
+						        <div class="col-md-6 col-sm-6 copyright-right">
+						          <ul class="list-unstyled list-social">
+						           <li><a href="https://www.facebook.com/pages/BrowseInfo/416425701744026?fref=ts/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+						            <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+						             
+						            <li><a href="http://www.github.com/browseinfo" target="_blank"><i class="fa fa-github-square"></i></a></li>
+						            <li><a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+						            <li><a href="http://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+						          </ul>
+						        </div>
+						      </div>
+						    </div>
+					   </div>
+                      </div>
+                    </div>                     
+				</footer>
+		</xpath>
+		</template>
+			<!-- Home Page -->
+		<template id="homepage_body" inherit_id="website.homepage">
+			<xpath expr="//div" position="inside">
+			   <div class="oe_structure">
+				<div class="home-slider">
+      				<div id="carousel-example-generic" class="carousel quotecarousel slide mb0">
+        			<!-- Indicators -->
+			        <ol class="carousel-indicators">
+			          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			        </ol>
+			        <!-- Wrapper for slides -->
+			        <div class="carousel-inner" role="listbox">
+ 			          <div class="item active"> <img src="../ecommerce_theme/static/src/img/slider_01.jpg" title="" alt="" /> </div>
+  			          <div class="item"> <img src="../ecommerce_theme/static/src/img/slider_04.jpg" title="" alt="" /> </div>			 
+  			          <div class="item"> <img src="../ecommerce_theme/static/src/img/slider_03.jpg" title="" alt="" /> </div>			                
+			        </div>
+			      </div>
+			    </div>
+			    </div>		
+			    <!-- Home Slider End -->
+	  		 <!--New Arrivals -->
+		    								
+			    <div class="container">
+			    	<div class="row featured-pro">
+			        	<div class="col-md-12">
+			          		<t t-set="website_product" t-value="website.get_arrival_product()"/>
+			          		<h3 class="section-title style1" t-if="website_product"><span>NEW ARRIVALS</span></h3>					            
+			    	        <div class="owl-carousel" t-if="website_product">
+						    	<t t-foreach="website_product" t-as="product">				            				          	
+							    	<div class="product">
+							         	<a t-attf-href="/shop/product/#{slug(product)}">						          		
+							              <div class="product-img">			              	
+							              	<img t-att-src="website.image_url(product, 'image', None if product_image_big else '300x300')" title="" alt="" />					                
+							              </div>
+							            </a>
+							            <div class="pro-info">
+							            	<div class="title"><a t-attf-href="/shop/product/#{slug(product)}"><span t-esc="product.name"/></a></div>
+							                <div class="price-box"> 
+							                	<span class="special-price">					                						                	
+									               <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+												          <b>
+												              <t t-if="(product.lst_price - product.price) &gt; 0.1">
+												                <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
+												                  "widget": "monetary",
+												                  "from_currency": "product.company_id.currency_id",
+												                  "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+												                }'/>&amp;nbsp;
+												              </t>
+												              <span t-field="product.price" style="white-space: nowrap;"  t-field-options='{
+												                   "widget": "monetary",
+												                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+												               }'>
+												              </span>
+												              <span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name"/>										              
+												              <span itemprop="price" style="display:none;" t-esc="product.price"/>
+												          </b>
+												     </div>
+							                	</span>
+							                </div>
+							                <div class="add-cart">
+							                	<form action="/shop/cart/update" method="post">
+							                		<input name="product_id" t-att-value="product.product_variant_ids[0].id" type="hidden"/>
+				    							<button class="btn btn-primary" onclick="submit();">
+							                  	<i class="fa fa-shopping-cart"></i> Add to cart</button>
+							                	</form>					             					                  	
+							            	</div>
+							        	</div>					              
+							    	</div>													          			            
+						    	</t>			            
+					        </div>
+			        	</div>
+			      	</div>
+			    </div>
+			    <!-- New arrivals END-->
+				<div class="oe_structure"/>			    
+			    <!--FEATURES PRODUCT-->
+			    <div class="container">
+			    	<t t-set="website_product" t-value="website.get_feature_product()"/>			    
+			    	<h3 class="section-title style1" t-if="website_product"><span>FEATURES PRODUCT</span></h3>
+			    	<div class="product-list">
+			        <div class="row">					          		          					        
+			        	<t t-foreach="website_product" t-as="product">			          
+				          	<div class="item col-lg-3 col-md-3 col-sm-4 col-xs-6">			          				          	
+					            <div class="product">
+					              <a t-attf-href="/shop/product/#{slug(product)}">	
+					              	<div class="product-img"><img class="img-responsive" t-att-src="website.image_url(product, 'image', None if product_image_big else '300x300')"  title="" alt="" /></div>
+					              </a>
+					              <div class="pro-info">
+					              	<div class="title"><a t-attf-href="/shop/product/#{slug(product)}" t-esc="product.name"></a></div>
+					                <div class="price-box"> 
+					                	<span class="special-price">
+					                		 <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+										          <b>
+										              <t t-if="(product.lst_price - product.price) &gt; 0.1">
+										                <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
+										                  "widget": "monetary",
+										                  "from_currency": "product.company_id.currency_id",
+										                  "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+										                }'/>&amp;nbsp;
+										              </t>
+										              <span t-field="product.price" style="white-space: nowrap;"  t-field-options='{
+										                   "widget": "monetary",
+										                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+										               }'>
+										              </span>
+										              <span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name"/>								              
+										              <span itemprop="price" style="display:none;" t-esc="product.price"/>
+										          </b>
+										      </div>
+					              		</span>
+					                </div>			                
+					                <div class="add-cart">
+										<form action="/shop/cart/update" method="post">
+							            	<input name="product_id" t-att-value="product.product_variant_ids[0].id" type="hidden"/>
+				    						<button class="btn btn-primary" onclick="submit();">
+							                <i class="fa fa-shopping-cart"></i> Add to cart</button>
+							            </form>					             			
+					                </div>
+					              </div>					              
+					         	</div>			            			            
+				        	</div>			          
+			        	</t>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="oe_structure"/>
+			    <!--FEATURES PRODUCT End-->
+			
+			    	<!--About Us Page-->
+
+        <section class="section dark">
+			<div class="container">
+				<div class="section-title text-center">
+					<h4>About Us</h4>
+					<hr/>
+					<p>We are on a mission</p>
+				</div><!-- end title -->
+				<div class="row text-center">
+					<div id="content" class="col-md-12">
+						<p style="font-size:15px; color:white;"> BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web and Software solutions. </p>
+
+						<p style="font-size:15px; color:white;"> We work closely in collaboration with clients to ensure that every project communicates their unique identity. And we're not focused on "giving advice" but on creating solutions that sell.</p>
+
+						<p style="font-size:15px; color:white;"> At Browse Info, We offer an extensive array of innovative solutions, from corporate branding and interactive marketing to web portals and multi-tier applications. Our main services are - web design, web development. We make the right use of modern technologies like PHP, ASP.net, Ajax, Flash,Jquery, etc. and high quality of creativity. </p>
+
+						<p style="font-size:15px; color:white;"> We develop custom web applications which not only establish easy and effective interaction with your customers but also make you one of the industry leaders. </p>
+
+						
+
+					</div><!-- end content -->
+				</div><!-- end row -->
+			</div>
+	</section>
+	
+	<!--Why-->
+
+		<section class="section white">
+			<div class="container">
+				<div class="section-title text-center">
+					<h4>Services</h4>
+					<hr/>
+					<p>How awesome can it be?</p>
+				</div><!-- end title -->
+				<div class="row text-center">
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/Odoo_mobile.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Odoo (Open ERP)</strong></p>
+							<p>We have good experts on OpenERP technical and functional parts like CRM, Sale, Purchase , Manufacturing etc. We are working on all version of OpenERP 6.0, 6.1 and also able to do for future V7. We have providing services of offshore module development on OpenERP.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/offshore_01.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Web Designing</strong></p>
+							<p>We offer complete web design and coding of web pages delivering interactive web applications. We can customize a solution specifically to suit your needs from basic Website Design to complete e-commerce stores. Whether you are looking for a basic brochure type layout or fully interactive website,Contact us to discuss your project.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/odoo_01.png" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Web Development</strong></p>
+							<p>We offers complete cycle of development beginning with software vision formulating and requirements management, analysis, designing up to coding, implementation, rigorous testing, deployment and support. Our team can contribute at any stage of a project or project with non-complete life cycle.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+					<div class="col-md-3 col-sm-6">
+						<div class="service-style-1 nobg wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+							<div class="#">
+								<img src="/ecommerce_theme/static/src/img/training_01.jpg" height="120px;" width="120px;" />
+							</div>
+							<p><strong>Training</strong></p>
+							<p>We have a good Functional Experts of OpenERP which have knowledge of Official addons as well as community/extra-addons modules knowledge. So we can provide you a Fuctional Training of not only Offical addons but we can also aware you about the community addons which will use for you.</p>
+						</div><!-- end service -->
+					</div><!-- end col -->
+				</div><!-- end row -->
+				
+			</div><!-- end container -->
+		</section><!-- end section -->
+		
+		
+		<!-- Odoo Pricing section -->
+		
+		<section class="section dark">
+			<div class="container">
+				<div class="section-title text-center">
+					<h4>Odoo Pricing</h4>
+					<hr/>
+					<p>Lets Talk About Work :)</p>
+				</div><!-- end title -->
+
+				<div class="row ptables">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="pricing-table">
+							<div class="pheader clearfix">
+								<div class="pricing-title">
+									<h4>Basic Plan</h4>
+									<p>Ideal for Starter Websites</p>
+								</div>
+								<div class="pricing_price">
+									<h4>10 $ Month</h4>
+								</div>
+							</div>
+
+							<div class="pbody">
+								<ul>
+									<li>Disk Space <span>300 GB</span></li>
+									<li>Data Transfer <span>Unlimited</span></li>
+									<li>Ftp Accounts <span>25</span></li>
+									<li>Email Boxes <span>1000</span></li>
+									<li>Free Domains <span>1</span></li>
+									<li>Support <span>24Hours</span></li>
+								</ul>
+							</div>
+							<div class="pricing-footer">
+								<a href="#" class="btn btn-primary btn-block">Order it Now</a>
+							</div>
+						</div><!-- end pricing-table -->
+					</div><!-- end col -->
+
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="pricing-table">
+							<div class="pheader clearfix">
+								<div class="pricing-title">
+									<h4>Pro Plan</h4>
+									<p>Ideal for Pro Websites</p>
+								</div>
+								<div class="pricing_price">
+									<h4>120 $ Month</h4>
+								</div>
+							</div>
+
+							<div class="pbody">
+								<ul>
+									<li>Disk Space <span>300 GB</span></li>
+									<li>Data Transfer <span>Unlimited</span></li>
+									<li>Ftp Accounts <span>25</span></li>
+									<li>Email Boxes <span>1000</span></li>
+									<li>Free Domains <span>1</span></li>
+									<li>Support <span>24Hours</span></li>
+								</ul>
+							</div>
+							<div class="pricing-footer">
+								<a href="#" class="btn btn-primary btn-block">Order it Now</a>
+							</div>
+						</div><!-- end pricing-table -->
+					</div><!-- end col -->
+
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="pricing-table">
+							<div class="pheader clearfix">
+								<div class="pricing-title">
+									<h4>Enterprise Plan</h4>
+									<p>Ideal for Business Websites</p>
+								</div>
+								<div class="pricing_price">
+									<h4>Custom</h4>
+								</div>
+							</div>
+
+							<div class="pbody">
+								<ul>
+									<li>Disk Space <span>300 GB</span></li>
+									<li>Data Transfer <span>Unlimited</span></li>
+									<li>Ftp Accounts <span>25</span></li>
+									<li>Email Boxes <span>1000</span></li>
+									<li>Free Domains <span>1</span></li>
+									<li>Support <span>24Hours</span></li>
+								</ul>
+							</div>
+							<div class="pricing-footer">
+								<a href="#" class="btn btn-primary btn-block">Order it Now</a>
+							</div>
+						</div><!-- end pricing-table -->
+					</div><!-- end col -->
+
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</section><!-- end section -->
+		
+		<!-- Career section -->
+		         		   		<section class="section white">
+			<div class="container">
+				<div class="section-title text-center">
+					<h4>Join us</h4>
+					<hr/>
+					<p>Want to have a Career with us ? :)</p>
+				</div><!-- end title -->
+                </div>
+				<div class="row text-center">
+					<div id="content" class="col-md-12">
+						<p style="font-size: 30px;
+    color: #202830 !important;
+    font-style: italic;
+    font-family: serif;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;"> “The best brains of the nation may be found on the LAST BENCHES of the classroom ” - Dr. APJ Abdul Kalam</p><br/>
+
+
+           <h4 style="color: #1A2128;"> If You Think You're one of those, Send your resume at <strong>CAREER@BROWSEINFO.IN</strong></h4>
+					
+                        
+					</div><!-- end content -->
+				</div><!-- end row -->
+		
+		</section>
+
+		
+	  
+			    
+		    </xpath>
+		</template>		
+		<!-- Search -->
+		<template id="products_search" inherit_id='website_sale.products'>
+			<xpath expr="//div[@id='wrap']/div[@class='container oe_website_sale']/div[@class='products_pager']" position="replace">
+				<div class="products_pager"></div>
+			</xpath>	
+			<!-- Header Title -->								
+			<xpath expr="//div[@id='wrap']//div[@class='oe_structure']" position="before">
+				<div class="page-title">
+					<div class="container">
+				        <h1>	
+				        	<span t-if="not (category and category.name)"><span>Shop</span></span>
+				        	<span t-if="category and category.name"><span t-esc="category.name"/></span>
+				        </h1>
+				        <ul class="breadcrumb">
+		                    <li><a href="/page/homepage">Home</a></li>
+		                    <li><a href="/shop/">Products</a></li>
+		                    <li t-if="category"> 
+		                    	<a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name"/>
+		                    </li>
+	                	</ul>
+				    </div>
+				</div>
+			</xpath>
+		</template>		
+		<!-- Product Details page -->	
+		<template id="product_details" inherit_id='website_sale.product'>
+			<xpath expr="//section" position="before">
+				<div class="page-title">
+			      <div class="container">
+    			<div class="oe_structure"/>
+			        <h1><span t-esc="product.name"/></h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>
+			        	<li><a href="/shop">Products</a></li>
+    	                <li t-if="category"><a t-att-href="keep('/shop/category/%s' % slug(category), category=0)" t-field="category.name"/></li>
+        	            <li class="active"><span t-field="product.name"/></li>
+                	</ul>
+			      </div>
+			    </div>
+			</xpath>		
+			<!-- Related Path-->
+			<xpath expr="//section//div[@class='row']//div[@class='col-sm-4']//ol[@class='breadcrumb']//li" position="before">
+				<li><a t-attf-href="/page/website.homepage">Home</a></li>
+			</xpath>
+			<!-- Product Detail Page Tabbar -->						
+			<xpath expr="//section//div[@class='row']//div/hr" position="replace">
+			<br/>	
+			</xpath>
+			<xpath expr="//section//div[@class='row']//div/p" position="replace">
+			<br/>	
+			</xpath>						
+			<xpath expr="//section[@id='product_detail']" position="inside">
+				<div class="pro-more-info col-md-12">
+		            <div role="tabpanel">		
+		              <!-- Nav tabs -->
+		            	<ul class="nav nav-tabs" role="tablist">
+			                <li role="presentation" class="active"><a href="#pro-desc" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">MORE INFO</a></li>
+			                <li role="presentation" class=""><a href="#pro-comment" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">REVIEWS</a></li>
+		              	</ul>		
+		              <!-- Tab panes -->
+		              <div class="tab-content">
+		              	<div role="tabpanel" class="tab-pane active" id="pro-desc">
+		                	<div t-if="product.description_sale">
+                				<p t-field="product.description_sale" class="text-muted"/>
+							    <hr t-if="sum([(1 if len(l.value_ids)==1 else 0) for l in product.attribute_line_ids])"/>
+							    <p class="text-muted">
+							      <t t-foreach="product.attribute_line_ids" t-as="variant_id">
+							        <t t-if="len(variant_id.value_ids)==1">
+							          <span t-field="variant_id.attribute_id"/>: <span t-field="variant_id.value_ids[0].name"/><br/>
+							        </t>
+							      </t>
+							    </p>
+							    <hr/>                				
+                			</div>
+                			<p class="text-muted">
+				                    30-day money-back guarantee<br/>
+				                    Free Shipping in U.S.<br/>
+				                    Buy now, get in 2 days
+				            </p>
+		                </div>
+		                <div role="tabpanel" class="tab-pane" id="pro-comment"> 
+		                        <hr class="mb32"/>
+						        <section class="container review-box">
+						            <div class="row col-md-12">
+						                <div class="text-muted">
+						                    <h3 class="fa fa-comment-o">
+						                        <a id="comments">
+						                            <t t-if="len(product.website_message_ids) &lt;= 1" ><t t-esc="len(product.website_message_ids)"/> comment</t>
+						                            <t t-if="len(product.website_message_ids) &gt; 1"><t t-esc="len(product.website_message_ids)"/> comments</t>
+						                        </a>
+						                    </h3>
+						                </div>
+						                <ul class="media-list" id="comments-list"  t-if="product.website_message_ids">
+						                    <li t-foreach="product.website_message_ids" t-as="message" class="media">
+						                        <div class="media-body oe_msg">
+						                            <img class="media-object pull-left oe_msg_avatar" t-att-src="website.image_url(message.author_id, 'image_small')" style="width: 50px; margin-right: 10px;"/>
+						                            <div class="media-body oe_msg_content">
+						                                <t t-call="website.publish_short">
+						                                    <t t-set="object" t-value="message"/>
+						                                </t>
+						                                <h5 class="media-heading">
+						                                    <span t-field="message.author_id"/> <small>on <span t-field="message.date"/></small>
+						                                </h5>
+						                                <div t-field="message.body"/>
+						                                <div>
+						                                    <div class="oe_msg_attachment" t-foreach='message.attachment_ids' t-as='attachment'>
+						                                        <a t-att-href="'/mail/download_attachment?model=mail.message&amp;id='+str(message.id)+'&amp;method=download_attachment&amp;attachment_id='+str(attachment.id)" target="_blank">
+						                                            <t t-if="attachment.file_type_icon == 'webimage'">
+						                                                <img t-att-src="'/web/binary/image?model=ir.attachment&amp;field=datas&amp;id=' + str(attachment.id) + '&amp;resize=100,80'"
+						                                                    class='oe_attachment_embedded'></img>
+						                                            </t>
+						                                            <t t-if="attachment.file_type_icon != 'webimage'">
+						                                                <img t-att-src="'/mail/static/src/img/mimetypes/' + attachment.file_type + '.png'"
+						                                                    class='oe_attachment_webimage'></img>
+						                                            </t>
+						                                            <div class='oe_attachment_name'><t t-raw='attachment.name' /></div>
+						                                        </a>
+						                                    </div>
+						                                </div>
+						                            </div>
+						                        </div>
+						                    </li>
+						                </ul>
+						                <div class="css_editable_mode_hidden">
+						                    <form id="comment" t-attf-action="/shop/product/comment/#{product.id}" method="POST">
+						                        <img class="img pull-left img-rounded" t-att-src="website.image_url(user_id.partner_id, 'image_small')" style="width: 50px; margin-right: 10px;"/>
+						                        <div class="pull-left mb32" style="width: 75%%">
+						                            <textarea rows="3" name="comment" class="form-control" placeholder="Write a comment..."></textarea>
+						                            <a class="btn btn-primary mt8 a-submit">Post</a>
+						                        </div>
+						                    </form>
+						                </div>
+						            </div>
+						        </section>
+							</div>               
+		              	</div>		
+		            </div>
+		        </div>
+			</xpath>
+			<xpath expr="//section//div[@class='row']//div[@class='col-sm-3']" position="attributes">
+				<attribute name='style'>display:none</attribute>
+			</xpath>				
+			<xpath expr="//section[@id='product_detail']//div[@class='row']//div[@class='col-sm-7 col-md-7 col-lg-7']" position="replace"> 
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 product-detail">
+                		<span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img product-image"}'/>
+			        </div>
+				</xpath> 
+				<xpath expr="//section[@id='product_detail']//div[@class='row']//div[@class='col-sm-5 col-md-5 col-lg-4 col-lg-offset-1']" position="replace"> 
+					<div class="product-info">
+						<div class="col-xs-12 col-md-5 col-lg-5 col-sm-6 product-detail">
+			                <h1 itemprop="name" t-field="product.name">Product Name</h1>
+			                <span itemprop="url" style="display:none;" t-esc="'/shop/product/%s' % slug(product)"/>
+							<span t-if="product.description_sale and len(product.description_sale) &gt; 200"> 
+ 								<t t-set="description" t-value="product.description_sale[:200] and product.description_sale[:200].replace('+', '\n')+'...'"/>
+								<p class="text-muted "><t t-esc="description"/></p>
+							</span>				
+							<span t-if="product.description_sale and len(product.description_sale) &lt; 200">
+								<p t-if="product.description_sale and len(product.description_sale)&gt; 0" t-field="product.description_sale" class="text-muted "/>
+							</span>	
+							<br/>			
+			                <form t-att-action="keep('/shop/cart/update')" class="js_add_cart_variants" method="POST">
+			                  <div class="js_product">
+			                    <t t-placeholder="select">
+			                      <input type="hidden" class="product_id" name="product_id" t-att-value="int(product.product_variant_ids[0]) if len(product.product_variant_ids) == 1 else '0'"/>
+			                      <t t-call="website_sale.variants">
+			                        <t t-set="ul_class" t-value="'nav-stacked'"/>
+			                      </t>
+			                    </t>
+			                    <t t-call="website_sale.product_price"/>
+			                    <p t-if="len(product.product_variant_ids) &gt; 1" class="css_not_available_msg bg-danger" style="padding: 15px;">Product not available</p>
+			                    <a id="add_to_cart" class="btn btn-primary btn-lg mt8 js_check_product a-submit" href="#">Add to Cart</a>
+			                  </div>
+			                </form>			
+			                
+		            </div> 
+	            </div>
+			</xpath> 
+			<xpath expr="//section[@id='product_detail']//div[@class='row']//div[@class='col-xs-12 col-md-5 col-lg-5 col-sm-6 product-detail']" position="after"> 
+				<div class="col-xs-12 col-md-3 col-lg-3 col-sm-12 product-detail"> 
+					<div class="block-policy"> 
+						<div class="policy policy1"> 
+							<div class="policy-inner">
+									<i class="fa fa-money"></i> 
+									<h2>30 days return</h2>money back
+									</div> 
+							</div> 
+							<div class="policy policy2"> 
+									<div class="policy-inner">
+									<i class="fa fa-truck"></i>
+									<h2>free shipping</h2>on all orders over $99
+									</div> 
+							</div> 
+							<div class="policy policy3"> 
+										<div class="policy-inner">
+										<i class="fa fa-calendar"></i>
+										<h2>lowest price</h2>guarantee
+							</div> 
+						</div> 
+						<div class="policy policy4"> 
+							<div class="policy-inner">
+								<i class="fa fa-check-square"></i>
+								<h2>safe shopping</h2>guarantee
+							</div> 
+						</div> 
+					</div>
+				</div> 
+			</xpath>
+		    <xpath expr="//section//div[@class='row']//div[@class='col-sm-4']" position="attributes">
+				<attribute name='style'>display:none</attribute>
+			</xpath>						
+		</template>			
+		<!-- Slider Inside Product Details Page -->		
+		<template id="slider_product_detail" inherit_id='website_sale.recommended_products'>
+			<xpath expr="//div[@class='container mt32']" position="replace">
+				<div class='container mt32'  t-if="product.alternative_product_ids">
+		  			<div class="row featured-pro">
+				        <div class="col-md-12">
+				          <h3 class="section-title style1"><span>YOU MAY ALSO BE INTERESTED IN THE FOLLOWING PRODUCT(S)</span></h3>				
+				          <div class="owl-carousel">
+					          <t t-foreach="product.alternative_product_ids" t-as="product">		          		
+					          		<div class="product">
+							        	<div class="product-img">
+							          			<a t-attf-href="/shop/product/#{ slug(product) }">
+							                				<img t-att-src="website.image_url(product, 'image', None if product_image_big else '300x300')" title="" alt=""/>
+							           			</a>
+							        	</div>
+							            <div class="pro-info">
+							                			<div class="title"><a t-attf-href="/shop/product/#{ slug(product) }"><span t-field='product.name' /></a></div>                
+							        	</div>
+			            			</div>
+			            	  </t> 
+		            	  </div>  
+	            		</div>
+            		</div>  
+            	</div>       			            					
+			</xpath>
+		</template>
+		<!-- FAQ Page -->			
+		<template id="website.Faq" name="FAQ" page="True">
+			<t t-call="website.layout">
+				<div class="page-title">
+			      <div class="container">
+			        <h1>FAQ</h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>
+	                    <li class="active">FAQ</li>	                    
+                	</ul>
+			      </div>
+			    </div>
+				<section class="mt16 mb48">
+				     <div class="container">
+				          <div class="row">
+				            <div class="col-md-12 text-center mt16 mb32">
+				              <h2>FAQ</h2>
+				              <h3 class="text-muted"></h3>
+				            </div>
+				            <div>
+				              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				            </div>
+				          </div>
+				     </div>
+				</section>
+			</t>
+		</template>
+		<!-- Payment Option Page -->			
+		<template id="website.payment_option" name="Payment Option" page="True">
+			<t t-call="website.layout">
+				<div class="page-title">
+			      <div class="container">
+			        <h1>Payment Option</h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>
+	                    <li class="active">Payment Option</li>	                    
+                	</ul>
+			      </div>
+			    </div>
+				<section class="mt16 mb48">
+				     <div class="container">
+				          <div class="row">
+				            <div class="col-md-12 text-center mt16 mb32">
+				              <h2>Payment Option</h2>
+				              <h3 class="text-muted"></h3>
+				            </div>
+				            <div>
+				              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				            </div>
+				          </div>
+				     </div>
+				</section>
+			</t>
+		</template>
+		<!-- Booking Tips Page -->			
+		<template id="website.booking_tips" name="Booking Tips" page="True">
+			<t t-call="website.layout">
+				<div class="page-title">
+			      <div class="container">
+			        <h1>Booking Tips</h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>
+	                    <li class="active">Booking Tips</li>	                    
+                	</ul>
+			      </div>
+			    </div>
+				<section class="mt16 mb48">
+				     <div class="container">
+				          <div class="row">
+				            <div class="col-md-12 text-center mt16 mb32">
+				              <h2>Booking Tips</h2>
+				              <h3 class="text-muted"></h3>
+				            </div>
+				            <div>
+				              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				            </div>
+				          </div>
+				     </div>
+				</section>
+			</t>
+		</template>
+		<!-- Information Page -->			
+		<template id="website.information" name="Information" page="True">
+			<t t-call="website.layout">
+				<div class="page-title">
+			      <div class="container">
+			        <h1>Information</h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>
+	                    <li class="active">Information</li>	                    
+                	</ul>
+			      </div>
+			    </div>
+				<section class="mt16 mb48">
+				     <div class="container">
+				          <div class="row">
+				            <div class="col-md-12 text-center mt16 mb32">
+				              <h2>Information</h2>
+				              <h3 class="text-muted"></h3>
+				            </div>
+				            <div>
+				              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				            </div>
+				          </div>
+				     </div>
+				</section>
+			</t>
+		</template>			
+		<!-- Contact Us Page -->
+		<template id="contactus" inherit_id='website.contactus'>
+			<xpath expr="//div[@id='wrap']" position="before">
+				<div class="page-title">
+					<div class="container">
+				        <h1><span>Contact US</span></h1>
+				        <ul class="breadcrumb">
+				          <li><a href="/page/homepage">Home</a> <span class="divider">/</span></li>
+				          <li class="active">Contact US</li>
+				        </ul>				       
+				    </div>
+				</div>				
+				
+				<div t-if="failmsg" class="alert alert-info" align="center">
+	    			<a href="#" class="close" data-dismiss="alert">x</a>
+	    			<h4><strong>Fail!</strong> <span t-esc="failmsg"/></h4>
+				</div>						
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='container']//h1" position="replace"/>											
+			<xpath expr="//div[@id='wrap']//div[@class='container']//div[@class='row']" position="attributes">
+				<attribute name='class'>row contact-section</attribute>				
+			</xpath>					          	          		
+          	<xpath expr="//div[@id='wrap']//div[@class='container']//div[@class='row contact-section']//div[@class='col-md-8']" position="replace">
+				<div class="contact-info">
+		            <div class="col-md-6 contact-form">
+		              <h3 class="section-title style1"><span>Contact US</span></h3>
+		              <form action="/home/contact_info" method="post">
+		                <div t-attf-class="form-group #{error and error.get('full_name') and 'has-error' or ''}">
+		                  <label>Name *</label>
+		                  <input type="text" class="form-control" name="full_name" t-att-value="contact and contact.get('full_name', '')" />
+		                </div>
+		                <div t-attf-class="form-group #{error and error.get('emp_email') and 'has-error' or ''}">
+		                  <label>Email *</label>
+		                  <input type="text" class="form-control" name="emp_email" t-att-value="contact and contact.get('emp_email', '')"/>
+		                  <t t-if="error and error.get('emp_email') and error.get('emp_email')=='invalid'"><span class="alert alert-danger">Invalid Email ID</span></t>
+		                </div>
+		                <div t-attf-class="form-group #{error and error.get('email_subject') and 'has-error' or ''}">
+		                  <label>Subject</label>
+		                  <input type="text" class="form-control" name="email_subject" t-att-value="contact and contact.get('email_subject', '')"/>
+		                </div>
+		                <div t-attf-class="form-group #{error and error.get('message') and 'has-error' or ''}">
+		                  <label>Message</label>
+		                  <textarea class="form-control" rows="3" name="message"><t t-esc="contact and contact.get('message', '')"/></textarea>
+		                </div>
+		                <div class="ben-bar">
+		                  <button type="submit" class="btn btn-primary">Send</button>
+		                </div>
+    		            </form>  
+					<div t-if="successmsg" class="alert alert-success" align="center">
+		    			<h4><strong>Success!</strong> <span t-esc="successmsg"/></h4>
+					</div>		            
+		            </div>
+       			</div>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='container']//div[@class='row contact-section']//div[@class='contact-info']" position="before">
+				<t t-if="not res_company.google_api_key">
+				<div>You need to first generate <a href="https://developers.google.com/maps/documentation/embed/guide" target="_blank">"Google Map API"</a> and save in company view(configuration tab) for google map feature display.</div>
+				</t>
+				<t t-if="res_company.google_api_key">
+				<div class="col-md-12 google-map" >
+            		<iframe width="100%" height="300" frameborder="0" allowfullscreen="" t-att-src="website.google_map_src()" class="mfp-iframe"></iframe>
+          		</div>
+				</t>
+          	</xpath>          		
+			<xpath expr="//div[@id='wrap']//div[@class='container']//div[@class='row contact-section']//div[@class='col-md-4 mb32']" position="replace">
+                <div class="col-md-6 contact-address">
+					<h3 class="section-title style1"><span>Contact Info</span></h3>
+                    <div groups="base.group_website_publisher" t-ignore="true" class="pull-right css_editable_mode_hidden" t-att-style="style or ''">
+                        <a class="btn btm-sm btn-default" t-att-href="'/web#return_label=Website&amp;model=%s&amp;id=%s' % (res_company._name, res_company.id)">
+							Change address</a>
+                    </div>
+					<address itemscope="itemscope" itemtype="http://schema.org/Organization">
+						
+						<div t-field="res_company.partner_id" t-field-options='{
+								"widget": "contact",
+								"fields": ["name", "address", "phone", "mobile", "fax", "email"]}'/>
+					</address>
+                </div>
+								
+			</xpath>     	          		          	
+		</template>		
+		<!-- Sing In Remove -->
+		<template id="website.show_sign_in" customize_show="True" inherit_id="website.layout" name="Show Sign In" groups="base.group_public">
+		    <xpath expr="//ul[@id='top_menu']" position="inside">
+		        <li class="divider" style="display:none"/>
+		        <li style="display:none">
+		            <a t-attf-href="/web/login">
+		                <b>Sign in</b>
+		            </a>
+		        </li>
+		    </xpath>
+		</template>		
+		<!-- 404 page -->
+		<template id="404_page_template" inherit_id="website.404" customize_show="True">
+			<xpath expr="//div[@id='wrap']" position="replace">
+				<div class="container">
+			      <div class="row section-404 well">
+			      <div class="col-md-12 text-center">
+			        <h1><label>404</label> <span>Error</span></h1>
+			          <p>This is somewhat embarrassing, isn't it?<br/>
+			          It looks like nothing was found at this location. Maybe try a search?<br/>
+			          go back to the <br/><a t-attf-href="/page/website.homepage" title="Writizmo">home page</a></p>
+			      </div>
+			      </div>
+			    </div>
+			</xpath>
+		</template>		
+		<!-- Category Menu-->
+		<template id="website_sale.categories_recursive" name="Category list">
+		  <li t-att-class="'active' if c.id == int(category or 0) else ''">
+		      <a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-field="c.name"></a>
+		      <t t-if="c.child_id"><span class="sub-cat-1"/></t>
+		      <ul t-if="c.child_id" class="nav nav-pills nav-stacked mt16">
+		          <t t-foreach="c.child_id" t-as="c">
+		             <li t-att-class="'active' if c.id == int(category or 0) else ''">
+		      			<a t-att-href="keep('/shop/category/' + slug(c), category=0)" t-field="c.name"></a> 
+		      			<t t-if="c.child_id"><span class="sub-cat-2"/></t>
+			      		<ul t-if="c.child_id" class="nav nav-pills nav-stacked mt16">
+			      		    <t t-foreach="c.child_id" t-as="c1">
+							<li t-att-class="'active' if c1.id == int(category or 0) else ''">
+			      				<a t-att-href="keep('/shop/category/' + slug(c1), category=0)" t-field="c1.name"></a> 
+			      			</li>	
+			      			</t>	      		
+			      		</ul>	
+		      		</li>
+		          </t>
+		      </ul>
+		  </li>
+		</template>		
+		<!-- Product listing page changes -->
+		<template id="search_no_products" inherit_id="website_sale.products">						
+			<xpath expr="//div[@id='products_grid']" position="replace">
+			   <div id="product_grid" class="col-md-9">				 				
+				<t t-foreach="bins" t-as="tr_product">
+			 		<t t-foreach="tr_product" t-as="td_product">
+			 			<t t-if="td_product">
+			 				<t t-set="product" t-value="td_product['product']"/>
+			           			<div class="item col-lg-4 col-md-4 col-sm-4 col-xs-6">
+						        	<div class="product">
+							        	<div class="product-img">
+											<a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+											          <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(product, 'image', None if product_image_big else '300x300')"/>
+											</a>              
+			  						    </div>
+								        <div class="pro-info">
+								        	<div class="title"><a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))" t-field="product.name"/></div>
+								                <div class="price-box"> 
+								                <div class="product_price">
+								                	<span class="special-price">
+										                <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+															<b>
+																<t t-if="(product.lst_price - product.price) &gt; 0.1">
+																	<del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
+																				                  "widget": "monetary",
+																				                  "from_currency": "product.company_id.currency_id",
+																				                  "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+																				                }'/>&amp;nbsp;
+																</t>
+																<span t-field="product.price" style="white-space: nowrap;"  t-field-options='{
+																				                   "widget": "monetary",
+																				                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+																				               }'>
+																</span>
+																<span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name"/>														              
+																<span itemprop="price" style="display:none;" t-esc="product.price"/>
+															</b>
+													     </div>
+								         			</span>
+												</div>
+								        		</div>
+									    		<div class="add-cart">
+									            	<form action="/shop/cart/update" method="post">
+									            		<input name="product_id" t-att-value="product.product_variant_ids[0].id" type="hidden"/>
+													<button class="btn btn-primary" onclick="submit();">
+									              	<i class="fa fa-shopping-cart"></i> Add to cart</button>
+									              	</form>					             					                  	
+												</div>
+				          				</div>
+			          			</div>
+			          		</div>
+		            	</t>
+		        	</t>
+		    	</t>
+              <t t-if="not bins">
+                <div class="text-center text-muted">
+					<div class="expanded-message well col-md-6 col-md-offset-3">
+		            <h3>No Product Found</h3>
+		            <p groups="base.group_sale_manager">Use the <i>'Content'</i> top menu to create a new product.</p>
+					<p>Your search returns no results.</p>
+		            <div class="search-box">
+		              <form method="get" action="/shop">
+		                <input type="text" name="search" placeholder="Search" class="form-control"/>
+		                <button class="btn btn-default"><i class="fa fa-search"></i></button>
+		              </form>
+		            </div>		            
+	          	</div>
+                </div>
+              </t>
+            </div>
+	    	</xpath>
+		</template>
+		
+		<template id="user_dropdown_menu" inherit_id="website.layout">  
+				<xpath expr="//li[@class='dropdown']" position="replace">
+					<li></li>
+				</xpath>
+		</template>
+			
+		<template id="website_sale.product_comment" inherit_id="website_sale.product" active="False" customize_show="True" name="Discussion">
+			    <xpath expr="//div[@t-field='product.website_description']" position="after">
+			   <div></div>
+			    </xpath>
+		</template>	
+		<template id="cart_detail" inherit_id='website_sale.cart'>
+			<xpath expr="//div[@class='container oe_website_sale']" position="before">
+				<div class="page-title">
+			      <div class="container">
+			        <h1><span>Shopping Cart</span></h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>	
+	                    <li class="active"><span>Shopping Cart</span></li>		        	
+                	</ul>
+			      </div>
+			    </div>
+			</xpath>
+			
+			<xpath expr="//div[@class='container oe_website_sale']/h1" position="attributes"><attribute name="style">display:none</attribute>
+			
+			</xpath>			
+			
+			<xpath expr="//table[@id='cart_products']/thead" position="replace">    
+				<thead>
+					<tr><th width="120">Product</th>
+                    	<th width="120">Name</th>
+                        <th width="80">Price</th>
+                        <th width="80">Quantity</th>
+                    </tr>
+            	</thead>
+			</xpath>
+		</template>
+		<template id="website_sale.cart_coupon" inherit_id='website_sale.reduction_code'>
+			<xpath expr="//div[@class='input-group-btn']" position="attributes">
+				<attribute name='class'>""</attribute>
+			</xpath>
+		</template>
+		<!-- Checkout page changes -->
+		<template id="checkout_inherit" inherit_id='website_sale.checkout'>
+			<xpath expr="//div[@class='container oe_website_sale']" position="before">
+				<div class="page-title">
+			      <div class="container">
+			        <h1><span>Checkout</span></h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>	
+	                    <li class="active"><span>Checkout</span></li>		        	
+                	</ul>
+			      </div>
+			    </div>
+			</xpath>
+			<xpath expr="//div[@class='container oe_website_sale']" position="attributes">
+			<attribute name="class">container oe_website_sale check-out</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='street']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='vat']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='zip']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='state_id']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='shipping_zip']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrap']//div[@class='row']//label[@for='shipping_state_id']" position="attributes">
+				<attribute name="style">font-weight: bold</attribute>
+			</xpath>	
+			<xpath expr="//div[@id='wrap']//div[@class='row']//div[@class='clearfix']" position="replace">
+			</xpath>					
+			
+		  </template>
+       <!-- Filter Attribute changes -->
+	    <template id="website_sale.products_attributes" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Attribute's Filters">
+		  <xpath expr="//div[@id='products_grid_before']" position="inside">
+		      <form class="js_attributes" method="get">
+		          <input type="hidden" name="search" t-att-value="search"/>
+  					 <t t-set="attrib" t-value="attributes"/>			    
+			         <h3 t-if="attrib">FILTER OPTIONS</h3>         
+		          <ul class="nav nav-pills nav-stacked mt16">
+		              <t t-foreach="attributes" t-as="a">
+		                <t t-if="a.type != 'hidden'">
+		                  <li t-if="a.value_ids and len(a.value_ids) > 1">
+		                      <div><strong t-field="a.name"/></div>
+		                      <t t-if="a.type == 'select'">
+		                        <select class="form-control" name="attrib">
+		                          <option value=""/>
+		                          <t t-foreach="a.value_ids" t-as="v">
+		                            <option t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name" t-att-selected="'selected' if v.id in attrib_set else ''"/>
+		                          </t>
+		                        </select>
+		                      </t>
+		                      <t t-if="a.type == 'radio'">
+		                        <ul class="nav nav-pills nav-stacked">
+		                            <t t-foreach="a.value_ids" t-as="v">
+		                                <li t-att-class="'active' if v.id in attrib_set else ''">
+		                                    <label style="margin: 0 20px;">
+		                                        <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else ''"/>
+		                                        <span style="font-weight: normal" t-field="v.name"/>
+		                                    </label>
+		                                </li>
+		                            </t>
+		                        </ul>
+		                      </t>
+		                      <t t-if="a.type == 'color'">
+		                        <t t-foreach="a.value_ids" t-as="v">
+		                          <label t-attf-style="background-color:#{v.color or v.name}"
+		                              t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+		                              <input type="checkbox"
+		                                  name="attrib"
+		                                  t-att-value="'%s-%s' % (a.id,v.id)"
+		                                  t-att-checked="'checked' if v.id in attrib_set else ''"
+		                                  t-att-title="v.name"/>
+		                          </label>
+		                        </t>
+		                      </t>
+		                  </li>
+		                </t>
+		              </t>
+		          </ul>
+		      </form>
+		  </xpath>
+		  <xpath expr="//div[@id='products_grid_before']" position="attributes">
+		      <attribute name="class">col-md-3 hidden-xs</attribute>
+		  </xpath>
+		  <xpath expr="//div[@id='products_grid']" position="attributes">
+		      <attribute name="class">col-md-9</attribute>
+		  </xpath>
+		</template>	
+		<!-- Payment page change -->
+		<template id="payment_inherit" inherit_id="website_sale.payment">
+			<xpath expr="//div[@class='container oe_website_sale']" position="before">
+				<div class="page-title">
+			      <div class="container">
+			        <h1><span>Payment</span></h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>	
+	                    <li class="active"><span>Payment</span></li>		        	
+                	</ul>
+			      </div>
+			    </div>
+			</xpath>
+			<xpath expr="//div[@class='container oe_website_sale']" position="attributes">
+			<attribute name="class">container oe_website_sale payment</attribute>
+			</xpath>					
+		</template>
+		<!-- Category changes -->
+		<template id="website_sale.products_categories" inherit_id="website_sale.products" active="False" customize_show="True" name="Product Categories">
+		  <xpath expr="//div[@id='products_grid_before']" position="inside">
+		  	 <t t-set="categ" t-value="categories"/>
+		     <h3 t-if="categ">CATEGORY</h3>
+		      <ul class="nav nav-pills nav-stacked mt16">
+		          <li t-att-class=" '' if category else 'active' "><a t-att-href="keep('/shop',category=0)">All Products</a></li>
+		          <t t-foreach="categories" t-as="c">
+		              <t t-call="website_sale.categories_recursive"/>
+		          </t>
+		      </ul>
+		  </xpath>
+		  <xpath expr="//div[@id='products_grid_before']" position="attributes">
+		      <attribute name="class">col-md-3 hidden-xs</attribute>
+		  </xpath>
+		  <xpath expr="//div[@id='products_grid']" position="attributes">
+		      <attribute name="class">col-md-9</attribute>
+		  </xpath>
+		</template>		
+		<!-- Payment page change -->
+		<template id="confirm_inherit" inherit_id="website_sale.confirmation">
+			<xpath expr="//div[@class='container oe_website_sale']" position="before">
+				<div class="page-title">
+			      <div class="container">
+			        <h1><span>Confirmation</span></h1>
+			        <ul class="breadcrumb">
+	                    <li><a href="/page/homepage">Home</a></li>	
+	                    <li class="active"><span>Confirmation</span></li>		        	
+                	</ul>
+			      </div>
+			    </div>
+			</xpath>
+			<xpath expr="//div[@class='container oe_website_sale']" position="attributes">
+			<attribute name="class">container oe_website_sale confirmation</attribute>
+			</xpath>		
+		</template>	
+		<!--<template id="website_sale.products_description" inherit_id="ecommerce_theme.search_no_products" active="False" customize_show="True" name="Product Description">
+		  <xpath expr="//div[@class='product_price']" position="before">
+			  <div class="text-info oe_subdescription" contenteditable="false">
+				<div itemprop="description" t-field="product.description_sale"></div>
+			  </div>
+		  </xpath>
+		</template>	-->																							
+	</data>
+</openerp>	
+

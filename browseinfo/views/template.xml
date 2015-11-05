@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="website.theme_cust_website" name="theme_custom_web" inherit_id="website.theme" priority="1">
+          <xpath expr="//link[last()]" position="after">
+            <link href="/browseinfo/static/src/css/main_home.css" rel="stylesheet" />
+            <link href="/browseinfo/static/src/css/style.css" rel="stylesheet" />
+            <link href="/browseinfo/static/src/css/bootstrap.min.css" rel="stylesheet"/>
+			<link href="/browseinfo/static/src/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+			<link href="/browseinfo/static/src/css/m-styles.min.css" rel="stylesheet"/>
+			<!--k href="/browseinfo/static/src/css/translateelement.css" rel="stylesheet"/>-->
+			<!--<link href="/browseinfo/static/src/css/social-icon-footer.css" rel="stylesheet"/>-->
+			<link href="/browseinfo/static/src/css/social-buttons.css" rel="stylesheet"/>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<link href="/browseinfo/static/src/css/font-awesome.css" rel="stylesheet" type='text/css'/>
+			<link href='/browseinfo/static/src/css/bootstrap-horizon.css' rel="stylesheet"/>
+		    <link href="/browseinfo/static/src/css/font-awesome.min.css" rel="stylesheet" type='text/css'/>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'/>
+            
+         
+
+  <!-- modernizr -->
+            <script src="/browseinfo/static/src/js/common/modernizr.js"></script>
+            
+            
+            <link rel="image_src" href="thumbnail.png"/>
+            <link rel="icon" type="image/ico" href="favicon.png"/>
+          </xpath>
+        </template>
+
+      <!--<template id ="website_top_menu" name="menu_on_top" inherit_id="website.layout" >
+            <xpath expr="//ul[@id='top_menu']" position="inside">
+                <li><a href="#services-top">Services</a></li>
+                <li><a href="#team-top">About us</a></li>
+                <li><a href="#contact-top">Contact</a></li>
+            </xpath>
+        </template>-->
+        
+
+        
+        <template id="custom_layout_website" inherit_id="website.homepage">
+          <xpath expr="//div[@id='wrap']" position="replace">
+        <script src="http://code.jquery.com/jquery-latest.js"/>
+		    <!--main bootstrap js-->
+		    <script src="/browseinfo/static/src/js/bootstrap.min.js" type="text/javascript"/>
+		    <!--custom js-->
+		    <script src="/browseinfo/static/src/js/custom.js" type="text/javascript"/>
+		    <script src="/browseinfo/static/src/js/retina.js" type="text/javascript"/>
+		    <script src="/browseinfo/static/src/js/map.js" type="text/javascript"/>
+		    <!--smooth scroll on page-->
+		    <!--<script type="text/javascript">
+		        $(document).ready(function() {
+		            jQuery.stellar();
+		            $("#status").fadeOut();
+		            $("#preloader").delay(350).fadeOut("slow");
+		        });
+		        </script>-->
+		    <script src="/browseinfo/static/src/js/jquery.easing-1.3.pack.js" type="text/javascript"/>
+		    <!--custom scrollbar-->
+		    <script src="/browseinfo/static/src/js/jquery.nicescroll.min.js" type="text/javascript"/>
+		    <!--parallax-->
+		    <script src="/browseinfo/static/src/js/jquery.stellar.js" type="text/javascript"/>
+		    <!--contact-->
+		    <script src="/browseinfo/static/src/js/jquery.form.js"/>
+		    <!--gallery lightbox-->
+		    <script src="/browseinfo/static/src/js/bootstrap-lightbox.min.js"/>
+
+
+
+
+
+		    <section class="parallax oe_img_bg mb0 mt0" data-scroll-background-offset="0" data-scroll-background-ratio="0.3" style="height: auto; overflow: hidden;; background-attachment: scroll; background-position: 0px 0px;">
+		      <div>
+		        <div id="preloader" style="display:none;">
+		          <div id="status" style="display:none;"/>
+		        </div>
+		        <div class="oe_structure" style="padding:0px;">
+		          <div class="oe_structure oe_empty" id="wrap">
+		<section id="intro" height="460!important" >
+			<div class="container">
+				<div class="row">
+					<div class="span8 offset2 margin25">
+						<div id="carousel_fade_intro" class="carousel slide carousel-fade">
+							<div class="carousel-inner">
+								<div class="active item">
+									<h2>Good design is making something intelligible and memorable. </h2>
+								</div>
+								<div class="inactive item">
+									<h2>Don't design for everyone. It's impossible. </h2>
+								</div>
+								<div class="inactive item">
+									<h2>All you end up doing is designing something that makes everyone unhappy.</h2>
+								</div>
+								<div class="inactive item">
+									<h2>Great design is making something memorable and meaningful.</h2>
+								</div>
+								<div class="inactive item">
+									<h2>We understand your needs...</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="fadeInUp delay animated hidden-phone" id="more">
+				<a href="#team-top" class="m-btn a-btn red big icn-only"><i class="icon-sort-down icon-3x pull-left"></i></a>
+			</div>
+		</section>
+		
+	
+<!-- odoo -->
+		
+
+		    <!--start team header-->
+		        <section id="team-top">
+		    <!--start team-desktop header-->
+		            <section id="team-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+		                <h1 style="font-size: 90px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">About us</h1>
+		                <p class="header">We are on a mission</p>
+		            </section>
+		    <!--start team-mobile header-->
+		            <section id="team-top-mobile" class="hidden-desktop">
+		                <h1 class="header">About us</h1>
+		                <p class="header">We are on a mission</p>
+		            </section>
+		        </section>
+		            <section id="team">
+		              <div class="container">
+		                <div class="row divide">
+		                  <div class="span8 offset2">
+		                    <h1 style="font-weight: bolder;">We are BrowseInfo</h1>
+		                    <p class="center">BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web &amp; Software solutions.</p>
+		                    <p class="center">We work closely in collaboration with clients to ensure that every project communicates their unique identity. And we're not focused on "giving advice" but on creating solutions that sell.</p>
+		                    <p class="center">At Browse Info, We offer an extensive array of innovative solutions, from corporate branding and interactive marketing to web portals and multi-tier applications. Our main services are - web design, web development. We make the right use of modern technologies like PHP, ASP.net, Ajax, Flash,Jquery, etc. and high quality of creativity.</p>
+		                    <p class="center">We develop custom web applications which not only establish easy and effective interaction with your customers but also make you one of the industry leaders.</p>
+		                  </div>
+		                </div>
+		              </div>
+		            </section>
+		            
+		            
+		            <!--start works header-->
+		<section id="works-top">
+	<!--start works-desktop header-->
+			<section id="works-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+				<h1 class="header">Odoo (Open ERP) </h1>
+				<p class="header">How awesome it is?</p>
+			</section>
+	<!--start works-mobile header-->
+			<section id="works-top-mobile" class="hidden-desktop">
+				<h1 class="header">Odoo (Open ERP) </h1>
+				<p class="header">How awesome it is?</p>
+			</section>
+		</section>
+		
+			<!--start works-->
+		<section id="works">
+			<div class="container">
+				<div class="row divide dividenew">
+					<div class="span8 offset2">
+		                    <h1 style="font-size: 56px;color: #fff;font-weight: bold;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Overview</h1>
+						<h4>What is Odoo (Open ERP)  ?</h4>
+                        
+						<p class="center"><img src="/browseinfo/static/src/img/odoo_image.png" alt="" style="height:118px;width:332px;background:#fff;padding:10px;margin-bottom:15px;"/><br/>"Opensource 's most advanced business application software provided by only OpenERP" OpenERP is a opensource ERP system which is most popular ERP on Opensource cause OpenERP provided the all kind of big business application, like CRM, Sale, Purchase,Accounting, MRP, Warehouse, Marketing Campaign etc... The most benefits of OpenERP is these all modules are integrated to each others. So it reduces the data entry and become automated system.</p>
+
+<p class="center">
+This is the only one Opensource ERP which provided the 1000+ modules, you can see it on apps.openerp.com. OpenERP is a good business model with modular functionality with using a MVC architecture. OpenERP provided a generic system flow, So if anyone want to use then have to know about the how to configure your system with OpenERP and we are doing this very peacefully and accurately. Also you have to do some customization on this generic system and we have provided it.</p>
+
+<p class="center">OpenERP framework is not hard to use, So user can easily customize it.</p>
+
+<p class="center">OpenERP framework is developed on python programming language, python is also opensource so you can use any libraries of it freely.</p>
+        <div class="span12">
+						
+					</div>
+					</div></div>
+				</div>
+				
+		</section>
+		
+		
+		          
+		       
+		            
+		     <!--start gallery header-->
+		<section id="gallery-top">
+	<!--start gallery-desktop header-->
+			<section id="gallery-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+				<h1 class="header">Join us</h1>
+				<p class="header">Want to have a Career with us ?</p>
+			</section>
+	<!--start gallery-mobile header-->
+			<section id="gallery-top-mobile" class="hidden-desktop">
+				<h1 class="header">Join us</h1>
+				<p class="header">Want to have a Career with us ?</p>
+			</section>
+		</section>
+	<!--start gallery-->
+	<!--start thumbnails section-->
+		<section id="gallery">
+			<div class="container">
+<div class="row divide">
+					<div class="span8 offset2">
+						<!--<h1 style="font-size: 56px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">We have Openings</h1>-->
+                        <br/>
+                        <h1 style="font-size: 31px;color: #fff;font-style: italic;font-family: serif;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;"> “The best brains of the nation may be found on the LAST BENCHES of the classroom ” - APJ Abdul Kalam</h1>
+                       <br/>
+                        <h4> If You Think You're one of those, Send your resume at <b>career@browseinfo.in</b></h4>
+					</div>
+					<div class="span12">
+						
+					</div>
+				</div>				
+			</div>
+		</section>
+		
+		       
+		            
+		            
+		            <section id="contact-top">
+		    <!--start contact-desktop header-->
+		            <section id="contact-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+		                <h1 style="font-size: 90px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Contact</h1>
+		                <p class="header">Fill up our inbox, we like that</p>
+		            </section>
+		    <!--start contact-mobile header-->
+		            <section id="contact-top-mobile" class="hidden-desktop">
+		                <h1 class="header">Contact</h1>
+		                <p class="header">Fill up our inbox, we like that</p>
+		            </section>
+		        </section>
+		            <section id="contact">
+		              <div class="container" style=" float:left;min-height:0px;margin-left:0px;">
+		                <div class="row divide">
+		                  <div class="span8" style="width:737px;">
+		                    <div class="row">
+		                    <h1>Get in Touch With Us...!!!!</h1><br/><br/>
+		                      <form action="/page/contact.php" id="contactForm" method="post">
+		                        <div class="span4" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Name:</label>
+		                          <input class="span4" id="name" name="name" style="height:30px;" type="text" value=""/>
+		                        </div>
+		                        <div class="span4" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Email:</label>
+		                          <input class="span4" id="email" name="email" style="height:30px;" type="text" value=""/>
+		                        </div>
+		                        <span class="honeypot">
+		                          <label>Honeypot:</label>
+		                          <input id="last" name="last" type="text" value=""/>
+		                        </span>
+		                        <div class="span8" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Message:</label>
+		                          <textarea class="span8" name="message" rows="6" style="width:725px;"/>
+		                        </div>
+		                        <div class="span8" style="margin-left:0px;">
+		                          <div class="message">
+		                            <div id="alert"/>
+		                          </div>
+		                          <input class="m-btn red" type="submit" value="Send Message"/>
+		                        </div>
+		                      </form>
+		                    </div>
+		                  </div>
+		                  <div class="span4" id="address" style="float:left;min-height:0px;margin-left:0px;margin-top:0px;">
+		                    <!--<iframe class="img-responsive" width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.webestools.com/google_map_gen.js?lati=22.994208long=72.499600zoom=18width=675height=400mapType=normalmap_btn_normal=yesmap_btn_satelite=yesmap_btn_mixte=yesmap_small=yesmarqueur=yes&info_bulle=Browseinfo%20-%20Ahmedabad%20Office" style="border: 1px solid black"/></iframe> -->
+		                    
+		                    <t t-call="website.company_description"/>
+		                  </div>
+		                </div>
+		              </div>
+		            </section>
+		            
+	<template id="contact" name="Contact Us">
+      <t t-call="website.layout">
+ 
+		            <section id="contact-top">
+		    <!--start contact-desktop header-->
+		            <section id="contact-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+		                <h1 style="font-size: 90px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Contact</h1>
+		                <p class="header">Fill up our inbox, we like that</p>
+		            </section>
+		    <!--start contact-mobile header-->
+		            <section id="contact-top-mobile" class="hidden-desktop">
+		                <h1 class="header">Contact</h1>
+		                <p class="header">Fill up our inbox, we like that</p>
+		            </section>
+		        </section>
+		            <section id="contact">
+		              <div class="container" style=" float:left;min-height:0px;margin-left:0px;">
+		                <div class="row divide">
+		                  <div class="span8" style="width:737px;">
+		                    <div class="row">
+		                      <form action="/page/contact.php" id="contactForm" method="post">
+		                        <div class="span4" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Name:</label>
+		                          <input class="span4" id="name" name="name" style="height:30px;" type="text" value=""/>
+		                        </div>
+		                        <div class="span4" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Email:</label>
+		                          <input class="span4" id="email" name="email" style="height:30px;" type="text" value=""/>
+		                        </div>
+		                        <span class="honeypot">
+		                          <label>Honeypot:</label>
+		                          <input id="last" name="last" type="text" value=""/>
+		                        </span>
+		                        <div class="span8" style=" float:left;min-height:0px;margin-left:0px;">
+		                          <label>Message:</label>
+		                          <textarea class="span8" name="message" rows="6" style="width:725px;"/>
+		                        </div>
+		                        <div class="span8" style="margin-left:0px;">
+		                          <div class="message">
+		                            <div id="alert"/>
+		                          </div>
+		                          <input class="m-btn red" type="submit" value="Send Message"/>
+		                        </div>
+		                      </form>
+		                    </div>
+		                  </div>
+		                  <div class="span4" id="address" style="float:left;min-height:0px;margin-left:0px;margin-top:0px;">
+		                    <!--<iframe class="img-responsive" width="350" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.webestools.com/google_map_gen.js?lati=22.994208long=72.499600zoom=18width=675height=400mapType=normalmap_btn_normal=yesmap_btn_satelite=yesmap_btn_mixte=yesmap_small=yesmarqueur=yes&info_bulle=Browseinfo%20-%20Ahmedabad%20Office" style="border: 1px solid black"/></iframe> -->
+		                  </div>
+		                </div>
+		              </div>
+		            </section>
+		          </t>
+		      </template>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
+          </xpath>
+        </template>
+
+     <!--
+        <template id="footer_custom_new" inherit_id="website.footer_default" name="Footer">
+		    <xpath expr="//div[@class='container hidden-print']" position="replace">
+            <section id="footer">
+            <div class="container">
+                <div class="row divide">
+
+                    <div class="span3">
+                        <a href="#intro" class="brand"><img src="/browseinfo/static/src/img/logo.png" alt="" style="height:50px !important;" /></a>
+                        <br></br><br></br><p>2013 © Browse Info.</p><br></br>
+                    </div>
+
+                    <div class="span2 offset6">
+                        <ul>
+                            <li><h5>Menu</h5></li>
+                            <li><a href="#intro">Home</a></li>
+                            <li><a href="#services-top">Services</a></li>
+                            <li><a href="#works-top">Odoo</a></li>
+                            <li><a href="#gallery-top">Join us</a></li>
+                            <li><a href="#team-top">About us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </section>
+		    </xpath>
+		</template>
+        <template id ="replace_free_website" inherit_id="website.layout_footer_copyright">
+            <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+
+            </xpath>
+        </template>     -->
+        
+        
+        <template id="footer_custom_new" inherit_id="website.footer_default" name="Footer">
+		    <xpath expr="//div[@class='container hidden-print']" position="replace">
+  <!--start footer-->
+		<section id="footer">
+			<div class="container">
+			<div class="row">
+			
+  <div class="col-md-3">
+  <ul>
+  <a href="#intro" class="brand"><img src="/browseinfo/static/src/img/logo.png" alt="" style="height:40px !important;"/><span style="left: 57px;width: 175px;top: 11px;color: #fff;font-size: 20px;letter-spacing: 2px;padding: 10px;position: absolute;">Browse <span style="color:#00aff0;text-shadow:0 1px 0 #00aff0;">Info</span></span></a>
+						<br/><br/><li>BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web &amp; Software solutions. <a href="/about/" style="color:#25aae2"> Read More...</a></li><br/>
+						</ul>
+  </div>
+   <div class="col-md-3">
+  	<ul>
+  	<li><h5><b>Recent Blogs</b></h5></li>
+            <marquee direction="up" style=" height:290px;" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">
+            
+               <li>
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/blog/2015/07/06/steps-to-install-odoo-8-on-ubuntu/" target="_blank" style="margin-top:12px;"> How To Install Odoo 8 on Ubuntu  </a>
+                    
+                </li>
+                <li>
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/blog/2015/07/06/how-to-create-your-conf-file-in-odoo-8/" target="_blank" style="margin-top:12px;"> How To Create Your .conf file in Odoo 8 </a>
+                    
+                </li>
+               
+                <li class="last">
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/blog/2015/07/06/how-do-i-connect-to-server-in-ubuntu-using-ppk-pem-file/" target="_blank" style="margin-top:12px;"> How do I connect to server in ubuntu using .ppk, .pem file </a>
+                    
+                </li>
+                
+                 <li class="last">
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/blog/2015/07/07/odoo-hongkong-localization-coa/" target="_blank" style="margin-top:12px;"> BrowseInfo Hong Kong Localization module for Odoo </a>
+                    
+                </li>
+                
+                 <li class="last">
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/blog/2015/08/05/step-for-how-to-use-web_google-module-for-crm/" target="_blank" style="margin-top:12px;"> Step for How to use web_google Module for CRM: </a>
+                    
+                </li>
+                
+                 <li class="last">
+                    <img src="/browseinfo/static/src/img/logo.png" height="30px;" width="30px;" alt="" style="border-radius:5px;" />
+                    <a href="http://browseinfo.in/" target="_blank" style="margin-top:12px;"> Browseinfo - Leading Odoo Development Company</a>
+                   </li>  
+                             
+                </marquee>
+                
+            </ul>
+</div>
+  
+  <div class="col-md-3">
+  	<ul>
+			<li><h5><b>Quick Links</b></h5></li>
+			<li><a href="https://www.erp-browseinfo.in/">Home</a></li>
+			<li><a href="/services">Services</a></li>
+			<li><a href="/odoo">Odoo</a></li>
+			<li><a href="/jobs">Career</a></li>
+	    	<li><a href="/about">About us</a></li>
+	    	<li><a href="/page/contactus">Contact us</a></li>
+	    	
+	   <li><h5><b>Translate</b></h5></li> 	
+	        <ul class="#">
+              <li><div id="google_translate_element"></div>
+<script>
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'en',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+}, 'google_translate_element');
+}
+</script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
+                 </ul>
+                 
+                 	
+	    	
+	    <li><h5><b>Follow Us On: </b></h5></li>
+	    
+	    <a href="https://www.facebook.com/pages/BrowseInfo/416425701744026?fref=ts/" target="_blank"><img src="/browseinfo/static/src/img/2.png" class="icons" /></a>
+	    <a href="https://www.twitter.com/" target="_blank"><img src="/browseinfo/static/src/img/1.png" class="icons" /></a>
+	    <a href="https://www.google.com/" target="_blank"><img src="/browseinfo/static/src/img/3.png" class="icons" /></a>
+	    <a href="https://www.linkedin.com/" target="_blank"><img src="/browseinfo/static/src/img/4.png" class="icons" /></a>
+	    <a href="https://www.github.com/browseinfo" target="_blank"><img src="/browseinfo/static/src/img/5.png" class="icons" /></a>
+	    <a href="https://www.skype.com/" target="_blank"><img src="/browseinfo/static/src/img/6.png" class="icons" /></a>
+	    
+	    
+<!--		
+<div class="component">
+        <h1 class="component__title">Demo 5 - Rotating Cube</h1>
+        <a href="#" class="icon icon-cube facebook">facebook</a>
+        <a href="#" class="icon icon-cube twitter">twitter</a>
+        <a href="#" class="icon icon-cube googleplus">google+</a>
+        <a href="#" class="icon icon-cube github">github</a>
+        <a href="#" class="icon icon-cube rss">rss</a>
+      </div>-->
+		</ul>		
+</div>
+
+
+ <div class="col-md-3">	
+  <ul>
+		<li><h5><b>India Office</b></h5></li>
+		<li>A-310, Siddhi Vinayak Tower,</li>
+		<li>Near Kataria Arcade,</li>
+		<li>B/h Jaguar Showroom,</li>
+		<li>Prahaladnagar Extension,</li>
+		<li>Makarba, Ahmedabad</li>
+		<li>Mail: contact@browseinfo.in</li>
+		<li><abbr title="Mobile">M:</abbr> (+91) 9978020412</li>
+		
+		<li><h5><b>USA Office</b></h5></li>
+		<li>Redwood City,</li>
+		<li>CA United States</li>
+		<li>Mail: info@browseinfo.net</li>
+		<li><abbr title="Mobile">M:</abbr> 650-288-6767</li>
+		
+
+		</ul>
+		</div>
+
+</div>
+	
+			</div>
+		</section>
+		
+			<section id="footer">
+			<div class="container">
+			<div class="row" align="center">
+			   	<span><b>Copyright  © 2015</b> <a href="http://www.browseinfo.in" target="_blank" style="color:#25aae2">BrowseInfo</a> . </span>
+
+                <span><b> All Rights Reserved<sup>TM</sup></b></span>
+			
+			
+			</div>
+	
+			</div>
+		</section>
+		
+		
+		</xpath>
+		
+		</template>
+        <template id ="replace_free_website" inherit_id="website.layout_footer_copyright">
+            <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+
+            </xpath>
+        </template>
+<template id="services" name="Services">
+ <t t-call="website.layout">
+<!--start services header-->
+		<section id="services-top">
+	<!--start services-desktop header-->
+			<section id="services-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+				<h1 class="header">Services</h1>
+				<p class="header">How awesome can it be?</p>
+			</section>
+	<!--start services-mobile header-->
+			<section id="services-top-mobile" class="hidden-desktop">
+				<h1 class="header">Services</h1>
+				<p class="header">How awesome can it be?</p>
+			</section>
+		</section>
+
+		<!--start services-->
+		<section id="services">
+			<div class="container">
+				<div class="row divide">
+					<div class="span12">
+						<ul class="thumbnails">
+							<li class="span4">
+								<div class="thumbnail">
+									<i class="icon-cogs"></i>
+									<h4>Odoo (Open ERP) </h4>
+									<span>Open Source Business Applications</span>
+									<p>We have good experts on OpenERP technical and functional parts like CRM, Sale, Purchase , Manufacturing etc. We are working on all version of OpenERP 6.0, 6.1 and also able to do for future V7. We have providing services of offshore module development on OpenERP</p>
+								</div>
+							</li>
+							<li class="span4">
+								<div class="thumbnail">
+									<i class="icon-eye-open"></i>
+									<h4>Web Designing</h4>
+									<span> We Make Ultra Sharp Graphics</span>
+									<p>We offer complete web design and coding of web pages delivering interactive web applications. We can customize a solution specifically to suit your needs from basic Website Design to complete e-commerce stores. Whether you are looking for a basic brochure type layout or fully interactive website,Contact us to discuss your project.</p>
+								</div>
+							</li>
+							<li class="span4">
+								<div class="thumbnail">
+									<i class="icon-stethoscope"></i>
+									<h4>Web Development</h4>
+									<span>We take our design to next stage as well</span>
+									<p>We offers complete cycle of development beginning with software vision formulating and requirements management, analysis, designing up to coding, implementation, rigorous testing, deployment and support. Our team can contribute at any stage of a project or project with non-complete life cycle.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		</t>
+</template>
+
+
+
+<template id="odoo" name ="Odoo">
+ <t t-call="website.layout">
+
+		<!--start works header-->
+		<section id="works-top">
+	<!--start works-desktop header-->
+			<section id="works-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+				<h1 class="header">Odoo (Open ERP) </h1>
+				<p class="header">How awesome it is?</p>
+			</section>
+	<!--start works-mobile header-->
+			<section id="works-top-mobile" class="hidden-desktop">
+				<h1 class="header">Odoo (Open ERP) </h1>
+				<p class="header">How awesome it is?</p>
+			</section>
+		</section>
+		
+			<!--start works-->
+		<section id="works">
+			<div class="container">
+				<div class="row divide dividenew">
+					<div class="span8 offset2">
+		                    <h1 style="font-size: 56px;color: #fff;font-weight: bold;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Overview</h1>
+						<h4>What is Odoo (Open ERP)  ?</h4>
+                        
+						<p class="center"><img src="/browseinfo/static/src/img/odoo_image.png" alt="" style="height:118px;width:332px;background:#fff;padding:10px;margin-bottom:15px;"/><br/>"Opensource 's most advanced business application software provided by only OpenERP" OpenERP is a opensource ERP system which is most popular ERP on Opensource cause OpenERP provided the all kind of big business application, like CRM, Sale, Purchase,Accounting, MRP, Warehouse, Marketing Campaign etc... The most benefits of OpenERP is these all modules are integrated to each others. So it reduces the data entry and become automated system.</p>
+
+<p class="center">
+This is the only one Opensource ERP which provided the 1000+ modules, you can see it on apps.openerp.com. OpenERP is a good business model with modular functionality with using a MVC architecture. OpenERP provided a generic system flow, So if anyone want to use then have to know about the how to configure your system with OpenERP and we are doing this very peacefully and accurately. Also you have to do some customization on this generic system and we have provided it.</p>
+
+<p class="center">OpenERP framework is not hard to use, So user can easily customize it.</p>
+
+<p class="center">OpenERP framework is developed on python programming language, python is also opensource so you can use any libraries of it freely.</p>
+					</div></div>
+				</div>
+				<div class="divider"></div>
+		</section>
+		
+		<section id="hint1">
+			<!--<a href="http://fortawesome.github.com/Font-Awesome/" target="_blank"><strong>HEADS UP!</strong> Click here to check all <strong>249 icons</strong> that we integrated in this template</a>-->
+		</section>
+		          
+		       
+		          <div class="oe_structure oe_empty" id="wrap">
+		            <section class="mt0" style="height: 440px; overflow: hidden;">
+		              <div class="container">
+		                <div class="row divide">
+		                  <div class="span12">
+		                    <h1 style="font-size: 56px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Module Information</h1>
+		                  </div>
+		                  <div class="span7 offset1">
+		                    <p>Purchasing a row material, is one of the basic needs of a company. Here, Purchase department can maintain information of their supplier, create a purchase order, and maintain the track records related to purchase.</p>
+		                    <p>Sales to a company is as important as cell to human body. Without them, neither human body,nor company body can sustain. For Company, OpenERP covers all the aspects of sales management. We can generate sales orders, customer invoices, delivery orders, etc. which helps company to analyze their growth.</p>
+		                    <p>To maintain stock is a difficult task. But the Warehouse Management makes it very easy. In OpenERP, user can easily maintain inward and outward movement of stocks.</p>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="divider"/>
+		            </section>
+		            <section class="mt0" style="height: 728px; overflow: hidden;">
+		              <div class="row divide">
+		                <div class="span12"/>
+		                <div class="span7">
+		                  <div class="carousel slide carousel-fade" id="carousel_fade">
+		                    <div class="carousel-inner">
+		                      <div class="item active">
+		                        <img alt="" src="/browseinfo/static/src/img/works_5.png"/>
+		                      </div>
+		                      <div class="inactive item">
+		                        <img alt="" src="/browseinfo/static/src/img/works_6.png"/>
+		                      </div>
+		                    </div>
+		                    <button class="carousel-control left m-btn icn-only" data-slide="prev" href="#carousel_fade" style="width:42px;height:34px;margin-right:0px;">
+		                      <i class="icon-chevron-left"/>
+		                    </button>
+		                    <button class="carousel-control right m-btn icn-only" data-slide="next" href="#carousel_fade" style="width:42px;height:34px;position:15;">
+		                      <i class="icon-chevron-right"/>
+		                    </button>
+		                  </div>
+		                </div>
+		                <div class="span5 divide">
+		                  <h1 style="font-size: 56px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;" >Services</h1>
+		                  <h4>Offshore Module Development</h4>
+		                  <p>We have good experts on OpenERP technical and functional parts like CRM, Sale, Purchase , Manufacturing etc. We are working on all version of OpenERP 6.0, 6.1 and also able to do for future V7. We have providing services of offshore module development on OpenERP with not price hike. We have already done the different module development like public_purchases, subcontracting, Tally integration, Point of sale with bar-code reader also doing the localization chart of account. We have provided the module development with very affordable price. We already done a subcontracting process with OpenERP which is able to do the subcontracting process with invoicing generation. Also we have done the Indian POS system with bar-code generations.</p>
+		                </div>
+		              </div>
+		            </section>
+		          </div>
+	
+		          <div class="oe_structure oe_empty" id="wrap">
+		            <div class="row divide">
+		              <div class="span5 divide"><h1 style="font-size: 56px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">Training</h1><span style="font-family: 'Open Sans', sans-serif; font-size: 13px;color:#888888;margin-top:25px;margin-bottom:35px; letter-spacing: 1px;margin-left:70px; text-align: center; text-transform: uppercase;">We Provide Functional Technical Training</span><p style="margin-top:30px;">Why need Functional Training?</p>
+		 
+
+		<p>ERP has a huge sea of applications. Additionally OpenERP provided a all generic application of ERP. There are 150+ official modules which covered the "CRM (Customer Relationship management), Sales, Accounting, MRP(Manufacturing Resource Planning), Logistic Management, Marketing Campaign, Knowledge and Document management. So If you want to use a OpenERP or become a partner of OpenERP then you should know the flow OS these modules . So the Functional Training of OpenERP is required.</p>
+
+		<p style="margin-top:20px;margin-bottom:20px;">Benefits of Fuctional Training</p>
+
+		<p>On Functional Training you will get the all modules knowledge and configurations,So you can configure your system by your hand easily. OpenERP is OpenSource Software, So If you want to work with OpenERP or want to do a business on OpenERP then after a Functional Training you are also able to provide a Functional Training to another clients/Users. OpenERP is not tough to understand and configure like SAP. On SAP you have to required one SAP person to maintain your system but on OpenERP once you get the Functional Training then you can able to maintain your system easily.</p>
+
+		<p style="margin-top:20px;margin-bottom:20px;">Why Functional Training through BrowseInfo</p>
+
+		<p>We have a good Functional Experts of OpenERP which have knowledge of Official addons as well as community/extra-addons modules knowledge. So we can provide you a Fuctional Training of not only Offical addons but we can also aware you about the community addons which will use for you. Most important thing is about BrowseInfo Fuctional Training which is we are providing a module based Fuctional Training. You can chose your module applications and we can charge only for it. Also we have provided a functional training with very affordable price.</p>
+		</div>
+		              <div class="span7" style="margin-top:60px;">
+		                <div class="carousel slide carousel-fade" id="carousel_fade_2">
+		                  <div class="carousel-inner">
+		                    <div class="item active">
+		                      <img alt="" src="/browseinfo/static/src/img/works_5.png"/>
+		                    </div>
+		                    <div class="inactive item">
+		                      <img alt="" src="/browseinfo/static/src/img/works_6.png"/>
+		                    </div>
+		                  </div>
+		                  <button class="carousel-control left m-btn icn-only" data-slide="prev" href="#carousel_fade_2 " style="width:42px;height:34px;margin-right:0px;">
+		                    <i class="icon-chevron-left"/>
+		                  </button>
+		                  <button class="carousel-control right m-btn icn-only" data-slide="next" href="#carousel_fade_2" style="width:42px;height:34px;position:15;">
+		                    <i class="icon-chevron-right"/>
+		                  </button>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="divider"/></div>
+	</t>
+</template>
+
+		                    
+	<template id="career" name="Career">    
+	 <t t-call="website.layout">        
+	<!--start gallery header-->
+		<section id="gallery-top">
+	<!--start gallery-desktop header-->
+			<section id="gallery-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+				<h1 class="header">Join us</h1>
+				<p class="header">Want to have a Career with us ?</p>
+			</section>
+	<!--start gallery-mobile header-->
+			<section id="gallery-top-mobile" class="hidden-desktop">
+				<h1 class="header">Join us</h1>
+				<p class="header">Want to have a Career with us ?</p>
+			</section>
+		</section>
+	<!--start gallery-->
+	<!--start thumbnails section-->
+		<section id="gallery">
+			<div class="container">
+<div class="row divide">
+					<div class="span8 offset2">
+						<!--<h1 style="font-size: 56px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">We have Openings</h1>-->
+                        <br/>
+                        <h1 style="font-size: 31px;color: #fff;font-style: italic;font-family: serif;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;"> “The best brains of the nation may be found on the LAST BENCHES of the classroom ” - Dr. APJ Abdul Kalam</h1>
+                        
+                       <br/>
+                        <h4>If You Think You're one of those, Send Your Resume at <b>career@browseinfo.in</b></h4>
+					</div>
+					<div class="span12">
+						
+					</div>
+				</div>				
+			</div>
+		</section>
+		</t>
+</template>
+
+
+
+
+<template id="show_blog" customize_show="True" inherit_id="website.layout" name="Blog" groups="base.group_public">
+    <xpath expr="//ul[@id='top_menu']" position="inside">
+     <li class="divider"/>
+        <li>
+               <a t-attf-href="http://www.blog.browseinfo.in/" target="_blank">
+                <b>Blog</b>
+            </a>
+        </li>
+     
+             <!--<b> <a href="http://www.blog.browseinfo.in/" target="_blank">Blog</a></b>-->
+</xpath>
+</template>
+
+
+
+		                    
+	<template id="about" name="About Us">    
+	 <t t-call="website.layout"> 
+
+		    <!--start team header-->
+		        <section id="team-top">
+		    <!--start team-desktop header-->
+		            <section id="team-top-desktop" class="visible-desktop" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
+		                <h1 style="font-size: 90px;color: #fff;font-weight: 700;text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);text-align: center;line-height: 1;margin-bottom: 15px;letter-spacing: -2px;">About us</h1>
+		                <p class="header">We are on a mission</p>
+		            </section>
+		    <!--start team-mobile header-->
+		            <section id="team-top-mobile" class="hidden-desktop">
+		                <h1 class="header">About us</h1>
+		                <p class="header">We are on a mission</p>
+		            </section>
+		        </section>
+		            <section id="team">
+		              <div class="container">
+		                <div class="row divide">
+		                  <div class="span8 offset2">
+		                    <h1 style="font-weight: bolder;">We are BrowseInfo</h1>
+		                    <p class="center">BrowseInfo is a global IT services company focusing on software development, IT consulting and provides offshore outsourcing solutions to enterprises worldwide. It has the required development facilities and infrastructure combined with quality assurance processes to ensure timely delivery of high quality and low maintenance Web &amp; Software solutions.</p>
+		                    <p class="center">We work closely in collaboration with clients to ensure that every project communicates their unique identity. And we're not focused on "giving advice" but on creating solutions that sell.</p>
+		                    <p class="center">At Browse Info, We offer an extensive array of innovative solutions, from corporate branding and interactive marketing to web portals and multi-tier applications. Our main services are - web design, web development. We make the right use of modern technologies like PHP, ASP.net, Ajax, Flash,Jquery, etc. and high quality of creativity.</p>
+		                    <p class="center">We develop custom web applications which not only establish easy and effective interaction with your customers but also make you one of the industry leaders.</p>
+		                  </div>
+		                </div>
+		              </div>
+		            </section>
+		        </t>
+</template>
+
+  
+
+    </data>
+</openerp>

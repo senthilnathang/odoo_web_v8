@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <!-- "Thank you" message when the survey is completed -->
+    <template id="survey.sfinished" name="Survey Finished">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <div class="container">
+                    <div class="jumbotron mt32">
+                        <h1>Thank you!</h1>
+                        <div t-field="survey.thank_you_message" class="oe_no_empty" />
+                        <div t-if='survey.quizz_mode'>You scored <t t-esc="user_input.quizz_score" /> points.</div>
+			<div t-if='survey.quizz_mode'><b>You Result:-<t t-esc="user_input.score_result" /></b></div>
+                        <div>If you wish, you can <a t-att-href="'/survey/print/%s/%s' % (slug(survey), token)">review your answers</a>.</div>
+                        
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+<!-- page-->
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Survey assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/website_hr_recruitment_custom/static/src/js/survey_custom.js" />
+	    <script type="text/javascript" src="/website_hr_recruitment_custom/static/src/js/timer.js" />
+        </xpath>
+    </template>
+	<template id="survey.page" name="Page">
+        <div class="page-header">
+            <p class="pull-right">Page <span t-raw='page_nr + 1'/> on <span t-raw="len(survey.page_ids)"/></p>
+            <h1 t-field='page.title' />
+            <div t-field='page.description' class="oe_no_empty"/>
+        </div>
+	
+        <form role="form" method="post" class="js_surveyform" t-att-name="'%s_%s' % (survey.id, page.id)" t-att-action="'/survey/fill/%s/%s' % (slug(survey), token)" t-att-data-prefill="'/survey/prefill/%s/%s/%s' % (slug(survey), token, slug(page))" t-att-data-validate="'/survey/validate/%s' % (slug(survey))" t-att-data-submit="'/survey/submit/%s' % (slug(survey))">
+            <input type="hidden" name="page_id" t-att-value="page.id" />
+            <input type="hidden" name="token" t-att-value="token" />
+	    <!-- self create one div -->
+	<div class="tim" style="background:white;font-size: xx-large; border-radius: 4px;">
+		<para style="Standard font-weight: bold;font-size:large;width:250px"> One minute per question</para>
+       </div>
+	
+	<div>
+            <t t-foreach='page.question_ids' t-as='question'>
+                <t t-set="prefix" t-value="'%s_%s_%s' % (survey.id, page.id, question.id)" />
+	
+                <div class="js_question-wrapper news" t-att-id="prefix" style="background:white;border-radius: 4px;
+padding: 10px!important;margin-bottom: 12px;" id ="questi" >
+                    <h5>
+                        <span t-field='question.question' style="color:black;"/>
+                        <span t-if="question.constr_mandatory" class="text-danger ">*</span>
+                    </h5>
+		
+                    <div t-field='question.description' class="text-muted oe_no_empty" id="disab" name="ans"/>
+                    <t t-if="question.type == 'free_text'"><t t-call="survey.free_text"/></t>
+                    <t t-if="question.type == 'textbox'"><t t-call="survey.textbox"/></t>
+                    <t t-if="question.type == 'numerical_box'"><t t-call="survey.numerical_box"/></t>
+                    <t t-if="question.type == 'datetime'"><t t-call="survey.datetime"/></t>
+                    <t t-if="question.type == 'simple_choice'"><t t-call="survey.simple_choice"/></t>
+                    <t t-if="question.type == 'multiple_choice'"><t t-call="survey.multiple_choice" /></t>
+                    <t t-if="question.type == 'matrix'"><t t-call="survey.matrix"/></t>
+		    
+
+                    <div class="js_errzone alert alert-danger" style="display:none;"></div>
+                </div>     
+	    </t>
+	<button type="submit" name="next" class="btn btn-primary" id="btexam">Start Exam</button>
+	<button type="submit" name="next" class="btn btn-primary" id="btnext" style="display:none;">Next Question</button> 
+	<button style="display:none;" class="finish btn btn-primary">Finish</button> 
+	    </div>
+	<div class="shiw text-center mt16 mb16" style="display:none;">
+		<span>Complete Test Now Click the Submit Survey</span>	
+		<button t-if="last" type="submit" class="btn btn-primary" name="button_submit" value="finish">Submit survey</button>
+	
+	</div>
+		<!-- finished the div  -->
+            <div class="text-center mt16 mb16">
+                <button t-if="survey.users_can_go_back and page_nr > 0" type="submit" class="btn btn-default" name="button_submit" value="previous">Previous page</button>
+                <button t-if="not last" type="submit" class="btn btn-primary" name="button_submit" value="next">Next page</button>
+                
+            </div>
+	    
+        </form>
+
+        <!-- Modal used to display error message, i.c.o. ajax error 
+        <div class="modal fade" id="AJAXErrorModal" role="dialog" aria-labelledby="AJAXErrorModal" aria-hidden="true" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                        <h4 class="modal-title">A problem has occured</h4>
+                    </div>
+                    <div class="modal-body"><p>Something went wrong while contacting survey server. <strong class="text-danger">Your answers have probably not been recorded.</strong> Try refreshing.</p></div>
+                    <div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">Close</button></div>
+                </div>
+            </div>
+        </div> -->
+
+    </template>
+
+
+</data>
+</openerp>

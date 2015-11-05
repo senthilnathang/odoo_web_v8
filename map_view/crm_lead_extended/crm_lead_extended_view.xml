@@ -1,0 +1,2247 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<openerp>
+	<data>
+
+		 <template id="assets_backend" name="route with map assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/crm_lead_extended/static/src/js/google_map_locator.js"></script>
+                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places"></script>
+            </xpath>
+        </template>
+        
+		<record model="ir.ui.view" id="view_res_partner_form_extended">
+			<field name="name">res.partner.form.view.extend</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form"></field>
+			<field name="arch" type="xml">
+				<xpath expr="/form/sheet/div/div[@class='oe_edit_only']" position="replace">
+					<div class="oe_edit_only">
+						<field name="is_company" on_change="onchange_type(is_company)" class="oe_inline" invisible="True"/> 
+						<label for="is_company" string="Is a Company?" invisible="True"/>
+					</div>
+				</xpath>
+				<xpath expr="/form/sheet/div/h1/field[@name='name']/parent::h1" position="replace">
+					<h2>
+						<field name="name" default_focus="1" placeholder="First Name" />
+						<field name="last_name" placeholder="Last Name"/>
+					</h2>
+				</xpath>
+				<xpath expr="/form/sheet/div/field[@name='parent_id']" position="replace">
+					<field name="parent_id" invisible="1"/>
+					<group>
+						<field name="title"/>							
+						<field name="marital_status"/>							
+					</group>
+				</xpath>
+				<xpath expr="/form/sheet/div/field[@name='category_id']" position="replace">
+					<group>
+						<field name="personal_no" string="Personal No"/>
+					</group>
+				</xpath>
+				<xpath expr="/form/sheet/group/group/div/div[@class='oe_edit_only']/parent::div" position="after">
+					<label for="cust_street_2" string="Address 2"/>
+					<div>
+						<field name="cust_street_2" placeholder="Street..."/>
+						<field name="cust_street2_2"/>
+						<field name="cust_city_2" style="width:36%" placeholder="City...."/>
+						<field name="cust_state_id_2" style="width:36%" placeholder="State"/>
+						<field name="cust_zip_2" style="width:20%" placeholder="Zip"/>
+						<field name="cust_country_id_2" style="width:100%" placeholder="Country"/>
+					</div>
+				</xpath>
+				
+				<xpath expr="/form/sheet/notebook/page[@name='internal_notes']" position="replace">
+					<page name='internal_notes' string="Internal Notes" invisible="True"/>
+				</xpath>
+				<xpath expr="/form/sheet/group/group/field[@name='website']" position="replace">
+					<field name='ref' string="Code"/>
+					<field name="own_rent"/>
+					<label for="company_owner"/>
+					<div>
+						<field name="company_owner" style="width: 10%"/>
+						<field name="cust_company_name"  on_change="onchange_comp1(cust_company_name)" style="width: 90%" placeholder="Select or create company" attrs="{'invisible': [('company_owner', '=', False)]}"/>
+					</div>
+					<field name="fiscal_id"/>
+				</xpath>
+				
+				<xpath expr="/form/sheet/group/group/field[@name='function']/parent::group" position="replace">
+					<group>
+						<field name='phone' string="Home Phone"/>
+						<field name='cust_home_phone_2' string="Home Phone (2)"/>
+						<field name='mobile' string="Mobile Phone"/>
+						<field name='cust_mobile_phone_2' string="Mobile Phone (2)"/>
+						<field name='cust_work_phone' string="Work Phone"/>
+						<field name='email' string="Email"/>
+						<field name='cust_email_2' string="Email (2)"/>
+						<field name='cust_place_emp' string="Place of Employment"/>
+						<field name='function' string="Job Title" placeholder="e.g. Sales Director"/>
+						<field name='registry' string="Registration Id"/>
+					</group>
+				</xpath>
+				
+				<xpath expr="/form/sheet/notebook/page[@string='Internal Notes']" position="before">
+					<page name="customer_info" string="CUSTOMER INFO">
+						<group col="12">
+							<group colspan="6">
+								<label for="first_name" string="Partner Info"/>
+								<div>
+									<field name="first_name" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+									<field name="partner_last_name" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+								</div>
+								<label for="address_same_yes" string="Address Same as Primary?"/>
+								<div>
+									<field name="address_same_yes" on_change="onchange_add(address_same_yes)" widget="radio"/>
+								</div>
+								<label for="street_2" string="Address"/>
+								<div>
+									<field name="street_2" placeholder="Street..."/>
+									<field name="street2_2"/>
+									<field name="city_2" style="width:36%" placeholder="City...."/>
+									<field name="state_id_2" style="width:36%" placeholder="State"/>
+									<field name="zip_2" style="width:20%" placeholder="Zip"/>
+									<field name="country_id_2" style="width:100%" placeholder="Country"/>
+								</div>
+							</group>
+							<group colspan="6">
+								<field name="partner_work_phone"/>
+								<field name="partner_home_phone"/>
+								<field name="partner_cell_phone" string="Mobile"/>
+								<field name="partner_email"/>
+								<field name="partner_place_emp"/>
+								<field name="partner_function"/>
+							</group>
+						</group>							
+						<group col="12" colspan="12">
+							<group colspan="8">
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/allergy.png" style="width:20px;height:20px"/>
+										<label for="allergies_yes" string="Does any body suffer from allergies?"/>
+									</div>
+									<div>
+										<field name="allergies_yes" widget="radio"/>
+									</div>
+								</group>
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/cat.png" style="width:20px;height:20px"/>
+										<label for="pets_yes" string="Own any pets?"/>
+									</div>
+									<div>
+										<field name="pets_yes" widget="radio"/>
+									</div>
+								</group>
+							</group>
+							<group colspan="4">
+								<group colspan="4">
+								<div>
+									<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/child.png" style="width:20px;height:20px"/>
+									<label for="children" string="Children(s)"/>
+									<field name="children" style="width: 10%"/>
+								</div>
+								</group>
+								<group colspan="4">
+								<div>
+									<field name="child_1" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 1"/> 
+									<field name="child_2" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 2"/> 
+									<field name="child_3" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 3"/> 
+									<field name="child_4" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 4"/> 
+								</div>
+								</group>
+							</group>
+						</group>
+						<notebook>
+							<page name="internal_info" string="Internal Info">
+								<group col="12">
+									<group>
+										<field name="referred_by"/>
+										<field name="appointment_type"/>
+										<field name="lead_type" widget="selection"/>
+									</group>
+									<group>
+										<field name="dealer" on_change="onchange_dealer(dealer)"/>
+										<field name="sponsor"/>
+										<field name="event_source"/>
+									</group>
+									<group colspan="12">
+										<field name="comment" string="Notes"/>
+									</group>
+								</group>
+							</page>
+							<page name="other_info" string="Other Info">
+								<group colspan="12">
+									<field name="comment_other" string="Notes"/>
+								</group>
+							</page>
+							<page name="company_info" string="Company Info">
+								<group col="12">
+									<group colspan="6">
+										<label string="No.1 Customer Company"/>
+									</group>
+									<group colspan="6">
+										<label string="No.2 Customer Company"/>
+									</group>
+									<group name="company_1" colspan="6">
+										<label for="company_id_1" string="Company"/>
+										<div>
+											<field name="company_id_1" style="width: 50%%"/>
+											<field name="comp1_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp1_fiscal_id"/>
+										<field name="comp1_registry"/>
+										<label for="comp1_street" string="Address"/>
+										<div>
+											<field name="comp1_street" placeholder="Street..."/>
+											<field name="comp1_street2"/>
+											<field name="comp1_city" style="width:36%" placeholder="City...."/>
+											<field name="comp1_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp1_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp1_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_1"/>
+									</group>
+									<group name="company_2" colspan="6">
+										<label for="company_id_2" string="Company"/>
+										<div>
+											<field name="company_id_2" on_change="onchange_comp2(company_id_2)" style="width: 50%%"/>
+											<field name="comp2_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp2_fiscal_id"/>
+										<field name="comp2_registry"/>
+										<label for="comp2_street" string="Address"/>
+										<div>
+											<field name="comp2_street" placeholder="Street..."/>
+											<field name="comp2_street2"/>
+											<field name="comp2_city" style="width:36%" placeholder="City...."/>
+											<field name="comp2_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp2_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp2_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_2"/>
+									</group>
+								</group>
+								<group>
+									<field name="more_comp"/>
+								</group>
+
+								<group col="12">
+									<group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label string="No.3 Customer Company"/>
+									</group>
+									<group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label string="No.4 Customer Company"/>
+									</group>
+									<group name="company_3" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label for="company_id_3" string="Company"/>
+										<div>
+											<field name="company_id_3" on_change="onchange_comp3(company_id_3)" style="width: 50%%"/>
+											<field name="comp3_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp3_fiscal_id"/>
+										<field name="comp3_registry"/>
+										<label for="comp3_street" string="Address"/>
+										<div>
+											<field name="comp3_street" placeholder="Street..."/>
+											<field name="comp3_street2"/>
+											<field name="comp3_city" style="width:36%" placeholder="City...."/>
+											<field name="comp3_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp3_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp3_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_3"/>
+									</group>
+									<group name="company_4" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label for="company_id_4" string="Company"/>
+										<div>
+											<field name="company_id_4" on_change="onchange_comp4(company_id_4)" style="width: 50%%"/>
+											<field name="comp4_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp4_fiscal_id"/>
+										<field name="comp4_registry"/>
+										<label for="comp4_street" string="Address"/>
+										<div>
+											<field name="comp4_street" placeholder="Street..."/>
+											<field name="comp4_street2"/>
+											<field name="comp4_city" style="width:36%" placeholder="City...."/>
+											<field name="comp4_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp4_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp4_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_4"/>
+									</group>
+								</group>								
+							</page>
+						</notebook>
+					</page>
+					<page name="leads" string="LEADS">
+						<field name="partner_leads">
+							<tree string="LEADS" editable="0">
+								<field name="id" string="#"/>
+								<field name="name" string="Name" required="0"/>
+								<field name="personal_no" string="Phone no"/>
+								<field name="city" string="Address"/>
+								<field name="lead_type" string="Status"/>
+								<field name="result_id" string="Result"/>
+							</tree>
+						</field>
+					</page>
+					<page name="appointments" string="APPOINTMENTS">
+						<field name="appointment_ids">
+							<tree string="APPOINTMENTS" editable="0">
+								<field name="id" string="#"/>
+								<field name="first_name" string="Name" required="0"/>
+								<field name="phone" string="Phone no"/>
+								<field name="city" string="Address"/>
+								<field name="lead_type" string="Status"/>
+								<field name="result_id" string="Result"/>
+							</tree>
+						</field>
+					</page>
+					
+					<page name="campaigns" string="CAMPAIGNS">
+						<separator string="Active Campaigns"/>
+						<field name="active_campaign_ids">
+							<tree string="CAMPAIGNS" editable="0">
+								<field name="start_date" string="START DATE"/>
+								<field name="end_date" string="END DATE"/>
+								<field name="days_left" string="DAYS LEFT"/>
+								<field name="required_demos" string="REQUIRED DEMOS"/>
+								<field name="sale_required" string="REQUIRED SALES"/>
+								<field name="realized_sales" string="REALIZED SALES"/>
+								<field name="realized_demos" string="REALIZED DEMOS"/>
+								<field name="campaign_success" string="SUCCESS"/>
+								<field name="gift_id" string="GIFT"/>
+								<field name="dealer_id" string="DEALER"/>
+							</tree>
+						</field>
+						<separator string="Past Campaigns"/>
+						<field name="past_campaign_ids" readonly="1">
+							<tree string="CAMPAIGNS" editable="0">
+								<field name="start_date" string="START DATE"/>
+								<field name="end_date" string="END DATE"/>
+								<field name="days_left" string="DAYS LEFT"/>
+								<field name="required_demos" string="REQUIRED DEMOS"/>
+								<field name="sale_required" string="REQUIRED SALES"/>
+								<field name="realized_sales" string="REALIZED SALES"/>
+								<field name="realized_demos" string="REALIZED DEMOS"/>
+								<field name="campaign_success" string="SUCCESS"/>
+								<field name="gift_id" string="GIFT"/>
+								<field name="dealer_id" string="DEALER"/>
+							</tree>
+						</field>
+					</page>
+					<page name="logged_calls" string="CALL HISTORY">
+						<field name="call_history">
+							<tree string="CALL HISTORY" editable="0">
+								<field name="id" string="#"/>
+								<field name="name" string="Call Summary" required="0"/>
+								<field name="date" string="Call Date"/>
+								<field name="duration" string="Time"/>
+								<field name="partner_id" string="Contact"/>
+								<field name="dealer_id" string="Responsible"/>
+								<field name="appoint_date" string="Appointment Date"/>
+								<field name="appoint_time" string="Time"/>
+							</tree>
+						</field>
+					</page>
+					<page name="gifts" string="GIFTS">
+						<field name="gift_ids">
+							<tree string="GIFTS" editable="1">
+								<field name="product_id" domain="[('prod_gift', '=', True)]"/>
+								<field name="grant_id"/>
+								<field name="letter_print_date"/>
+								<field name="receipt_print_date"/>
+								<field name="pickup_by"/>
+								<field name="receive_date"/>
+								<field name="comment"/>
+							</tree>
+						</field>
+					</page>
+					
+					<page name="sale_info" string="SALE INFO">
+						<group col="12">
+							<group colspan="4">
+								<field name="appt_type"/>
+								<field name="date_set"/>
+								<field name="date_sold"/>
+								<field name="serial_no"/>
+							</group>
+							<group colspan="4">
+								<field name="dealer_id"/>
+								<field name="dealer_position"/>
+								<field name="advance_date"/>
+								<field name="sale_amt"/>
+								<field name="tax_rate"/>
+								<field name="total_tax"/>
+								<field name="total_sale"/>
+							</group>
+							<group colspan="4">
+								<field name="sponsor_id_2"/>
+								<field name="lead_dealer_id"/>
+								<field name="assistant_id"/>
+								<field name="ride_along_id"/>
+								<field name="set_by"/>
+							</group>
+						</group>
+						<group col="12" colspan="6">
+							<field name="prob_with_sale" style="width: 50%"/>
+						</group>
+						<group col="12" colspan="12">
+							<field name="sale_comment"/>
+						</group>
+						
+						<notebook>
+							<page name="item_sold" string="Item Sold">
+								<field name="sold_item_ids">
+									<tree string="Item Sold" editable="0">
+										<field name="product_id"/>
+										<field name="serial_no"/>
+										<field name="consign_id"/>
+										<field name="consign_date"/>
+										<field name="contract_id"/>
+									</tree>
+								</field>
+							</page>							
+							<page name="financial_info" string="Financial Info">
+								<group col="12">
+									<group colspan="6">
+										<field name="pay_type"/>
+										<field name="option"/>
+										<field name="down_payment"/>
+										<field name="down_type"/>
+									</group>
+									<group colspan="6">
+										<field name="amount_financed"/>
+										<field name="filling_fee"/>
+										<field name="reserve_amt"/>
+										<field name="discount_amt"/>
+										<field name="sac_disc"/>
+										<field name="balance_due"/>
+										<field name="net_sale"/>
+									</group>
+								</group>
+							</page>							
+							<page name="invoices_info" string="Invoices">
+								<separator string="Customer Invoices"/>
+								<field name="customer_acc_inv" context="{'tree_view_ref':'account.invoice_tree'}"/>
+								<separator string="Customer Payments"/>
+								<field name="customer_payment"/>
+							</page>
+							<page name="warranty" string="Warranty">
+								<label for="prod_warr_ids" string="Warranty Revision"/>
+								<field name="prod_warr_ids" string="Warranty Revision">
+									<tree string="Warranty Revision" editable="1">
+										<field name="date"/>
+										<field name="number"/>
+										<field name="ref"/>
+										<field name="revision_desc"/>
+										<field name="total" sum="Total"/>
+										<field name="status"/>
+									</tree>
+								</field>
+								<group>
+									<field name="comment_warranty"/>
+								</group>
+							</page>							
+							<page name="service" string="Service">
+								<label for="prod_service_ids" string="Service Revision-out of warranty"/>
+								<field name="prod_service_ids">
+									<tree string="Service Revision" editable="1">
+										<field name="date"/>
+										<field name="number"/>
+										<field name="ref"/>
+										<field name="revision_desc"/>
+										<field name="total" sum="Total"/>
+										<field name="status"/>
+									</tree>
+								</field>
+								<group>
+									<field name="comment_service"/>
+								</group>
+							</page>							
+						</notebook>
+					</page>
+				</xpath>
+			</field>
+		</record>
+		
+		
+########################################################################	
+		<record model="ir.actions.act_window" id="crm.crm_case_category_act_leads_all">
+			<field name="name">Leads</field>
+			<field name="res_model">crm.lead</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">['|', ('type','=','lead'), ('type','=',False)]</field>
+			<field name="view_id" ref="crm.crm_case_tree_view_leads"/>
+			<field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
+			<field name="context">{
+					'default_type':'lead',
+					'stage_type':'lead',
+					'empty_list_help_model': 'crm.case.section',
+					'needaction_menu_ref': 'crm.menu_crm_opportunities',
+				}
+			</field>
+			<field name="help" type="html">
+				<p>
+					Use leads if you need a qualification step before creating an
+					opportunity or a customer. It can be a business card you received,
+					a contact form filled in your website, or a file of unqualified
+					prospects you import, etc.
+				</p><p>
+					Once qualified, the lead can be converted into a business
+					opportunity and/or a new customer in your address book.
+				</p>
+			</field>
+		</record>
+
+        <record model="ir.actions.act_window" id="crm.relate_partner_opportunities">
+            <field name="name">Demo</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,form,graph,calendar</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="context">{
+                'search_default_partner_id': active_id,
+                'stage_type': 'opportunity', 
+                'default_type': 'opportunity'
+            }</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create an opportunity related to this customer.
+              </p><p>
+                Use opportunities to keep track of your sales pipeline, follow
+                up potential sales and better forecast your future revenues.
+              </p><p>
+                You will be able to plan meetings and phone calls from
+                opportunities, convert them into quotations, attach related
+                documents, track all discussions, and much more.
+              </p>
+            </field>
+        </record>
+        
+		<record model="ir.actions.act_window" id="crm.crm_case_category_act_oppor11">
+			<field name="name">Demo</field>
+			<field name="res_model">crm.lead</field>
+			<field name="view_mode">kanban,tree,graph,form,calendar</field>
+			<field name="domain">[('type','=','opportunity')]</field>
+			<field name="context">{
+					'stage_type': 'opportunity',
+					'default_type': 'opportunity',
+					'default_user_id': uid
+				}
+			</field>
+			<field name="view_id" eval="False"/>
+			<field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+			<field name="help" type="html">
+				<p>
+					Odoo helps you keep track of your sales pipeline to follow
+					up potential sales and better forecast your future revenues.
+				</p><p>
+					You will be able to plan meetings and phone calls from
+					opportunities, convert them into quotations, attach related
+					documents, track all discussions, and much more.
+				</p>
+			</field>
+		</record>
+		
+		<menuitem name="Demo" id="crm.menu_crm_opportunities" parent="base.menu_sales" sequence="4"
+			action="crm.crm_case_category_act_oppor11"
+            groups="base.group_sale_salesman,base.group_sale_manager"/>	
+################################################################################
+	
+		<record id="view_partners_form_crm1" model="ir.ui.view">
+            <field name="name">res.partner.form.extended</field>
+            <field name="model">res.partner</field>
+			<field name="inherit_id" ref="crm.view_partners_form_crm1" />
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='schedule_meeting']" position="replace">
+					<button class="oe_inline oe_stat_button" type="object"
+						name="schedule_meeting"
+						icon="fa-calendar"
+						context="{'partner_id': active_id}">
+						<field string="Appointments" name="meeting_count" widget="statinfo"/>
+					</button>
+                </xpath>
+				<xpath expr="//div[@name='buttons']" position="inside">
+					<button class="oe_inline oe_stat_button" type="action"
+						name="%(crm.crm_case_category_act_leads_all)d"
+						icon="fa-star"
+						context="{'search_default_partner_id': active_id}">
+						<field string="Leads" name="lead_count" widget="statinfo"/>
+					</button>
+				</xpath>
+				<xpath expr="//button[@name='%(crm.crm_case_category_act_oppor11)d']" position="replace">
+					<button class="oe_inline oe_stat_button" type="action"
+						attrs="{'invisible': [('customer', '=', False)]}"
+						name="%(crm.crm_case_category_act_oppor11)d"
+						icon="fa-star"
+						context="{'search_default_partner_id': active_id}">
+						<field string="Demo" name="opportunity_count" widget="statinfo"/>
+					</button>
+				</xpath>
+            </field>
+		</record>
+		
+#####################################################################
+
+		<record id="view_partner_property_form_extended" model="ir.ui.view">
+            <field name="name">res.partner.form.extended2</field>
+            <field name="model">res.partner</field>
+			<field name="inherit_id" ref="account.view_partner_property_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='accounting']" position="replace">
+					<page name='accounting' string="Accounting" invisible="True"/>
+				</xpath>
+            </field>
+		</record>
+#################################################################################
+		
+    <record id="calendar.view_calendar_event_gantt" model="ir.ui.view">
+        <field name="name">CRM - Meetings Gantt</field>
+        <field name="model">calendar.event</field>
+        <field name="arch" type="xml">
+            <gantt date_delay="duration" date_start="start" string="Meetings" default_group_by="dealer_id"/>
+        </field>
+    </record>
+		
+#################################################################################
+		<record id="view_partner_property_form_extended" model="ir.ui.view">
+            <field name="name">calendar.event.form.extended</field>
+            <field name="model">calendar.event</field>
+			<field name="inherit_id" ref="calendar.view_calendar_event_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/group/group/field[@name='location']" position="replace">
+					<field name="meeting_location"/>
+					<label for="street" string="Location"/>
+					<div>
+						<field name="street" placeholder="Street..."/>
+						<field name="street2"/>
+						<div class="address_format">
+							<field name="city" placeholder="City" style="width: 40%%"/>
+							<field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" on_change="onchange_state(state_id)"/>
+							<field name="zip" placeholder="ZIP" style="width: 20%%"/>
+						</div>
+						<field name="country_id" placeholder="Country" class="oe_no_button"/>
+					</div>
+				</xpath>
+
+                <xpath expr="/form/sheet/notebook/page/group/group/label[@for='allday']" position="replace">
+				</xpath>
+				
+                <xpath expr="/form/sheet/field[@name='state']/parent::sheet" position="before">
+                    <header>
+                        <field name="stage_id" widget="statusbar" clickable="True"
+                            options="{'fold_field': 'fold'}"/>
+                    </header>
+				</xpath>
+
+                <xpath expr="/form/sheet/notebook/page/group/group/div/field[@name='allday']" position="replace">
+					<field name="allday" invisible="1"/>
+				</xpath>
+
+                <xpath expr="/form/sheet/notebook/page/group/group/field[@name='stop_datetime']" position="after">
+					<field name="organiser_id"/>
+					<field name="meet_type" attrs="{'invisible': [('meeting_type', 'in', ['trips', False])]}"/>
+					<field name="meeting_imp" attrs="{'invisible': [('meeting_type', 'in', ['trips', False])]}"/>
+					<field name="trip_to" attrs="{'invisible': [('meeting_type', 'in', ['normal', False])]}"/>
+					<field name="trip_type" attrs="{'invisible': [('meeting_type', 'in', ['normal', False])]}"/>
+					<field name="hotel_name" attrs="{'invisible': [('meeting_type', 'in', ['normal', False])]}"/>
+				</xpath>
+
+                <xpath expr="/form/sheet/notebook/page[@string='Options']" position="replace">
+					<page string="Result">
+						<field name="recurrency" invisible="1"/>
+						<group col="12">
+							<group colspan="4">
+								<field name="result_id"/>
+								<field name="sale_amount"/>
+								<field name="tracking_no"/>
+								<field name="leads_count"/>
+								<field name="assistant_id_2"/>
+							</group>
+							<group colspan="4">
+								<field name="deliver_id"/>
+								<field name="deposit_status"/>
+								<label for="Applicant_yes"/>
+								<div>
+									<field name="Applicant_yes"/>Yes
+									<field name="Applicant_no"/>No
+								</div>
+								<field name="house_id"/>
+								<field name="ride_along_id_2"/>
+							</group>
+							<group colspan="4">
+								<field name="prod_lot_id"/>
+								<field name="deposit_amount"/>
+								<label for="same_yes"/>
+								<div>
+									<field name="same_yes"/>Yes
+									<field name="same_no"/>No
+								</div>
+								<field name="source_id"/>
+							</group>
+						</group>
+						<group col="12" colspan="12">
+							<field name="description_2"/>
+						</group>
+					</page>
+				</xpath>
+				
+				<xpath expr="/form/sheet/notebook/page[@string='Misc']" position="replace"/>
+				
+                <xpath expr="/form/sheet/div/h1/field[@name='name']/parent::h1/parent::div" position="replace">
+					<label for="name" string="Subject"/>
+					<h1>
+						<field name="name"/>
+					</h1>
+					<group col="12">
+						<group colspan="6">
+							<field name="image" widget='image' class="oe_avatar oe_left" nolabel="1"/>
+							<div class="oe_left oe_title">
+								<h2>
+									<field name="first_name" default_focus="1" placeholder="First Name"/>
+									<field name="last_name" placeholder="Last Name"/>
+								</h2>
+							</div>
+							<field name="phone" style="width: 100%%"/>
+							<field name="meeting_type" style="width: 50%%"/>
+							<field name="lead_id" style="width: 50%%"/>
+							<label for="partner_ids" string="Attendees" class="oe_edit_only"/>
+							<h2>
+								<field name="partner_ids" widget="many2manyattendee"
+									context="{'force_email':True}"
+									on_change="onchange_partner_ids(partner_ids)"
+									class="oe_inline"/>
+							</h2>
+						</group>
+						<group colspan="6">
+							<field name="partner_id" style="width: 100%%" string="Customer"/>
+							<field name="dealer_id" style="width: 100%%" string="Dealer Assigned"/>
+							<field name="supervisor_id" style="width: 100%%"/>
+							<field name="assistant_id" style="width: 100%%"/>
+							<field name="operator_id" style="width: 100%%"/>
+							<field name="ride_along_id_1" style="width: 100%%"/>
+							<field name="lead_type" widget="selection"/>
+							<field name="state"/>
+						</group>
+					</group>
+				</xpath>
+            </field>
+		</record>
+##########################################################################
+        <record model="ir.actions.act_window" id="crm.crm_case_form_view_salesteams_opportunity">
+            <field name="name">Demo</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,graph,form,calendar</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="view_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="context">{
+                    'search_default_section_id': [active_id],
+                    'default_section_id': active_id,
+                    'stage_type': 'opportunity',
+                    'default_type': 'opportunity',
+                    'default_user_id': uid,
+                }
+            </field>
+            <field name="help" type="html">
+                <p>
+                    Odoo helps you keep track of your sales pipeline to follow
+                    up potential sales and better forecast your future revenues.
+                </p><p>
+                    You will be able to plan meetings and phone calls from
+                    opportunities, convert them into quotations, attach related
+                    documents, track all discussions, and much more.
+                </p>
+            </field>
+        </record>
+
+
+		<record id="crm_case_section_salesteams_view_kanban_extend" model="ir.ui.view">
+            <field name="name">crm.case.section.kanban.extended</field>
+            <field name="model">crm.case.section</field>
+			<field name="inherit_id" ref="crm.crm_case_section_salesteams_view_kanban" />
+            <field name="arch" type="xml">
+                <xpath expr="//div/div[@class='oe_salesteams_opportunities']" position="replace">
+					<div class="oe_salesteams_opportunities" t-if="record.use_opportunities.raw_value">
+						<a name="%(crm.crm_case_form_view_salesteams_opportunity)d" type="action">Demo</a>
+						<a name="%(crm.action_report_crm_opportunity_salesteam)d" type="action">
+							<field name="monthly_planned_revenue" widget="sparkline_bar"
+								options="{'height': '20px', 'barWidth': '4', 'barSpacing': '1', 'delayIn': '3000', 'tooltip_suffix': ' (Planned Revenue)'}">Planned Revenue per Month<br/>Click to see a detailed analysis of demo.</field>
+						</a>
+					</div>
+				</xpath>
+            </field>
+		</record>
+##############################################################################
+		<record id="view_sale_order_form_extended" model="ir.ui.view">
+            <field name="name">sale.order.form.extended</field>
+            <field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page/group/group/field[@name='payment_term']" position="before">
+					<field name="dealer_id"/>
+					<field name="order_type"/>
+					<field name="personal_no" invisible="1"/>
+				</xpath>
+            </field>
+		</record>
+		
+##################################################################
+		<record id="crm_case_phone_form_view_extended" model="ir.ui.view">
+            <field name="name">crm.phonecall.form.extended</field>
+            <field name="model">crm.phonecall</field>
+			<field name="inherit_id" ref="crm.crm_case_phone_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div/button[@name='action_button_convert2opportunity']" position="replace">
+					<button class="oe_inline oe_stat_button" type="object" name="action_button_convert2opportunity" 
+						icon="fa-star" attrs="{'invisible':[ '|', ('opportunity_id','!=',False), ('state', 'not in', ('open', 'done'))]}"
+						help="Convert To Demo">
+						<div>Convert To<br/>Demo</div>
+					</button>
+                </xpath>
+                <xpath expr="/form/sheet/div/button[@name='action_make_meeting']" position="replace">
+					<button class="oe_inline oe_stat_button" name="action_make_meeting" type="object" icon="fa-calendar fa-fw">
+						<div>Schedule<br/>A Appointment</div>
+					</button>
+                </xpath>
+                <xpath expr="/form/sheet/group/field[@name='opportunity_id']" position="replace">
+					<field name="opportunity_id" on_change="on_change_opportunity(opportunity_id)" context="{'form_view_ref':'crm.crm_case_form_view_leads'}"/>
+					<field name="dealer_id"/>
+					<field name="appoint_date"/>
+					<field name="appoint_time"/>
+                </xpath>
+                
+            </field>
+		</record>
+
+
+##################################################################
+		
+		<record id="view_crm_tracking_campaign_form_extended" model="ir.ui.view">
+            <field name="name">crm.tracking.campaign.form.extended</field>
+            <field name="model">crm.tracking.campaign</field>
+			<field name="inherit_id" ref="crm.crm_tracking_campaign_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group/field[@name='section_id']" position="after">
+						<field name="partner_id" style="width: 40%%"/>
+						<field name="lead_id" style="width: 40%%"/>
+				</xpath>
+            </field>
+		</record>
+		
+############################TO CHANGE MEETINGS --> Appointments IN PARTNER KANBAN VIEW ####################		
+		
+        <record id="crm.calendar_event_partner" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="src_model">res.partner</field>
+            <field name="res_model">calendar.event</field>
+            <field name="view_mode">calendar,tree,form,gantt</field>
+            <field name="context">{'default_partner_ids': [active_id]}</field>
+        </record>
+		
+		
+        <record model="ir.ui.view" id="crm_lead_partner_kanban_view_extended">
+            <field name="name">res.partner.kanban.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.crm_lead_partner_kanban_view"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_kanban_partner_links']" position="replace">
+					<div class="oe_kanban_partner_links">
+						<a name="%(crm.relate_partner_opportunities)d" type="action" t-if="record.opportunity_count.value>0">
+							<t t-esc="record.opportunity_count.value"/> Demo
+						</a>
+						<a name="%(crm.calendar_event_partner)d" type="action" t-if="record.meeting_count.value>0">
+							<t t-esc="record.meeting_count.value"/> Appointments
+						</a>
+					</div>
+                </xpath>
+            </field>
+        </record>
+################################################################	
+
+		<record id="view_product_form_extended" model="ir.ui.view">
+            <field name="name">product.form.extended</field>
+            <field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_code']" position="after">
+					<field name="prod_gift"/>
+                </xpath>
+            </field>
+		</record>
+		
+#####################LEAD TO APPOINTMENTS WIZARD ACTION AND VIEW ################		
+        <record id="view_crm_lead2appointment_form" model="ir.ui.view">
+            <field name="name">crm.lead2appointment.form</field>
+            <field name="model">crm.lead2appointment</field>
+            <field name="arch" type="xml">
+                <form string="Convert to Appointment">
+					<group>
+						<field name="start_datetime"/>
+						<field name="stop_datetime"/>
+					</group>
+                    <footer>
+                        <button name="action_apply" string="Create Appointment" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_crm_lead2appointment" model="ir.actions.act_window">
+            <field name="name">Convert to Appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.lead2appointment</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_crm_lead2appointment_form"/>
+            <field name="target">new</field>
+        </record>
+
+#######################################################################
+
+		<record id="view_crm_lead_form_extended" model="ir.ui.view">
+            <field name="name">crm.lead.form.extended</field>
+            <field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_leads" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/group/group/field[@name='categ_ids']" position="after">
+					<field name="source_id"/>
+					<field name="lead_type" widget="selection"/>
+                </xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='categ_ids']/parent::group" position="replace">
+					<group>
+						<field name="place_emp"/>
+						<field name="job_title" placeholder="e.g. Sales Director"/>
+					</group>
+				</xpath>
+                <xpath expr="/form/header/button[@class='oe_highlight']" position="replace">
+                    <button name="%(action_crm_lead2appointment)d" string="Convert to Appointment" type="action"
+                            help="Convert to Appointment" class="oe_highlight"/>
+                </xpath>
+                
+                <xpath expr="/form/sheet/div[@class='oe_title']" position="replace">
+					<field name="image" widget='image' class="oe_avatar oe_left"/>						
+					<div class="oe_left" name="oe_title" style="width:200px">
+                        <h2>
+                            <field name="name" default_focus="1" placeholder="First Name" attrs="{'required': [('type','==', 'lead')]}"/>
+                            <field name="last_name" placeholder="Last Name" attrs="{'required': [('type','==', 'lead')]}"/>
+                        </h2>
+					</div>                        
+					<group style="width: 30%">
+						<group>
+							<field name="partner_title"/>
+						</group>
+						<group>
+							<field name="marital_status"/>
+						</group>
+					</group>
+                </xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='partner_name']" position="replace">
+					<field name="personal_no" style="width: 100%"/>
+				</xpath>
+                <xpath expr="/form/sheet/group/group/field[@name='user_id']" position="replace">
+					<field name="own_rent" style="width: 100%"/>
+					<label for="company_owner"/>
+					<div>
+						<field name="company_owner" style="width: 10%"/>
+						<field name="company_name" style="width: 90%" placeholder="Select or create company" on_change="onchange_comp1(company_name)" attrs="{'invisible': [('company_owner', '=', False)]}"/>
+					</div>
+				</xpath>
+
+                <xpath expr="/form/sheet/group/group/field[@name='partner_id']" position="replace">
+					<field name="partner_id" string="Customer" invisible="1"/>
+				</xpath>
+
+                <xpath expr="/form/sheet/div[@name='buttons']" position="replace">
+						<table class="oe_right" style="width:30%">
+							<tr style="border:1px solid black">
+								<td style="border:1px solid black;width:50%;">
+									<button class="oe_inline oe_stat_button" type="action"
+                            context="{'default_opportunity_id': active_id, 'search_default_opportunity_id': active_id, 'default_partner_id': partner_id, 'default_duration': 1.0}"
+                            name="%(crm.crm_case_categ_phone_incoming0)d" icon="fa-phone">
+										<div>Schedule/Log<br/>Calls</div>
+									</button>
+								</td>
+								<td style="width:50%;">
+									<td>
+										<img src="/crm_lead_extended/static/src/img/calendar.png" style="width:30px;height:30px;margin-top:5px"/>
+									</td>
+									<td>
+										<label for="next_action" style="margin-left:5px"/>
+										<div>
+											<field name="next_action" style="margin-left:5px"/>
+										</div>
+									</td>
+								</td>
+								<td style="width:50%;border:1px solid black">
+									<td>
+										<img src="/crm_lead_extended/static/src/img/list.png" style="width:30px;height:30px;margin-top:5px"/>
+									</td>
+									<td>
+										<label for="button_stage" style="margin-left:5px"/>
+										<div>
+											<field name="button_stage" style="margin-left:5px;width:140px"/>
+										</div>
+									</td>
+								</td>
+							</tr>
+							<tr style="border:1px solid black">	
+								<td style="border:1px solid black;width:50%;">
+								 <button class="oe_inline oe_stat_button fa fa-map-marke" type="object"
+								                    name="show_google_map" icon="fa-map-marker">
+								                    <div style="width: 101px;">Locate on Map</div>
+								                </button>
+								</td>
+								<td style="width:50%;border:1px solid black">
+									<td>
+										<img src="/crm_lead_extended/static/src/img/arrow.jpg" style="width:40px;height:40px;margin-top:5px"/>
+									</td>
+									<td>
+										<label for="lead_type_button" style="margin-left:5px"/>
+										<div>
+											<field name="lead_type_button" style="margin-left:5px;width:100px"/>
+										</div>
+									</td>
+								</td>
+								<td style="width:50%;border:1px solid black">
+									<td>
+										<img src="/crm_lead_extended/static/src/img/thumb.png" style="width:30px;height:30px;margin-top:5px;"/>
+									</td>
+									<td>
+										<label for="priority" style="margin-left:5px"/>
+										<div>
+											<field name="priority" widget="priority" style="width:100px;height:8px"/>
+										</div>
+									</td>
+								</td>
+							</tr>
+						</table>
+				</xpath>
+
+                <xpath expr="/form/sheet/group/group/div/field[@name='contact_name']/parent::div/parent::group" position="replace">
+					<group>
+						<field name="phone" string="Home Phone"/>
+						<field name="home_phone"/>
+						<field name="mobile" string="Mobile Phone"/>
+						<field name="mobile_phone"/>
+						<field name="work_phone"/>
+						<field name="email_from" string="Email"/>
+						<field name="email_2"/>
+					</group>	
+				</xpath>
+
+                
+                <xpath expr="/form/sheet/group/group/div/field[@name='street']/parent::div" position="after">
+					<label for="street_2" string="Address 2"/>
+					<div>
+						<field name="street_2" placeholder="Street..."/>
+						<field name="street2_2"/>
+						<div class="address_format">
+							<field name="city_2" placeholder="City" style="width: 40%%"/>
+							<field name="state_id_2" class="oe_no_button" placeholder="State" style="width: 37%%" on_change="onchange_state(state_id)"/>
+							<field name="zip_2" placeholder="ZIP" style="width: 20%%"/>
+						</div>
+						<field name="country_id_2" placeholder="Country" class="oe_no_button"/>
+					</div>
+                </xpath>
+                
+                <xpath expr="/form/sheet/notebook/page[@string='Internal Notes']" position="replace">
+					<page string="CUSTOMER INFO">
+						<group col="12">
+							<group colspan="6">
+								<label for="partner_first_name" string="Partner Info"/>
+								<div>
+									<field name="partner_first_name" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+									<field name="partner_last_name" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+								</div>
+								<label for="address_same_yes" string="Address Same as Primary?"/>
+								<div>
+									<field name="address_same_yes" on_change="onchange_add(address_same_yes)" widget="radio"/>
+								</div>
+								<label for="street_2" string="Address"/>
+								<div>
+									<field name="street_2" placeholder="Street..."/>
+									<field name="street2_2"/>
+									<field name="city_2" style="width:36%" placeholder="City...."/>
+									<field name="state_id_2" style="width:36%" placeholder="State"/>
+									<field name="zip_2" style="width:20%" placeholder="Zip"/>
+									<field name="country_id_2" style="width:100%" placeholder="Country"/>
+								</div>
+							</group>
+							<group colspan="6">
+								<field name="partner_work_phone"/>
+								<field name="partner_home_phone"/>
+								<field name="partner_cell_phone" string="Mobile"/>
+								<field name="partner_email"/>
+								<field name="partner_place_emp"/>
+								<field name="partner_function"/>
+							</group>
+						</group>							
+						<group col="12" colspan="12">
+							<group colspan="8">
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/allergy.png" style="width:20px;height:20px"/>
+										<label for="allergies_yes" string="Does any body suffer from allergies?"/>
+									</div>
+									<div>
+										<field name="allergies_yes" widget="radio"/>
+									</div>
+								</group>
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/cat.png" style="width:20px;height:20px"/>
+										<label for="pets_yes" string="Own any pets?"/>
+									</div>
+									<div>
+										<field name="pets_yes" widget="radio"/>
+									</div>
+								</group>
+							</group>
+							<group colspan="4">
+								<group colspan="4">
+								<div>
+									<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/child.png" style="width:20px;height:20px"/>
+									<label for="children" string="Children(s)"/>
+									<field name="children" style="width: 10%"/>
+								</div>
+								</group>
+								<group colspan="4">
+								<div>
+									<field name="child_1" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 1"/> 
+									<field name="child_2" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 2"/> 
+									<field name="child_3" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 3"/> 
+									<field name="child_4" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 4"/> 
+								</div>
+								</group>
+							</group>
+						</group>
+						<notebook>
+							<page name="internal_info" string="Internal Info">
+								<group col="12">
+									<group>
+										<field name="referred_by"/>
+										<field name="appointment_type"/>
+										<field name="lead_type" widget="selection" on_change="onchange_lead_type(lead_type)"/>
+										<field name="result_id"/>
+									</group>
+									<group>
+										<field name="dealer" on_change="onchange_dealer(dealer)"/>
+										<field name="sponsor"/>
+										<field name="event_source"/>
+									</group>
+									<group colspan="12">
+										<field name="comment" string="Notes"/>
+									</group>
+								</group>
+							</page>
+							<page name="other_info" string="Other Info">
+								<group colspan="12">
+									<field name="comment_other" string="Notes"/>
+								</group>
+							</page>
+							<page name="company_info" string="Company Info">
+								<group col="12">
+									<group colspan="6">
+										<label string="No.1 Customer Company"/>
+									</group>
+									<group colspan="6">
+										<label string="No.2 Customer Company"/>
+									</group>
+									<group name="company_1" colspan="6">
+										<label for="company_id_1" string="Company"/>
+										<div>
+											<field name="company_id_1" style="width: 50%%"/>
+											<field name="comp1_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp1_fiscal_id"/>
+										<field name="comp1_registry"/>
+										<label for="comp1_street" string="Address"/>
+										<div>
+											<field name="comp1_street" placeholder="Street..."/>
+											<field name="comp1_street2"/>
+											<field name="comp1_city" style="width:36%" placeholder="City...."/>
+											<field name="comp1_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp1_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp1_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_1"/>
+									</group>
+									<group name="company_2" colspan="6">
+										<label for="company_id_2" string="Company"/>
+										<div>
+											<field name="company_id_2" on_change="onchange_comp2(company_id_2)" style="width: 50%%"/>
+											<field name="comp2_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp2_fiscal_id"/>
+										<field name="comp2_registry"/>
+										<label for="comp2_street" string="Address"/>
+										<div>
+											<field name="comp2_street" placeholder="Street..."/>
+											<field name="comp2_street2"/>
+											<field name="comp2_city" style="width:36%" placeholder="City...."/>
+											<field name="comp2_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp2_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp2_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_2"/>
+									</group>
+								</group>
+								<group>
+									<field name="more_comp"/>
+								</group>
+
+								<group col="12">
+									<group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label string="No.3 Customer Company"/>
+									</group>
+									<group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label string="No.4 Customer Company"/>
+									</group>
+									<group name="company_3" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label for="company_id_3" string="Company"/>
+										<div>
+											<field name="company_id_3" on_change="onchange_comp3(company_id_3)" style="width: 50%%"/>
+											<field name="comp3_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp3_fiscal_id"/>
+										<field name="comp3_registry"/>
+										<label for="comp3_street" string="Address"/>
+										<div>
+											<field name="comp3_street" placeholder="Street..."/>
+											<field name="comp3_street2"/>
+											<field name="comp3_city" style="width:36%" placeholder="City...."/>
+											<field name="comp3_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp3_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp3_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_3"/>
+									</group>
+									<group name="company_4" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+										<label for="company_id_4" string="Company"/>
+										<div>
+											<field name="company_id_4" on_change="onchange_comp4(company_id_4)" style="width: 50%%"/>
+											<field name="comp4_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+										</div>
+										<field name="comp4_fiscal_id"/>
+										<field name="comp4_registry"/>
+										<label for="comp4_street" string="Address"/>
+										<div>
+											<field name="comp4_street" placeholder="Street..."/>
+											<field name="comp4_street2"/>
+											<field name="comp4_city" style="width:36%" placeholder="City...."/>
+											<field name="comp4_state_id" style="width:36%" placeholder="State"/>
+											<field name="comp4_zip" style="width:20%" placeholder="Zip"/>
+											<field name="comp4_country_id" style="width:100%" placeholder="Country"/>
+										</div>
+										<field name="company_act_4"/>
+									</group>
+								</group>								
+							</page>
+						</notebook>
+					</page>
+<!--					<page name="leads" string="LEADS">
+						<field name="leads_ids">
+							<tree string="LEADS" editable="0">
+								<field name="id" string="#"/>
+								<field name="first_name" string="Name" required="0"/>
+								<field name="personal_no" string="Phone no"/>
+								<field name="city" string="Address"/>
+								<field name="lead_type" string="Status"/>
+								<field name="result_id" string="Result"/>
+							</tree>
+						</field>
+					</page-->
+					<page string="APPOINTMENTS">
+						<field name="appointment_ids">
+							<tree string="APPOINTMENTS" editable="0">
+								<field name="id" string="#"/>
+								<field name="first_name" string="Name" required="0"/>
+								<field name="phone" string="Phone no"/>
+								<field name="city" string="Address"/>
+								<field name="lead_type" string="Status"/>
+								<field name="result_id" string="Result"/>
+							</tree>
+						</field>
+					</page>
+					<page string="CAMPAIGNS">
+						<separator string="Active Campaigns"/>
+						<field name="active_campaign_ids">
+							<tree string="CAMPAIGNS">
+								<field name="start_date" string="START DATE"/>
+								<field name="end_date" string="END DATE"/>
+								<field name="days_left" string="DAYS LEFT"/>
+								<field name="required_demos" string="REQUIRED DEMOS"/>
+								<field name="sale_required" string="REQUIRED SALES"/>
+								<field name="realized_sales" string="REALIZED SALES"/>
+								<field name="realized_demos" string="REALIZED DEMOS"/>
+								<field name="campaign_success" string="SUCCESS"/>
+								<field name="gift_id" string="GIFT"/>
+								<field name="dealer_id" string="DEALER"/>
+							</tree>
+						</field>
+						<separator string="Past Campaigns"/>
+						<field name="past_campaign_ids" readonly="1">
+							<tree string="CAMPAIGNS">
+								<field name="start_date" string="START DATE"/>
+								<field name="end_date" string="END DATE"/>
+								<field name="days_left" string="DAYS LEFT"/>
+								<field name="required_demos" string="REQUIRED DEMOS"/>
+								<field name="sale_required" string="REQUIRED SALES"/>
+								<field name="realized_sales" string="REALIZED SALES"/>
+								<field name="realized_demos" string="REALIZED DEMOS"/>
+								<field name="campaign_success" string="SUCCESS"/>
+								<field name="gift_id" string="GIFT"/>
+								<field name="dealer_id" string="DEALER"/>
+							</tree>
+						</field>
+					</page>
+					<page string="CALL HISTORY">
+						<field name="call_history_ids">
+							<tree string="CALL HISTORY" editable="0">
+								<field name="id" string="#"/>
+								<field name="name" string="Call Summary" required="0"/>
+								<field name="date" string="Call Date"/>
+								<field name="duration" string="Time"/>
+								<field name="partner_id" string="Contact"/>
+								<field name="dealer_id" string="Responsible"/>
+								<field name="appoint_date" string="Appointment Date"/>
+								<field name="appoint_time" string="Time"/>
+							</tree>
+						</field>
+					</page>
+					<page string="GIFTS">
+						<field name="gift_ids">
+							<tree string="GIFTS" editable="1">
+								<field name="product_id" domain="[('prod_gift', '=', True)]"/>
+								<field name="grant_id"/>
+								<field name="letter_print_date"/>
+								<field name="receipt_print_date"/>
+								<field name="pickup_by"/>
+								<field name="receive_date"/>
+								<field name="comment"/>
+							</tree>
+						</field>
+					</page>
+					<page string="SALE INFO">
+						<group col="12">
+							<group colspan="4">
+								<field name="appt_type"/>
+								<field name="date_set"/>
+								<field name="date_sold"/>
+								<field name="serial_no"/>
+							</group>
+							<group colspan="4">
+								<field name="dealer_id"/>
+								<field name="dealer_position"/>
+								<field name="advance_date"/>
+								<field name="sale_amt"/>
+								<field name="tax_rate"/>
+								<field name="total_tax"/>
+								<field name="total_sale"/>
+							</group>
+							<group colspan="4">
+								<field name="sponsor_id_2"/>
+								<field name="lead_dealer_id"/>
+								<field name="assistant_id"/>
+								<field name="ride_along_id"/>
+								<field name="set_by"/>
+							</group>
+						</group>
+						<group col="12" colspan="6">
+							<field name="prob_with_sale" style="width: 50%"/>
+						</group>
+						<group col="12" colspan="12">
+							<field name="sale_comment"/>
+						</group>
+						
+						<notebook>
+							<page name="item_sold" string="Item Sold">
+							</page>							
+							<page name="financial_info" string="Financial Info">
+								<group col="12">
+									<group colspan="6">
+										<field name="pay_type"/>
+										<field name="option"/>
+										<field name="down_payment"/>
+										<field name="down_type"/>
+									</group>
+									<group colspan="6">
+										<field name="amount_financed"/>
+										<field name="filling_fee"/>
+										<field name="reserve_amt"/>
+										<field name="discount_amt"/>
+										<field name="sac_disc"/>
+										<field name="balance_due"/>
+										<field name="net_sale"/>
+									</group>
+								</group>
+							</page>							
+							<page name="invoices_info" string="Invoices">
+								<separator string="Customer Invoices"/>
+								<field name="customer_acc_inv" context="{'tree_view_ref':'account.invoice_tree'}"/>
+								<separator string="Customer Payments"/>
+								<field name="customer_payment"/>
+							</page>
+							<page name="warranty" string="Warranty">
+								<label for="prod_warr_ids" string="Warranty Revision"/>
+								<field name="prod_warr_ids" string="Warranty Revision">
+									<tree string="Warranty Revision" editable="1">
+										<field name="date"/>
+										<field name="number"/>
+										<field name="ref"/>
+										<field name="revision_desc"/>
+										<field name="total" sum="Total"/>
+										<field name="status"/>
+									</tree>
+								</field>
+								<group>
+									<field name="comment_warranty"/>
+								</group>
+							</page>							
+							<page name="service" string="Service">
+								<label for="prod_service_ids" string="Service Revision-out of warranty"/>
+								<field name="prod_service_ids">
+									<tree string="Service Revision" editable="1">
+										<field name="date"/>
+										<field name="number"/>
+										<field name="ref"/>
+										<field name="revision_desc"/>
+										<field name="total" sum="Total"/>
+										<field name="status"/>
+									</tree>
+								</field>
+								<group>
+									<field name="comment_service"/>
+								</group>
+							</page>							
+						</notebook>
+						
+					</page>
+				</xpath>
+            </field>
+		</record>
+################################################		
+		<record id="crm_case_tree_view_leads_extended" model="ir.ui.view">
+            <field name="name">Leads</field>
+            <field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_tree_view_leads" />
+            <field name="arch" type="xml">
+				<xpath expr="/tree/field[@name='create_date']/parent::tree" position="replace">
+					<tree string="Leads" colors="purple:stage_id and stage_id[1] == 'Appointment Set'; red:stage_id and stage_id[1] == 'Never Call'; green:stage_id and stage_id[1] == 'Demo'; black:stage_id and stage_id[1] == 'Sale'; violet:stage_id and stage_id[1] == 'Demo in Progress'; orange:stage_id and stage_id[1] == 'Appointment Cancelled'">
+						<field name="id"/>
+						<field name="create_date"/>
+						<field name="name"/>
+						<field name="phone"/>
+						<field name="source_id" string="Source/Parent"/>
+						<field name="dealer"/>
+						<field name="stage_id"/>
+						<field name="lead_type" string="Type" widget="selection"/>
+					</tree>
+				</xpath>
+            </field>
+		</record>
+
+####################################################################################
+
+		<record id="invoice_form_extended" model="ir.ui.view">
+            <field name="name">account.invoice.form.extended</field>
+            <field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form" />
+            <field name="arch" type="xml">
+				<xpath expr="/form/sheet/group/group/field[@name='fiscal_position']" position="after">
+						<field name="dealer_id"/>
+						<field name="lead_id"/>
+				</xpath>
+            </field>
+		</record>
+####################################################################################
+        <record id="crm_lead_type_action" model="ir.actions.act_window">
+            <field name="name">CRM Lead Type</field>
+            <field name="res_model">crm.lead.type</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+		<menuitem action="crm_lead_type_action"
+					id="menu_crm_lead_type" name="Lead Type"
+					parent="base.menu_crm_config_lead" sequence="3" groups="base.group_no_one"/>
+					
+####################################################################################					
+
+		<record id="view_vendor_receipt_form_extended" model="ir.ui.view">
+            <field name="name">account.voucher.receipt.form.extended</field>
+            <field name="model">account.voucher</field>
+			<field name="inherit_id" ref="account_voucher.view_vendor_receipt_form" />
+            <field name="arch" type="xml">
+				<xpath expr="/form/sheet/group/group/field[@name='date']" position="after">
+						<field name="dealer_id"/>
+						<field name="lead_id"/>
+				</xpath>
+            </field>
+		</record>
+		
+####################################################################################
+
+		<record id="view_calendar_event_tree_extended" model="ir.ui.view">
+            <field name="name">Leads</field>
+            <field name="model">calendar.event</field>
+			<field name="inherit_id" ref="calendar.view_calendar_event_tree" />
+            <field name="arch" type="xml">
+				<xpath expr="//tree[@string='Meetings']" position="replace">
+					<tree string="Appointments" colors="blue:stage_id == 'appoint_set'; violet:stage_id == 'demo_in_prog'; orange:stage_id == 'appoint_cancel'">
+						<field name="id"/>
+						<field name="create_date" string="Creation Date"/>
+						<field name="first_name" string="Name"/>
+						<field name="phone" string="Phone"/>
+						<field name="source_id" string="Source/Parent"/>
+						<field name="dealer_id" string="Dealer"/>
+						<field name="stage_id"/>
+						<field name="lead_type" widget="selection"/>
+					</tree>
+				</xpath>
+            </field>
+		</record>
+		
+####################################################################################
+		<record id="view_crm_opp_form_extended" model="ir.ui.view">
+            <field name="name">crm.oppor.form.extended</field>
+            <field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/group/group/field[@name='partner_id']" position="after">
+					<field name="dealer_id"/>
+                </xpath>
+                <xpath expr="/form/sheet/div[@class='oe_title']" position="replace">
+					<label for="name" class="oe_edit_only"/>
+					<div>
+						<h1>
+							<field name="name" class="oe_inline" required="0"/>
+							<field name="probability" class="oe_inline" widget="integer" invisible="1"/>
+						</h1>
+					</div>
+				</xpath>
+				<xpath expr="/form/sheet/div/button[@name='action_schedule_meeting']" position="replace">
+					<button class="oe_inline oe_stat_button" type="object"
+						context="{'partner_id': partner_id}"
+						name="action_schedule_meeting" icon="fa-calendar">
+						<field string="Appointments" name="meeting_count" widget="statinfo"/>
+					</button>
+				</xpath>
+            </field>
+		</record>
+##################### CRM Campaign form view ###################
+		
+		<record id="view_crm_campaign_form" model="ir.ui.view">
+            <field name="name">crm.campaign.form</field>
+            <field name="model">crm.campaign</field>
+            <field name="arch" type="xml">
+				<form string="CAMPAIGNS">
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="gift_id"/>
+							<field name="partner_id"/>
+							<field name="complete_presentation" style="width:15%"/>
+							<field name="sale_required" style="width:15%"/>
+							<label for="complete_within_day"/>
+							<div>
+								<field name="complete_within_day" style="width:15%;margin-right:10px;"/> Days
+							</div>
+							<label for="deadline_days"/>
+							<div>
+								<field name="deadline_days" style="width:15%;margin-right:10px;"/> Days
+							</div>
+							<field name="campaign_id" style="width:50%"/>
+							<field name="other_campaign_id" style="width:50%"/>
+							<field name="end_date" style="width:50%"/>
+						</group>
+						<group>
+							<field name="start_date"/>
+							<field name="required_demos"/>
+							<field name="realized_demos"/>
+							<field name="realized_sales"/>
+							<field name="dealer_id"/>
+							<field name="campaign_success"/>
+						</group>
+					</group>
+				</form>
+            </field>
+		</record>
+		
+        <!-- CRM Campaign Tree View -->
+        <record model="ir.ui.view" id="view_crm_campaign_tree">
+            <field name="name">CAMPAIGNS</field>
+            <field name="model">crm.campaign</field>
+            <field name="arch" type="xml">
+                <tree string="CAMPAIGNS">
+                    <field name="end_date" string="END DATE"/>
+                    <field name="name" string="NAME"/>
+                    <field name="complete_presentation" string="REQUIRED PRESENTATIONS"/>
+                    <field name="sale_required" string="REQUIRED SALES"/>
+                    <field name="gift_id" string="GIFT"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_crm_campaign_id" model="ir.actions.act_window">
+            <field name="name">Campaigns</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.campaign</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_crm_campaign_tree"/>
+        </record>
+        
+        
+        <menuitem id="crm_campaign_menu_id" name="Campaigns" action="action_crm_campaign_id"
+            parent="base.menu_base_config" sequence="10" groups="base.group_sale_manager"/>
+		
+################# CRM CONTESTS FORM VIEW #########################
+
+		<record id="view_crm_contest_form" model="ir.ui.view">
+            <field name="name">crm.contest.form</field>
+            <field name="model">crm.contest</field>
+            <field name="arch" type="xml">
+				<form string="CONTESTS">
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="description"/>
+							<field name="track_who" style="width:70%"/>
+							<field name="start_date" style="width:50%"/>
+							<field name="end_date" style="width:50%"/>
+							<field name="onmy_dash"/>
+							<field name="ontheir_dash" style="width:70%"/>
+						</group>
+						<group>
+							<field name="required_demos"/>
+							<field name="realized_demos"/>
+							<field name="required_sales"/>
+							<field name="realized_sales"/>
+							<field name="dealer_id"/>
+							<field name="campaign_success"/>
+							<field name="gift_id"/>
+						</group>
+					</group>
+				</form>
+            </field>
+		</record>
+		
+        <!-- CRM Campaign Tree View -->
+        <record model="ir.ui.view" id="view_crm_contest_tree">
+            <field name="name">Contests</field>
+            <field name="model">crm.contest</field>
+            <field name="arch" type="xml">
+                <tree string="CONTESTS">
+                    <field name="name" string="NAME"/>
+                    <field name="create_date" string="CREATED"/>
+                    <field name="end_date" string="START DATE"/>
+                    <field name="end_date" string="END DATE"/>
+                </tree>
+            </field>
+        </record>
+		
+        <record id="action_crm_contest_id" model="ir.actions.act_window">
+            <field name="name">Contests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.contest</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_crm_contest_tree"/>
+        </record>
+        
+        
+        <menuitem id="crm_contest_menu_id" name="Contests" action="action_crm_contest_id"
+            parent="base.menu_base_config" sequence="11" groups="base.group_sale_manager"/>
+		
+		
+######################## DEALER TREE VIEW #####################		
+
+        <!-- CRM Lead Tree View -->
+        <record model="ir.ui.view" id="view_dealer_tree">
+            <field name="name">Dealers</field>
+            <field name="model">res.dealer</field>
+            <field name="arch" type="xml">
+                <tree string="Dealers">
+                    <field name="name" string="NAME"/>
+                    <field name="fname" string="SPOUSE"/>
+                    <field name="city" string="CITY"/>
+                    <field name="personal_no" string="PHONE"/>
+                    <field name="start_date" string="STARTED"/>
+                    <field name="create_uid" string="RECRUITER"/>
+                </tree>
+            </field>
+        </record>
+
+######################## DEALER FORM VIEW AND MENU-ITEM #####################
+		
+        <record id="view_dealer_form" model="ir.ui.view">
+            <field name="name">res.dealer.form</field>
+            <field name="model">res.dealer</field>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="DEALER MAINTENANCE">
+                <sheet>
+					<table class="oe_right" style="width:30%">
+						<tr style="border:1px solid black">
+							<td style="width:50%;">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/dollar.jpg" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="sales_count" style="margin-left:10px"/>
+									<label for="sales_count" style="margin-left:5px"/>
+								</td>
+							</td>
+							<td style="width:50%;border:1px solid black">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/calendar.png" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="appointment_count" style="margin-left:10px"/>
+									<label for="appointment_count" style="margin-left:5px"/>
+								</td>
+							</td>
+							<td style="width:50%;border:1px solid black">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/plane.png" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="trips_count" style="margin-left:10px"/>
+									<label for="trips_count" style="margin-left:5px"/>
+								</td>
+							</td>
+						</tr>
+						<tr style="border:1px solid black">
+							<td style="width:50%;">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/dollar.jpg" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="total_income" style="margin-left:10px"/>
+									<label for="total_income" style="margin-left:5px"/>
+								</td>
+							</td>
+							<td style="width:50%;border:1px solid black">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/calendar.png" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="demos_count" style="margin-left:10px"/>
+									<label for="demos_count" style="margin-left:5px"/>
+								</td>
+							</td>
+							<td style="width:50%;border:1px solid black">
+								<td>
+									<img src="/crm_lead_extended/static/src/img/cup.jpg" style="width:30px;height:30px;margin-top:5px"/>
+								</td>
+								<td>
+									<field name="contest_count" style="margin-left:10px"/>
+									<label for="contest_count" style="margin-left:5px"/>
+								</td>
+							</td>
+						</tr>
+						
+					</table>
+					
+                    <field name="image" widget='image' class="oe_left oe_avatar" options='{"preview_image": "image_medium", "size": [90, 90]}'/>
+
+                    <div class="oe_title oe_left">
+						<label for="name"/>
+						<h1>
+							<field name="name" default_focus="1" placeholder="first name" style="width: 50%%"/>
+							<field name="last_name" placeholder="last name" style="width: 50%%"/>
+						</h1>
+                    </div>
+                    <group>
+						<group>
+	                        <field name="comp_title"/>
+	                        <field name="marital_status"/>
+	                        <field name="personal_no"/>
+							<label for="street" string="Address1"/>
+							<div>
+								<field name="street" placeholder="Street..."/>
+								<field name="street2"/>
+								<div class="address_format">
+									<field name="city" placeholder="City" style="width: 40%%"/>
+									<field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" on_change="onchange_state(state_id)"/>
+									<field name="zip" placeholder="ZIP" style="width: 20%%"/>
+								</div>
+								<field name="country_id" placeholder="Country" class="oe_no_button"/>
+							</div>
+							<field name="home_phone"/>
+							<field name="home_phone2"/>
+							<field name="work_phone"/>
+							<field name="work_phone2"/>
+		                    <label for="company_owners"/>
+		                    <div>
+		                        <field name="company_owners" style="width: 10%"/>
+		                        <field name="cust_company_name" on_change="onchange_comp1(cust_company_name)" style="width: 90%" placeholder="Select or create company" attrs="{'invisible': [('company_owners', '=', False)]}"/>
+		                    </div>
+						</group>
+						<group>
+							<field name="start_date"/>
+							<field name="graduation_date"/>
+							<field name="sponsored_by"/>
+							<label for="full_time" string="Status"/>
+							<div>
+							    <field name="full_time"/> Full Time
+							    <field name="part_time"/> Part Time
+							</div>
+							<field name="position"/>
+							<field name="elig_for_override"/>
+							<field name="manager_name"/>
+							<field name="responsible_user_id"/>
+							<field name="section_id"/>
+							<field name="branch"/>
+							<field name="organization"/>
+						</group>
+					</group>
+                    <notebook colspan="4">
+                        <page string="DEALER INFO">
+<group col="12">
+                            <group colspan="6">
+                                <label for="fname" string="Partner Info"/>
+                                <div>
+                                    <field name="fname" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+                                    <field name="lname" attrs="{'required': [('marital_status','in', ['engaged', 'married', 'partners', 'couple'])]}"/>
+                                </div>
+                                <label for="address_same_yes" string="Address Same as Primary?"/>
+                                <div>
+									<field name="address_same_yes" on_change="onchange_add(address_same_yes)" widget="radio"/>
+                                </div>
+                                <label for="street_2" string="Address"/>
+                                <div>
+                                    <field name="street_2" placeholder="Street..."/>
+                                    <field name="street2_2"/>
+                                    <field name="city_2" style="width:36%" placeholder="City...."/>
+                                    <field name="state_id_2" style="width:36%" placeholder="State"/>
+                                    <field name="zip_2" style="width:20%" placeholder="Zip"/>
+                                    <field name="country_id_2" style="width:100%" placeholder="Country"/>
+                                </div>
+                            </group>
+                            <group colspan="6">
+                                <field name="partner_work_phone"/>
+                                <field name="partner_home_phone"/>
+                                <field name="partner_cell_phone" string="Mobile"/>
+                                <field name="partner_email"/>
+                                <field name="work_as_team"/>
+                                <field name="team_name" attrs="{'invisible': [('work_as_team','=',False)]}"/>
+                            </group>
+                        </group>
+						<group col="12" colspan="12">
+							<group colspan="8">
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/allergy.png" style="width:20px;height:20px"/>
+										<label for="allergies_yes" string="Does any body suffer from allergies?"/>
+									</div>
+									<div>
+										<field name="allergies_yes" widget="radio"/>
+									</div>
+								</group>
+								<group colspan="8">
+									<div>
+										<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/cat.png" style="width:20px;height:20px"/>
+										<label for="pets_yes" string="Own any pets?"/>
+									</div>
+									<div>
+										<field name="pets_yes" widget="radio"/>
+									</div>
+								</group>
+							</group>
+							<group colspan="4">
+								<group colspan="4">
+								<div>
+									<img class="oe_module_icon" src="/crm_lead_extended/static/src/img/child.png" style="width:20px;height:20px"/>
+									<label for="children" string="Children(s)"/>
+									<field name="children" style="width: 10%"/>
+								</div>
+								</group>
+								<group colspan="4">
+								<div>
+									<field name="child_1" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 1"/> 
+									<field name="child_2" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 2"/> 
+									<field name="child_3" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 3"/> 
+									<field name="child_4" style="width: 50%" attrs="{'invisible' : [('children', '=', False)]}" placeholder="Child 4"/> 
+								</div>
+								</group>
+							</group>
+						</group>
+                        <notebook>
+                            <page name="internal_info" string="Internal Info">
+                                <group col="12">
+                                    <group>
+										<field name="referred_by"/>
+                                        <field name="appointment_type"/>
+                                        <field name="lead_type" widget="selection"/>
+                                    </group>
+                                    <group>
+                                        <field name="dealer"/>
+                                        <field name="sponsor"/>
+                                        <field name="event_source"/>
+                                    </group>
+                                    <group colspan="12">
+                                        <field name="comment" string="Notes"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="other_info" string="Other Info">
+                                <group colspan="12">
+                                    <field name="comment_other" string="Notes"/>
+                                </group>
+                            </page>
+                            <page name="company_info" string="Company Info">
+                                <group col="12">
+                                    <group colspan="6">
+                                        <label string="No.1 Customer Company"/>
+                                    </group>
+                                    <group colspan="6">
+                                        <label string="No.2 Customer Company"/>
+                                    </group>
+                                    <group name="company_1" colspan="6">
+                                        <label for="company_id_1" string="Company"/>
+                                        <div>
+                                            <field name="company_id_1" style="width: 50%%"/>
+                                            <field name="comp1_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+                                        </div>
+                                        <field name="comp1_fiscal_id"/>
+                                        <field name="comp1_registry"/>
+                                        <label for="comp1_street" string="Address"/>
+                                        <div>
+                                            <field name="comp1_street" placeholder="Street..."/>
+                                            <field name="comp1_street2"/>
+                                            <field name="comp1_city" style="width:36%" placeholder="City...."/>
+                                            <field name="comp1_state_id" style="width:36%" placeholder="State"/>
+                                            <field name="comp1_zip" style="width:20%" placeholder="Zip"/>
+                                            <field name="comp1_country_id" style="width:100%" placeholder="Country"/>
+                                        </div>
+                                        <field name="company_act_1"/>
+                                    </group>
+                                    <group name="company_2" colspan="6">
+                                        <label for="company_id_2" string="Company"/>
+                                        <div>
+                                            <field name="company_id_2" on_change="onchange_comp2(company_id_2)" style="width: 50%%"/>
+                                            <field name="comp2_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+                                        </div>
+                                        <field name="comp2_fiscal_id"/>
+                                        <field name="comp2_registry"/>
+                                        <label for="comp2_street" string="Address"/>
+                                        <div>
+                                            <field name="comp2_street" placeholder="Street..."/>
+                                            <field name="comp2_street2"/>
+                                            <field name="comp2_city" style="width:36%" placeholder="City...."/>
+                                            <field name="comp2_state_id" style="width:36%" placeholder="State"/>
+                                            <field name="comp2_zip" style="width:20%" placeholder="Zip"/>
+                                            <field name="comp2_country_id" style="width:100%" placeholder="Country"/>
+                                        </div>
+                                        <field name="company_act_2"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="more_comp"/>
+                                </group>
+
+                                <group col="12">
+                                    <group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+                                        <label string="No.3 Customer Company"/>
+                                    </group>
+                                    <group colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+                                        <label string="No.4 Customer Company"/>
+                                    </group>
+                                    <group name="company_3" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+                                        <label for="company_id_3" string="Company"/>
+                                        <div>
+                                            <field name="company_id_3" on_change="onchange_comp3(company_id_3)" style="width: 50%%"/>
+                                            <field name="comp3_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+                                        </div>
+                                        <field name="comp3_fiscal_id"/>
+                                        <field name="comp3_registry"/>
+                                        <label for="comp3_street" string="Address"/>
+                                        <div>
+                                            <field name="comp3_street" placeholder="Street..."/>
+                                            <field name="comp3_street2"/>
+                                            <field name="comp3_city" style="width:36%" placeholder="City...."/>
+                                            <field name="comp3_state_id" style="width:36%" placeholder="State"/>
+                                            <field name="comp3_zip" style="width:20%" placeholder="Zip"/>
+                                            <field name="comp3_country_id" style="width:100%" placeholder="Country"/>
+                                        </div>
+                                        <field name="company_act_3"/>
+                                    </group>
+                                    <group name="company_4" colspan="6" attrs="{'invisible': [('more_comp', '=', False)]}">
+                                        <label for="company_id_4" string="Company"/>
+                                        <div>
+                                            <field name="company_id_4" on_change="onchange_comp4(company_id_4)" style="width: 50%%"/>
+                                            <field name="comp4_title" style="width: 50%%" nolabel="True"  domain="[('domain', '=', 'partner')]"/>
+                                        </div>
+                                        <field name="comp4_fiscal_id"/>
+                                        <field name="comp4_registry"/>
+                                        <label for="comp4_street" string="Address"/>
+                                        <div>
+                                            <field name="comp4_street" placeholder="Street..."/>
+                                            <field name="comp4_street2"/>
+                                            <field name="comp4_city" style="width:36%" placeholder="City...."/>
+                                            <field name="comp4_state_id" style="width:36%" placeholder="State"/>
+                                            <field name="comp4_zip" style="width:20%" placeholder="Zip"/>
+                                            <field name="comp4_country_id" style="width:100%" placeholder="Country"/>
+                                        </div>
+                                        <field name="company_act_4"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        </page>
+	                    <page name="leads" string="LEADS">
+	                        <field name="partner_leads">
+								<tree string="LEADS" editable="0">
+									<field name="id" string="#"/>
+									<field name="name" string="Name" required="0"/>
+									<field name="personal_no" string="Phone no"/>
+									<field name="city" string="Address"/>
+									<field name="lead_type" string="Status"/>
+									<field name="result_id" string="Result"/>
+								</tree>
+							</field>
+	                    </page>
+	                    <page name="appointments" string="APPOINTMENTS">
+	                        <field name="appointment_ids">
+								<tree string="APPOINTMENTS" editable="0">
+									<field name="id" string="#"/>
+									<field name="first_name" string="Name" required="0"/>
+									<field name="phone" string="Phone no"/>
+									<field name="city" string="Address"/>
+									<field name="lead_type" string="Status"/>
+									<field name="result_id" string="Result"/>
+								</tree>
+							</field>
+	                    </page>
+
+	                    <page name="contests" string="CONTESTS">
+							<separator string="Active Contests"/>
+							<field name="active_contest_ids">
+								<tree string="CONTESTS" editable="0">
+									<field name="start_date" string="START DATE"/>
+									<field name="end_date" string="END DATE"/>
+									<field name="days_left" string="DAYS LEFT"/>
+									<field name="required_demos" string="REQUIRED DEMOS"/>
+									<field name="required_sales" string="REQUIRED SALES"/>
+									<field name="realized_sales" string="REALIZED SALES"/>
+									<field name="realized_demos" string="REALIZED DEMOS"/>
+									<field name="campaign_success" string="SUCCESS"/>
+									<field name="gift_id" string="GIFT"/>
+								</tree>
+							</field>
+							<separator string="Past Contests"/>
+							<field name="past_contest_ids" readonly="1">
+								<tree string="CONTESTS" editable="0">
+									<field name="start_date" string="START DATE"/>
+									<field name="end_date" string="END DATE"/>
+									<field name="days_left" string="DAYS LEFT"/>
+									<field name="required_demos" string="REQUIRED DEMOS"/>
+									<field name="required_sales" string="REQUIRED SALES"/>
+									<field name="realized_sales" string="REALIZED SALES"/>
+									<field name="realized_demos" string="REALIZED DEMOS"/>
+									<field name="campaign_success" string="SUCCESS"/>
+									<field name="gift_id" string="GIFT"/>
+								</tree>
+							</field>
+	                    </page>
+	                    
+	                    <page name="meetings" string="MEETINGS">
+                            <separator string="FUTURE MEETINGS"/>
+	                        <field name="future_meetings">
+								<tree string="FUTURE MEETINGS" editable="0" colors="blue : meeting_imp == 'normal'; orange: meeting_imp == 'high'; purple : meeting_imp == 'low'">
+									<field name="id" string="Id"/>
+									<field name="state" invisible="1"/>
+									<field name="start_datetime" string="DATE"/>
+									<field name="meet_type"/>
+									<field name="first_name"/>
+									<field name="meeting_location"/>
+									<field name="street" string="Address"/>
+									<field name="organiser_id"/>
+									<field name="meeting_imp"/>
+								</tree>
+							</field>
+                            <separator string="PAST EVENTS"/>
+                            <field name="past_meetings">
+								<tree string="PAST EVENTS" editable="0" colors="blue : meeting_imp == 'normal'; orange: meeting_imp == 'high'; purple : meeting_imp == 'low'">
+									<field name="id" string="Id"/>
+									<field name="state" invisible="1"/>
+									<field name="start_datetime" string="DATE"/>
+									<field name="meet_type"/>
+									<field name="first_name"/>
+									<field name="meeting_location"/>
+									<field name="street" string="Address"/>
+									<field name="organiser_id"/>
+									<field name="meeting_imp"/>
+								</tree>
+							</field>
+	                    </page>
+	                    <page name="gifts" string="GIFTS">
+	                        <field name="gift_ids" domain="[('prod_gift', '=', True)]"/>
+	                    </page>
+
+	                    <page name="sale_info" string="SALE INFO">
+	                        <field name="partner_sale_info">
+								<tree string="SALE INFO" editable="0">
+									<field name="date_order"/>
+									<field name="state" invisible="1"/>
+									<field name="partner_id"/>
+									<field name="amount_total" string="SALE AMOUNT"/>
+									<field name="order_type" string="TYPE"/>
+									<field name="personal_no" string="PHONE #"/>
+									<field name="source_id" string="LEAD SOURCE"/>
+									<field name="dealer_id" string="DEALER"/>
+								</tree>
+							</field>
+							<notebook>
+								<page string="COMMISSIONS">
+									<field name="commission_ids">
+										<tree string="COMMISSIONS" editable="0">
+											<field name="id" string="ID"/>
+											<field name="date_order" string="DATE"/>
+											<field name="partner_id" string="CUSTOMER"/>
+											<field name="amount_total" string="SALE AMOUNT"/>
+											<field name="amount_total" string="DOWNPAYMENT"/>
+											<field name="commission_total" string="COMMISSION"/>
+											<field name="state" string="STATUS"/>
+										</tree>
+									</field>
+								</page>
+								<page string="CONSIGNMENTS">
+									<field name="consignment_ids">
+										<tree string="CONSIGNMENTS" editable="0">
+											<field name="product_id" />
+											<field name="serial_no"/>
+											<field name="consign_date"/>
+											<field name="return_date"/>
+											<field name="partner_id"/>
+										</tree>
+									</field>
+								</page>
+							</notebook>
+	                    </page>
+	                    <page name="trip_info" string="TRIPS">
+							<field name="trip_meetings">
+								<tree string="TRIPS" editable="0">
+									<field name="id" string="Id"/>
+									<field name="state" invisible="1"/>
+									<field name="start_datetime" string="DATE"/>
+									<field name="trip_to" string="TRIP TO"/>
+									<field name="hotel_name" string="HOTEL NAME"/>
+									<field name="trip_type" string="TYPE"/>
+								</tree>
+							</field>
+	                    </page>
+
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_dealer_form" model="ir.actions.act_window">
+            <field name="name">Dealers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.dealer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_dealer_tree"/>
+        </record>
+
+        <menuitem id="menu_dealer" parent="base.menu_sales" name="Dealers"
+            sequence="3" action="action_dealer_form"/>
+#######################################################################        
+
+		<record id="calendar.action_calendar_event" model="ir.actions.act_window">
+			<field name="name">Appointments</field>
+			<field name="res_model">calendar.event</field>
+			<field name="view_mode">calendar,tree,form,gantt</field>
+			<field name="view_id" ref="calendar.view_calendar_event_calendar"/>
+			<field name="search_view_id" ref="calendar.view_calendar_event_search"/>
+			<field name="help" type="html">
+			  <p class="oe_view_nocontent_create">
+				Click to schedule a new meeting.
+			  </p><p>
+				The calendar is shared between employees and fully integrated with
+				other applications such as the employee holidays or the business
+				opportunities.
+			  </p>
+			</field>
+		</record>
+
+############################################################################
+		<record id="view_crm_lead2opportunity_partner_extended" model="ir.ui.view">
+            <field name="name">crm.lead2opportunity.partner.form.extend</field>
+            <field name="model">crm.lead2opportunity.partner</field>
+			<field name="inherit_id" ref="crm.view_crm_lead2opportunity_partner" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/group/field[@name='name']" position="replace">
+					<field name="name" class="oe_inline"/>
+                </xpath>
+            </field>
+		</record>
+###########################################################################
+
+		<record id="view_users_form_extended" model="ir.ui.view">
+            <field name="name">res.users.form.extended</field>
+            <field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/div/h1/field[@name='name']" position="replace">
+					<field name="name" placeholder="First Name" required="1" style="width:50%"/>
+					<field name="last_name" placeholder="Last Name" required="1" style="width:50%"/>
+                </xpath>
+                <xpath expr="/form/sheet/div/group/field[@name='partner_id']" position="after">
+					<field name="dealer_id" readonly="1" required="0" groups="base.group_no_one"
+                                        attrs="{'invisible': [('id', '=', False)]}"/>
+                </xpath>
+                <xpath expr="/form/sheet/div/group/field[@name='active']" position="after">
+					<field name="dealer_or_partner"/>
+                </xpath>
+                
+            </field>
+		</record>
+
+
+########################
+
+		<record id="view_crm_lead_map" model="ir.ui.view">
+        <field name="name">>Locate on Map</field>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <form string="Locate Map">
+                
+                <group colspan="2" >
+                    <group>
+                        <field name="km" invisible="1"/> 
+                    </group>
+                </group>
+                         
+                <footer>
+                    <button special="cancel" type="object" string="Ok" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+               <widget type="map"></widget>
+               
+            </form>
+        </field>
+    </record>
+
+		<menuitem name="Appointments" id="sale_menu_appointment" parent="base.menu_sales" sequence="2" action="calendar.action_calendar_event"/>
+
+		<menuitem name="Leads" id="crm.menu_crm_leads" parent="base.menu_sales" sequence="1"
+				action="crm.crm_case_category_act_leads_all"/>
+				
+        <menuitem id="base.menu_partner_form" parent="base.menu_sales" action="base.action_partner_form" sequence="10"/>
+        
+	</data>
+</openerp>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+        <record id="menu_services" model="website.menu">
+            <field name="name">Services</field>
+            <field name="url">/services/</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        
+          <record id="action_open_website" model="ir.actions.act_url">
+            <field name="name">Website Services</field>
+            <field name="target">self</field>
+            <field name="url">/services#tutorial.services=true</field>
+        </record>
+        
+        <record id="base.open_menu" model="ir.actions.todo">
+            <field name="action_id" ref="action_open_website"/>
+            <field name="state">open</field>
+        </record>
+   
+
+
+        <record id="menu_odoo" model="website.menu">
+            <field name="name">Odoo</field>
+            <field name="url">/odoo</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        <record id="action_open_website" model="ir.actions.act_url">
+            <field name="name">Website Odoo</field>
+            <field name="target">self</field>
+            <field name="url">/odoo#tutorial.odoo=true</field>
+        </record>
+        <record id="base.open_menu" model="ir.actions.todo">
+            <field name="action_id" ref="action_open_website"/>
+            <field name="state">open</field>
+        </record>
+
+
+
+       <!--<record id="menu_career" model="website.menu">
+            <field name="name">Career</field>
+            <field name="url">/career</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        <record id="action_open_website" model="ir.actions.act_url">
+            <field name="name">Website career</field>
+            <field name="target">self</field>
+            <field name="url">/career#tutorial.career=true</field>
+        </record>
+        <record id="base.open_menu" model="ir.actions.todo">
+            <field name="action_id" ref="action_open_website"/>
+            <field name="state">open</field>
+        </record>    -->
+        
+        
+        
+        <record id="menu_about" model="website.menu">
+            <field name="name">About Us</field>
+            <field name="url">/about</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        
+        <record id="menu_blog" model="website.menu">
+            <field name="name">Blog</field>
+            <field name="url">http://www.blog.browseinfo.in</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        
+        
+        <record id="action_open_website" model="ir.actions.act_url">
+            <field name="name">Website About</field>
+            <field name="target">self</field>
+            <field name="url">/about#tutorial.about=true</field>
+        </record>
+        <record id="base.open_menu" model="ir.actions.todo">
+            <field name="action_id" ref="action_open_website"/>
+            <field name="state">open</field>
+        </record>
+
+
+
+
+
+
+
+
+    </data>
+</openerp>

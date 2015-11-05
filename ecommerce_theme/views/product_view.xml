@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- Product Form View Inherited -->
+		<record model="ir.ui.view" id="view_product_template_form_inherited">
+    		<field name="name">product.template.frm.inherited</field>
+    		<field name="model">product.template</field>    		
+			<field name="inherit_id" ref="product.product_template_only_form_view"/>    		
+    		<field name="arch" type="xml">        					
+    			<xpath expr="//group[@name='website']/field[@name='website_style_ids']" position="after">
+                    <field name="is_arrival" nolabel="0" />
+                    <field name="is_features" nolabel="0"/>                   
+                </xpath>	               				         
+			</field>                	
+    	</record>
+		<!-- Product Category -->
+		<record model="ir.ui.view" id="view_product_public_category_inherit">
+    		<field name="name">product.public.category.inherited</field>
+    		<field name="model">product.public.category</field>    		
+			<field name="inherit_id" ref="website_sale.product_public_category_form_view"/>    		
+    		<field name="arch" type="xml">        					
+    			<xpath expr="//field[@name='sequence']" position="after">
+                    <field name="include_in_menu" attrs="{'invisible':[('parent_id','=',True)]}"/>
+                </xpath>	               				         
+			</field>                	
+    	</record>
+
+		<record model="ir.ui.view" id="view_product_template_form_multiple_image">
+    		<field name="name">product.template.form.view.inherited</field>
+    		<field name="model">product.template</field>    		
+			<field name="inherit_id" ref="product.product_template_only_form_view"/>    		
+            <field name="arch" type="xml">
+				<xpath expr="//div[@name='options']" position="inside">
+				<field name="multi_image" nolabel="1"/>
+				<label for="multi_image"/>
+				</xpath>
+               	<xpath expr="//page[@string='Information']" position="after">
+                   <page string="Product Multiple Images" attrs="{'invisible':[('multi_image','!=',True)]}">
+					   <field name="images">
+					        <tree editable="bottom">
+							<field name="name"/>
+							<field name="image" widget="image" height="64"/>							
+							<field name="sequence"/>
+							<field name="more_view_exclude"/>
+					        </tree>
+					   </field>
+                   </page>
+                  </xpath>
+            </field>           	
+    	</record>
+	</data>
+</openerp>

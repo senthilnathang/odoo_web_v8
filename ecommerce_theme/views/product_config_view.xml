@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<record id="view_website_config_settings_zoom_inherit" model="ir.ui.view">
+			<field name="name">Website settings</field>
+			<field name="model">website.config.settings</field>
+			<field name="inherit_id" ref="website.view_website_config_settings"/>
+			<field name="arch" type="xml">
+				<xpath expr="/form/div/group[@string='Language']" position="after">
+				<group string="Multiple Product Image">
+                    <field name="is_zoom_feature"/>
+                    <field name="inner_zoom"/>
+				</group>
+				</xpath>
+		   </field>
+	   </record>	
+	</data>
+</openerp>

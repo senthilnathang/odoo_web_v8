@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template_map" xml:space="preserve">
+    <t t-name="map">
+        <div style="height:500px;">
+            <div id="tour-map-canvas" style="float:left;width:600px; height:500px">
+            </div>
+            <div id="directionsPanel" style="float:right;width:27%;height 100%;padding:5px;">
+                <button id="distance" type="button"><span>Get Distance</span></button>
+                <p id="start"></p>
+                <p id="end"></p>
+                <p id="dist"></p>
+                <p id="durat"></p>
+            </div>
+        </div>
+    </t>
+    <!--t t-name="map1">
+        <div style="height:500px;">
+            <div id="tour-map1-canvas" style="float:left;width:600px; height:500px"></div>
+            <div id="directionsPanel" style="float:right;width:27%;height 100%;padding:5px;"><p id="start"></p><p id="end"></p><p id="dist"></p><p id="durat"></p></div>
+        </div>
+    </t-->
+</templates>

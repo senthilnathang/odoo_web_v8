@@ -1,0 +1,547 @@
+/* =============================================================================
+  NAV
+============================================================================= */
+.demo-nav {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.demo-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-nav li {
+  display: inline-block;
+  margin: 0 2px 4px 2px;
+}
+
+.demo-nav a {
+  display: block;
+  padding: 8px 24px;
+  color: #28aadc;
+  border: solid 2px #28aadc;
+}
+
+.demo-nav a:hover,
+.demo-nav li.active a {
+  color: #fff;
+  background-color: #28aadc;
+}
+
+/* =============================================================================
+  COMPONENT
+============================================================================= */
+.component {
+  text-align: center;
+}
+
+.component__title {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* =============================================================================
+  ICONS - COMMON
+============================================================================= */
+/**
+ * Icon common styles.
+ *
+ * Set it to block or inline block, whichever suits your needs. Overflow set to
+ * hidden for precautions, and make sure to set the font size to 0 and the text
+ * indent to -9999px. This allows us to actually include text in the markup
+ * which will be good for screen readers and accessibility purposes.
+ */
+.icon {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  margin: 4px;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  text-indent: -9999px;
+}
+
+/* =============================================================================
+  ICONS - DEMO 1
+============================================================================= */
+/**
+ * "icon-mono" class name used to indicate monochrome-type icon. Use whatever
+ * class name you want, but make sure to change it up in the markup.
+ *
+ * Example HTML:
+ *
+ * <a href="#" class="icon icon-mono facebook">facebook</a>
+ * <a href="#" class="icon icon-mono twitter">twitter</a>
+ * ...
+ */
+.icon-mono {
+  background: url("../img/icons1.png");
+  background-image: url("../img/icons1.svg"), none;
+  background-color: #595959;
+  -webkit-transition: background 0.3s;
+          transition: background 0.3s;
+}
+
+/* facebook */
+.icon-mono.facebook {
+  background-position: 0 0;
+}
+
+.icon-mono.facebook:hover {
+  background-color: #3b5998;
+  background-position: 0 -96px;
+}
+
+/* twitter */
+.icon-mono.twitter {
+  background-position: -96px 0;
+}
+
+.icon-mono.twitter:hover {
+  background-color: #4099ff;
+  background-position: -96px -96px;
+}
+
+/* google plus */
+.icon-mono.googleplus {
+  background-position: -192px 0;
+}
+
+.icon-mono.googleplus:hover {
+  background-color: #d34836;
+  background-position: -192px -96px;
+}
+
+/* github */
+.icon-mono.github {
+  background-position: -288px 0;
+}
+
+.icon-mono.github:hover {
+  background-color: #333333;
+  background-position: -288px -96px;
+}
+
+/* rss */
+.icon-mono.rss {
+  background-position: -384px 0;
+}
+
+.icon-mono.rss:hover {
+  background-color: #ee802f;
+  background-position: -384px -96px;
+}
+
+/* =============================================================================
+  ICONS - DEMO 2
+============================================================================= */
+/**
+ * "icon-nudge" class name used to indicate an icon that nudges upward on hover
+ * and a little coloured border that nudges upward with it.
+ *
+ * Example HTML:
+ *
+ * <a href="#" class="icon icon-nudge facebook">facebook</a>
+ * <a href="#" class="icon icon-nudge twitter">twitter</a>
+ * ...
+ */
+.icon-nudge {
+  position: relative;
+  background: url("../img/icons2.png");
+  background-image: url("../img/icons2.svg"), none;
+  -webkit-transition: background 0.2s;
+          transition: background 0.2s;
+}
+
+.icon-nudge::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  content: "";
+  -webkit-transition: height 0.2s;
+          transition: height 0.2s;
+}
+
+.icon-nudge:hover::after {
+  height: 8px;
+}
+
+/* facebook */
+.icon-nudge.facebook {
+  background-color: #3b5998;
+  background-position: 0 0;
+}
+
+.icon-nudge.facebook:hover {
+  background-position: 0 -8px;
+}
+
+.icon-nudge.facebook::after {
+  background-color: #1e2e4f;
+}
+
+/* twitter */
+.icon-nudge.twitter {
+  background-color: #4099ff;
+  background-position: -96px 0;
+}
+
+.icon-nudge.twitter:hover {
+  background-position: -96px -8px;
+}
+
+.icon-nudge.twitter::after {
+  background-color: #0065d9;
+}
+
+/* google plus */
+.icon-nudge.googleplus {
+  background-color: #d34836;
+  background-position: -192px 0;
+}
+
+.icon-nudge.googleplus:hover {
+  background-position: -192px -8px;
+}
+
+.icon-nudge.googleplus::after {
+  background-color: #86291d;
+}
+
+/* github */
+.icon-nudge.github {
+  background-color: #333333;
+  background-position: -288px 0;
+}
+
+.icon-nudge.github:hover {
+  background-position: -288px -8px;
+}
+
+.icon-nudge.github::after {
+  background-color: #4d4d4d;
+}
+
+/* rss */
+.icon-nudge.rss {
+  background-color: #ee802f;
+  background-position: -384px 0;
+}
+
+.icon-nudge.rss:hover {
+  background-position: -384px -8px;
+}
+
+.icon-nudge.rss::after {
+  background-color: #a9500e;
+}
+
+/* =============================================================================
+  ICONS - DEMO 3
+============================================================================= */
+/**
+ * "icon-slide" class name used to indicate an icon that has an animated slide
+ * effect.
+ *
+ * Example HTML:
+ *
+ * <a href="#" class="icon icon-slide facebook">facebook</a>
+ * <a href="#" class="icon icon-slide twitter">twitter</a>
+ * ...
+ */
+.icon-slide {
+  position: relative;
+}
+
+.icon-slide::before,
+.icon-slide::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/icons3.png");
+  background-image: url("../img/icons3.svg"), none;
+  content: "";
+  -webkit-transition: left 0.3s;
+          transition: left 0.3s;
+}
+
+.icon-slide::before {
+  left: 0;
+  background-color: #595959;
+}
+
+.icon-slide::after {
+  left: -100%;
+}
+
+.icon-slide:hover::before {
+  left: 100%;
+}
+
+.icon-slide:hover::after {
+  left: 0;
+}
+
+/* facebook */
+.icon-slide.facebook::before,
+.icon-slide.facebook::after {
+  background-position: 0 0;
+}
+
+.icon-slide.facebook::after {
+  background-color: #3b5998;
+}
+
+/* twitter */
+.icon-slide.twitter::before,
+.icon-slide.twitter::after {
+  background-position: -96px 0;
+}
+
+.icon-slide.twitter::after {
+  background-color: #4099ff;
+}
+
+/* google plus */
+.icon-slide.googleplus::before,
+.icon-slide.googleplus::after {
+  background-position: -192px 0;
+}
+
+.icon-slide.googleplus::after {
+  background-color: #d34836;
+}
+
+/* github */
+.icon-slide.github::before,
+.icon-slide.github::after {
+  background-position: -288px 0;
+}
+
+.icon-slide.github::after {
+  background-color: #333333;
+}
+
+/* rss */
+.icon-slide.rss::before,
+.icon-slide.rss::after {
+  background-position: -384px 0;
+}
+
+.icon-slide.rss::after {
+  background-color: #ee802f;
+}
+
+/* =============================================================================
+  ICONS - DEMO 4
+============================================================================= */
+/**
+ * "icon-border" class name used to indicate an icon that has an animated border
+ * effect.
+ *
+ * Example HTML:
+ *
+ * <a href="#" class="icon icon-border facebook">facebook</a>
+ * <a href="#" class="icon icon-border twitter">twitter</a>
+ * ...
+ */
+.icon-border {
+  position: relative;
+}
+
+.icon-border::before,
+.icon-border::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.icon-border::before {
+  z-index: 1;
+  -webkit-transition: box-shadow 0.3s;
+          transition: box-shadow 0.3s;
+}
+
+.icon-border::after {
+  z-index: 2;
+  background: url("../img/icons4.png");
+  background-image: url("../img/icons4.svg"), none;
+}
+
+/* facebook */
+.icon-border.facebook::before {
+  box-shadow: inset 0 0 0 48px #3b5998;
+}
+
+.icon-border.facebook:hover::before {
+  box-shadow: inset 0 0 0 4px #3b5998;
+}
+
+.icon-border.facebook::after {
+  background-position: 0 0;
+}
+
+/* twitter */
+.icon-border.twitter::before {
+  box-shadow: inset 0 0 0 48px #4099ff;
+}
+
+.icon-border.twitter:hover::before {
+  box-shadow: inset 0 0 0 4px #4099ff;
+}
+
+.icon-border.twitter::after {
+  background-position: -96px 0;
+}
+
+/* google plus */
+.icon-border.googleplus::before {
+  box-shadow: inset 0 0 0 48px #d34836;
+}
+
+.icon-border.googleplus:hover::before {
+  box-shadow: inset 0 0 0 4px #d34836;
+}
+
+.icon-border.googleplus::after {
+  background-position: -192px 0;
+}
+
+/* github */
+.icon-border.github::before {
+  box-shadow: inset 0 0 0 48px #333333;
+}
+
+.icon-border.github:hover::before {
+  box-shadow: inset 0 0 0 4px #333333;
+}
+
+.icon-border.github::after {
+  background-position: -288px 0;
+}
+
+/* rss */
+.icon-border.rss::before {
+  box-shadow: inset 0 0 0 48px #ee802f;
+}
+
+.icon-border.rss:hover::before {
+  box-shadow: inset 0 0 0 4px #ee802f;
+}
+
+.icon-border.rss::after {
+  background-position: -384px 0;
+}
+
+/* =============================================================================
+  ICONS - DEMO 5
+============================================================================= */
+.icon-cube {
+  position: relative;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  overflow: visible;
+}
+
+.icon-cube::before,
+.icon-cube::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/icons5.png");
+  background-image: url("../img/icons5.svg"), none;
+  content: "";
+  -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+}
+
+.icon-cube::before {
+  z-index: 2;
+  background-color: #595959;
+}
+
+.icon-cube::after {
+  z-index: 1;
+  opacity: 0;
+  -webkit-transform: translateY(48px) rotateX(-90deg);
+          transform: translateY(48px) rotateX(-90deg);
+}
+
+.icon-cube:hover::before {
+  opacity: 0;
+  -webkit-transform: translateY(-48px) rotateX(90deg);
+          transform: translateY(-48px) rotateX(90deg);
+}
+
+.icon-cube:hover::after {
+  opacity: 1;
+  -webkit-transform: rotateX(0);
+          transform: rotateX(0);
+}
+
+/* facebook */
+.icon-cube.facebook::before,
+.icon-cube.facebook::after {
+  background-position: 0 0;
+}
+
+.icon-cube.facebook::after {
+  background-color: #3b5998;
+}
+
+/* twitter */
+.icon-cube.twitter::before,
+.icon-cube.twitter::after {
+  background-position: -96px 0;
+}
+
+.icon-cube.twitter::after {
+  background-color: #4099ff;
+}
+
+/* google plus */
+.icon-cube.googleplus::before,
+.icon-cube.googleplus::after {
+  background-position: -192px 0;
+}
+
+.icon-cube.googleplus::after {
+  background-color: #d34836;
+}
+
+/* github */
+.icon-cube.github::before,
+.icon-cube.github::after {
+  background-position: -288px 0;
+}
+
+.icon-cube.github::after {
+  background-color: #333333;
+}
+
+/* rss */
+.icon-cube.rss::before,
+.icon-cube.rss::after {
+  background-position: -384px 0;
+}
+
+.icon-cube.rss::after {
+  background-color: #ee802f;
+}

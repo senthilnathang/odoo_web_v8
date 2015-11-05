@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+<template id="assets_frontend" inherit_id="website.assets_frontend">
+  <xpath expr="." position="inside">
+     <link rel='stylesheet' href='/website_partner_customization/static/src/css/style.css'/>
+       <!--<link rel='stylesheet' href='/website_sale/static/src/css/website_mail.css'/>
+      
+      <script type="text/javascript" src="/website_sale/static/src/js/website_sale_tracking.js"></script> -->
+      <script type="text/javascript">
+	function showlicense()
+	{
+		document.getElementById("license").style.display = "block";
+		document.getElementById("service").style.display = "none";
+		document.getElementById("brand").style.display = "none";
+		document.getElementById("production").style.display = "none";
+		document.getElementById("time").style.display = "none";
+
+	}
+	function showservice()
+	{
+		
+		document.getElementById("service").style.display = "block";
+		document.getElementById("license").style.display = "none";
+		document.getElementById("brand").style.display = "none";
+		document.getElementById("production").style.display = "none";
+		document.getElementById("time").style.display = "none";
+
+	}
+	function showbrand()
+	{
+		document.getElementById("service").style.display = "none";
+		document.getElementById("license").style.display = "none";
+		document.getElementById("brand").style.display = "block";
+		document.getElementById("production").style.display = "none";
+		document.getElementById("time").style.display = "none";
+
+	}
+	function showproduction()
+	{
+		document.getElementById("service").style.display = "none";
+		document.getElementById("license").style.display = "none";
+		document.getElementById("brand").style.display = "none";
+		document.getElementById("production").style.display = "block";
+		document.getElementById("time").style.display = "none";
+
+	}
+	function showtime()
+	{
+		document.getElementById("service").style.display = "none";
+		document.getElementById("license").style.display = "none";
+		document.getElementById("brand").style.display = "none";
+		document.getElementById("production").style.display = "none";
+		document.getElementById("time").style.display = "block";
+
+	}
+	</script>
+  </xpath>
+</template>
+
+<template id ="website_top_menu_partner" name="menu_on_top" inherit_id="website.layout" >
+        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
+            <li><a href="/partners">Partner</a></li>
+        </xpath>
+</template>
+
+<template id="website_partner_type_category" name="Find Resellers" inherit_id="website_crm_partner_assign.index">
+        <xpath expr="//ul[@id='reseller_grades']" position="before">
+            <ul id="reseller_licenses" class="nav nav-pills nav-stacked mt16">
+                 <li class="nav-header"><h3>Filter by License</h3></li>
+                  <t t-foreach="licenses" t-as="license">
+                        <li t-if="license['license_code']" t-att-class="license['active'] and 'active' or ''">
+                            <a t-attf-href="/partners#{license['license_code'][0] and '/license/%s' % license['license_code'][0] or '' }#{ current_country and '/country/%s' % slug(current_country) or '' }#{ '?' + (search_path or '') }">
+                                <span class="badge pull-right" t-esc="license['license_code_count'] or ''"/>
+                                <t t-esc="license['license_code'][1]"/>
+                            </a>
+                        </li>
+                    </t>
+            </ul>
+        </xpath>
+</template>
+
+
+
+<template id="web_partner_extended" inherit_id="website_partner.partner_detail">
+        <xpath expr='//address[@class="well"]' position="replace">
+
+	 <address class="well">
+		<t t-if="partner.show_number is not True">
+		<div  t-field="partner.self" t-field-options='{
+                 "widget": "contact",
+                 "fields": ["address", "website", "fax"]
+             }'/>
+		</t>
+		<t t-if="partner.show_number">
+		<div  t-field="partner.self" t-field-options='{
+                 "widget": "contact",
+                 "fields": ["address", "website", "fax"]
+             }'/>
+		</t>
+		<br/>
+    
+	
+	<div><a t-att-href="partner.facebook_url" target="_blank"><button class="btn btn-facebook"><i class="fa fa-facebook"></i></button></a>
+	<a t-att-href="partner.twitter_url" target="_blank"><button class="btn btn-twitter"><i class="fa fa-twitter"></i></button></a>
+	<a t-att-href="partner.youtube_url" target="_blank"><button class="btn btn-youtube"><i class="fa fa-youtube"></i></button></a>
+	<a t-att-href="partner.instagram_url" target="_blank"><button class="btn btn-instagram"><i class="fa fa-instagram"></i></button></a>
+	<a t-att-href="partner.googleplus_url" target="_blank"><button class="btn btn-google-plus"><i class="fa fa-google-plus"></i></button></a></div><br/>
+	<button id="archiv" class="btn btn-university" onclick="showlicense()"><i class="fa fa-briefcase"></i></button>
+	<button id="archiv" class="btn btn-archive" onclick="showservice()" ><i class="fa fa-archive" ></i></button>
+	<button id="archiv" class="btn btn-chart" onclick="showbrand()"><i class="fa fa-bar-chart" ></i></button>
+	<button id="archiv" class="btn btn-camera" onclick="showproduction()"><i class="fa fa-camera" ></i></button>
+	<button id="archiv" class="btn btn-chain" onclick="showtime()"><i class="fa fa-chain" ></i></button>
+		<br/><br/><br/>
+	   <div id="license" style="display:none;" >
+		<center><span><b>License Code</b></span><br/><span t-field="partner.license_code"/></center>
+	 </div>
+	<div id="service" style="display:none;" >
+		<center><span><b>Service</b></span><br/><span t-field="partner.partner_service"/></center>
+	 </div>
+	<div id="brand" style="display:none;" >
+		<center><span><b>Brand</b></span><br/><span t-field="partner.brand_id"/></center>
+	 </div>
+	<div id="production" style="display:none;" >
+		<center><span><b>Production</b></span><br/><span t-field="partner.partner_production"/></center>
+	 </div>
+	<div id="time" style="display:none;" >
+		<center><span><b>Working Time</b></span><br/><span t-field="partner.resource_id"/></center>
+	 </div>
+	
+</address>
+        </xpath>
+
+
+      <xpath expr='//div[@class="col-md-4"]' position="after">
+        <div class="col-md-8 mt32">
+            <t t-foreach="partner.photo_ids" t-as="photos">
+                <span class="col-md-4" t-field="photos.image" t-field-options='{"widget": "image", "max_width": 40, "max_height": 40}'/>
+            </t>
+        </div>
+        </xpath>
+        
+        
+        
+</template>
+
+
+
+     </data>
+</openerp>

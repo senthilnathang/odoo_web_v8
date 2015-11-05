@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Crm stages -->
+        <record model="crm.case.stage" id="stage_lead1">
+            <field name="name">New</field>
+            <field name="case_default">1</field>
+            <field name="probability">0</field>
+            <field name="on_change">1</field>
+            <field name="sequence">1</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead2">
+            <field name="name">Rejected</field>
+            <field name="case_default">1</field>
+            <field name="fold">1</field>
+            <field name="probability">0</field>
+            <field name="on_change">1</field>
+            <field name="sequence">70</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead3">
+            <field name="name">Approved</field>
+            <field name="case_default">1</field>
+            <field name="probability">80</field>
+            <field name="on_change">1</field>
+            <field name="sequence">60</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead4">
+            <field name="name">Appointment Set</field>
+            <field name="case_default">1</field>
+            <field name="probability">40</field>
+            <field name="sequence">40</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead5">
+            <field name="name">Appointment Cancelled</field>
+            <field name="case_default">1</field>
+            <field name="probability">0</field>
+            <field name="sequence">50</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead6">
+            <field name="name">Demo</field>
+            <field name="case_default">1</field>
+            <field name="fold">1</field>
+            <field name="probability">60</field>
+            <field name="on_change">1</field>
+            <field name="sequence">80</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead7">
+            <field name="name">Demo in Progress</field>
+            <field name="case_default">1</field>
+            <field name="fold">1</field>
+            <field name="probability">80</field>
+            <field name="on_change">1</field>
+            <field name="sequence">90</field>
+            <field name="type">lead</field>
+        </record>
+        <record model="crm.case.stage" id="stage_lead8">
+            <field name="name">Never Call</field>
+            <field name="case_default">1</field>
+            <field name="fold">1</field>
+            <field name="probability">0</field>
+            <field name="on_change">1</field>
+            <field name="sequence">100</field>
+            <field name="type">lead</field>
+        </record>
+        
+        <record model="crm.case.stage" id="stage_lead9">
+            <field name="name">Sale</field>
+            <field name="case_default">1</field>
+            <field name="fold">1</field>
+            <field name="probability">100</field>
+            <field name="on_change">1</field>
+            <field name="sequence">110</field>
+            <field name="type">lead</field>
+        </record>
+        
+    </data>
+</openerp>
